@@ -1,0 +1,14 @@
+<div class="container">
+  <ng-container *ngFor="let item of accountNavbar; index as ii">
+    <button
+      class="btn-account-navbar"
+      type="button"
+      [class.btn-bot-left-radius]="ii === 0"
+      [class.btn-bot-right-radius]="ii === accountNavbar.length - 1"
+      [routerLink]="[item.value]"
+    >
+      {{ item.label }}
+    </button>
+  </ng-container>
+</div>
+<!-- (click)="navigateToLink(item.value)" -->

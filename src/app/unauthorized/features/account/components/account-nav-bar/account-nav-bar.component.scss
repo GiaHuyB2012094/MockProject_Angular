@@ -1,0 +1,37 @@
+@import 'src/app.constants.scss';
+
+.container{
+    background-color: $white-color;
+    z-index: 100;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.btn-account-navbar{
+    cursor: pointer;
+    background-color: $white-color;
+    border: $white-color;
+    padding: 5px 10px;
+    width: 140px;   
+    height: 50px; 
+    border-bottom: 4px solid $white-color;
+    
+    &:hover{
+        border-bottom: 4px solid $primary-color;
+        background-color: #ebf7fd;
+    }
+    &.active{
+        border-bottom: 4px solid $primary-color;
+        background-color: #ebf7fd;
+    }
+}
+.btn-bot-left-radius{
+    border-bottom-left-radius: 10px;
+}
+.btn-bot-right-radius{
+    border-bottom-right-radius: 10px;
+}

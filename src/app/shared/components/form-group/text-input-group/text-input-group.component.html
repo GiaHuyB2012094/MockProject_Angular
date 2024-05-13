@@ -1,0 +1,29 @@
+<div class="container">
+  <label [for]="id" [ngStyle]="{ order: changeDirection ? 2 : 1 }">{{
+    label
+  }}</label>
+  <input
+    type="text"
+    [formControl]="control"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [class.invalid-input-custom]="
+      control.invalid && control.dirty && control.touched
+    "
+    [ngStyle]="{ order: changeDirection ? 1 : 2 }"
+  />
+  <ng-container
+    *ngIf="
+      control.invalid && control.dirty && control.touched && isAutoValidators
+    "
+  >
+    <div class="error-message" *ngFor="let err of control.errors | keyvalue">
+      {{ errorMessages[err.key] }}
+    </div>
+  </ng-container>
+  <ng-content
+    *ngIf="
+      control.invalid && control.dirty && control.touched && !isAutoValidators
+    "
+  ></ng-content>
+</div>
