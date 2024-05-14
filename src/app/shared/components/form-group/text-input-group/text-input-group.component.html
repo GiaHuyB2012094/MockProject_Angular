@@ -1,33 +1,41 @@
 <div class="container">
-  <div class="input-group">
-    <div class="" *ngIf="control.errors?.['required']; else fieldNotRequired">
-      <label
-        class="input-title"
-        [for]="id"
-        [ngStyle]="{ order: changeDirection ? 2 : 1 }"
-        >{{ label }}
-        <span class="required-label">*</span>
-      </label>
-    </div>
-    <ng-template #fieldNotRequired>
-      <label
-        class="input-title"
-        [for]="id"
-        [ngStyle]="{ order: changeDirection ? 2 : 1 }"
-        >{{ label }}
-      </label>
-    </ng-template>
+  <div class="input-control">
+    <label
+      class="input-title"
+      [for]="id"
+      [ngStyle]="{ order: changeDirection ? 2 : 1 }"
+      >{{ label }}
+      <span *ngIf="required" class="required-label">*</span>
+    </label>
 
-    <input
-      [type]="type"
-      [formControl]="control"
-      [placeholder]="placeholder"
-      [disabled]="disabled"
-      [class.invalid-input-custom]="
-        control.invalid && control.dirty && control.touched
-      "
-      [ngStyle]="{ order: changeDirection ? 1 : 2 }"
-    />
+    <div class="input-group">
+      <input
+        [type]="fieldTextType ? type : 'text'"
+        [name]="id"
+        [formControl]="control"
+        [placeholder]="placeholder"
+        [disabled]="disabled"
+        [class.invalid-input-custom]="
+          control.invalid && control.dirty && control.touched
+        "
+        [ngStyle]="{ order: changeDirection ? 1 : 2 }"
+      />
+
+      <div class="input-group-append" *ngIf="type === 'password'">
+        <span
+          class="input-group-icon"
+          *ngIf="fieldTextType === false; else showEyeIcon"
+          (click)="toggleFieldTextType()"
+        >
+          <img src="/assets/icons/eye.svg" />
+        </span>
+        <ng-template #showEyeIcon>
+          <span class="input-group-icon" (click)="toggleFieldTextType()">
+            <img src="/assets/icons/eye-closed.svg" />
+          </span>
+        </ng-template>
+      </div>
+    </div>
   </div>
 
   <ng-container

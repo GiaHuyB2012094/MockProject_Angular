@@ -1,1 +1,35 @@
-<p>sign-up-form works!</p>
+<div class="container">
+  <div class="title-login-form">
+    <h1>Sign Up</h1>
+    <!-- <p>Quanr/p> -->
+  </div>
+  <app-text-input-group
+    [required]="true"
+    [control]="formGroup.controls.username"
+    label="username"
+    id="username"
+  ></app-text-input-group>
+  <app-text-input-group
+    type="email"
+    [required]="true"
+    [control]="formGroup.controls.email"
+    label="email"
+    id="email"
+  ></app-text-input-group>
+  <app-text-input-group
+    type="password"
+    [required]="true"
+    [control]="formGroup.controls.password"
+    label="password"
+    id="password"
+  ></app-text-input-group>
+  <app-text-input-group
+    type="password"
+    [required]="true"
+    [control]="formGroup.controls.confirmPassword"
+    label="confirm password"
+    id="confirm password"
+  ></app-text-input-group>
+
+  <primary-button size="small" (click)="loginHandle()">Login</primary-button>
+</div>

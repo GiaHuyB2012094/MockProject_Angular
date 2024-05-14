@@ -1,20 +1,22 @@
 <div class="container">
   <div class="title-login-form">
-    <h2>Login</h2>
-    <p>Quản lý Khách sạn, Nhà nghỉ, Homestay & Villa</p>
+    <h1>Login</h1>
+    <p>Hotel Management, Guesthouse, Homestay & Villa.</p>
   </div>
   <app-text-input-group
     type="email"
+    [required]="true"
     [control]="formGroup.controls.email"
     label="email"
     id="email"
   ></app-text-input-group>
   <app-text-input-group
     type="password"
+    [required]="true"
     [control]="formGroup.controls.password"
     label="password"
     id="password"
   ></app-text-input-group>
 
-  <primary-button size="small">Login</primary-button>
+  <primary-button size="small" (click)="loginHandle()">Login</primary-button>
 </div>
