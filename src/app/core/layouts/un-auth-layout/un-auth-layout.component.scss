@@ -2,9 +2,11 @@
 
 .container {
   position: relative;
+  height: 100vh;
+  width: 100%;
 }
 .overlay{
-    background: center no-repeat  url('/assets/images/img-bg.jpg') ;
+    background: center no-repeat  url('/assets/images/img-bg.jpg');
     background-size:cover;
     height: 100vh;
     display: flex;
@@ -22,15 +24,15 @@
         width: 100%;
         transition: all 0.8s;
         opacity: 40%;
-        background-color: #bae6fd;
+        background-color: $overlay-primary-color;
       }
 }
 .bg-text{
-  font-weight: bold;
-  position: absolute;
-  top: 34px;
+  // font-weight: bold;
+  position: fixed;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   z-index: 100;
   width: $width-account-navbar;
 }

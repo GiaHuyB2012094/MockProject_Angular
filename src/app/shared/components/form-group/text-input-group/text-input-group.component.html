@@ -1,17 +1,35 @@
 <div class="container">
-  <label [for]="id" [ngStyle]="{ order: changeDirection ? 2 : 1 }">{{
-    label
-  }}</label>
-  <input
-    type="text"
-    [formControl]="control"
-    [placeholder]="placeholder"
-    [disabled]="disabled"
-    [class.invalid-input-custom]="
-      control.invalid && control.dirty && control.touched
-    "
-    [ngStyle]="{ order: changeDirection ? 1 : 2 }"
-  />
+  <div class="input-group">
+    <div class="" *ngIf="control.errors?.['required']; else fieldNotRequired">
+      <label
+        class="input-title"
+        [for]="id"
+        [ngStyle]="{ order: changeDirection ? 2 : 1 }"
+        >{{ label }}
+        <span class="required-label">*</span>
+      </label>
+    </div>
+    <ng-template #fieldNotRequired>
+      <label
+        class="input-title"
+        [for]="id"
+        [ngStyle]="{ order: changeDirection ? 2 : 1 }"
+        >{{ label }}
+      </label>
+    </ng-template>
+
+    <input
+      [type]="type"
+      [formControl]="control"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [class.invalid-input-custom]="
+        control.invalid && control.dirty && control.touched
+      "
+      [ngStyle]="{ order: changeDirection ? 1 : 2 }"
+    />
+  </div>
+
   <ng-container
     *ngIf="
       control.invalid && control.dirty && control.touched && isAutoValidators
@@ -21,6 +39,7 @@
       {{ errorMessages[err.key] }}
     </div>
   </ng-container>
+
   <ng-content
     *ngIf="
       control.invalid && control.dirty && control.touched && !isAutoValidators

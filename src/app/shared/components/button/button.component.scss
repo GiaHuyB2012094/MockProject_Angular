@@ -1,0 +1,49 @@
+
+@import 'src/app.constants.scss';
+
+.custom-button {
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 0.375rem; 
+    font-size: 1rem; /* 16 / 16 */
+    line-height: 0.9375rem; /* 15 / 16 */
+    height: 3.125rem; /* 50 / 16 */
+    padding: 4px 48px; /* 6 / 16 and 12 / 16 */
+    justify-content: center;
+    background: $primary-color;
+    color: $white-color;
+    border: 1px solid $white-color;
+    &.disabled {
+          cursor: not-allowed;
+        }
+  }
+  
+//  
+  
+  .custom-button--outline {
+    background: transparent !important;
+    color: #999 !important;
+    border: 1px solid #999 !important;
+  }
+
+  .custom-button--outline {
+    background: transparent !important;
+    color: #999 !important;
+    border: 1px solid #999 !important;
+  }
+
+  .custom-button--small {
+    padding: 2px 32px; /* 6 / 16 and 12 / 16 */
+    font-size: 12px; /* 16 / 16 */
+  }
+
+  .custom-button--medium {
+    padding: 4px 48px; /* 6 / 16 and 12 / 16 */
+    font-size: 1rem; /* 16 / 16 */
+  }
+
+  .custom-button--large {
+    padding: 6px 60px; /* 6 / 16 and 12 / 16 */
+    font-size: 16px; /* 16 / 16 */
+  }

@@ -7,7 +7,7 @@ const SHARED_MODULES = [
     SharedComponentsModule,
     FormsModule,
     RouterModule,
-  ];
+  ]
 
 @NgModule({
     imports: [...SHARED_MODULES],

@@ -8,6 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class TextInputGroupComponent implements OnInit, AfterViewChecked{
   @Input() id = '';
+  @Input() type = 'text';
   @Input() control = new FormControl();
   @Input() label = '';
   @Input() isAutoValidators = true;

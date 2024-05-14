@@ -1,22 +1,25 @@
 import { CommonModule } from "@angular/common";
-import { NgModule } from "@angular/core";
-import { TextInputGroupComponent } from "./form-group/text-input-group/text-input-group.component";
+import { NgModule, Type } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
+import { TextInputGroupModule } from "./form-group/text-input-group/text-input-group.module";
+import { ButtonModule } from "./button/button.module";
 
-const SHARED_COMPONENTS: Array<any> = [
-    TextInputGroupComponent
+const SHARED_MODULES: Array<Type<any>> = [
+    TextInputGroupModule,
+    ButtonModule,
 ]
-const SHARED_MODULES: Array<any> = [
+const MODULES: Array<Type<any>> = [
     CommonModule,
     FormsModule,
     RouterModule,
 ]
 
 @NgModule({
-  imports: [...SHARED_MODULES],
-  declarations: [...SHARED_COMPONENTS],
-  exports: [...SHARED_COMPONENTS],
+    imports: [MODULES],
+    declarations: [
+  ],
+    exports: [...SHARED_MODULES],
   })
 
 export class SharedComponentsModule {}

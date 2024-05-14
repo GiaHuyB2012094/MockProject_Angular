@@ -1,0 +1,29 @@
+@import 'src/app.constants.scss';
+
+.container{
+    background-color: $white-color;
+    padding: 35px 25px;
+    border-radius: .375rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px; 
+    // width: 400px;
+    .title-login-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 6px;
+        h2 {
+            color: $primary-color;
+        }
+        p {
+            
+            padding:5px;
+            font-size: $small-text-size;
+            color: $text-color;
+            border-radius: .375rem;
+            background-color: $overlay-primary-color;
+        }
+    }
+   
+}

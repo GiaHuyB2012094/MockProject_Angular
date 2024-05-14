@@ -1,1 +1,20 @@
-<p>login-form works!</p>
+<div class="container">
+  <div class="title-login-form">
+    <h2>Login</h2>
+    <p>Quản lý Khách sạn, Nhà nghỉ, Homestay & Villa</p>
+  </div>
+  <app-text-input-group
+    type="email"
+    [control]="formGroup.controls.email"
+    label="email"
+    id="email"
+  ></app-text-input-group>
+  <app-text-input-group
+    type="password"
+    [control]="formGroup.controls.password"
+    label="password"
+    id="password"
+  ></app-text-input-group>
+
+  <primary-button size="small">Login</primary-button>
+</div>
