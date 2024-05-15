@@ -34,6 +34,6 @@ export class LoginFormComponent {
   }
 
   loginHandle() {
-    console.log('login', this.f['email']);
+    console.log(this.formGroup);
   }
 }

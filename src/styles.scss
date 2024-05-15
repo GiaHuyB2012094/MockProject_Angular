@@ -1,5 +1,6 @@
 @import 'app.constants';
-
+// $fa-font-path: "~font-awesome/fonts";
+// @import '~font-awesome/scss/font-awesome';
 html,
 body {
   height: 100%;
@@ -35,10 +36,14 @@ li {
     border: 2px solid #555555;
   }
 
-  .error-message{
-    font-size: small;
-    color: red !important;
-    }
-    .invalid-input-custom {
-        border: 2px solid red !important;
-    }
+.error-message{
+  font-size: small;
+  color: red !important;
+  }
+  .invalid-input-custom {
+      border: 2px solid red !important;
+  }
+.icon{
+  width: $icon-size;
+  height: $icon-size;
+}

@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, HostBinding, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'primary-button',
@@ -14,6 +14,14 @@ export class ButtonComponent implements OnInit{
 
   @Input()
   outline: true | false = false;
+
+  @HostBinding('class.custom-button--disabled') 
+  get getDisabled() {return this.disabled === true}
+
+
+  @HostBinding('class.custom-button--outline') 
+  get getOutline() {return this.outline === true}
+
 
   @HostBinding('class.custom-button--small') 
     get sizeSmall() {return this.size === 'small'}

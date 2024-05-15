@@ -16,8 +16,8 @@ const routes: Routes = [
         loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupModule) 
       },
       { 
-        path: 'forgot-password', 
-        loadChildren: () => import('./pages/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule) 
+        path: 'change-password', 
+        loadChildren: () => import('./pages/change-password/change-password.module').then(m => m.ChangePasswordModule) 
       },
       { 
         path: 'login-with-google', 

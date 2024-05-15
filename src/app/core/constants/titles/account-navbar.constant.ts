@@ -8,8 +8,8 @@ export const accountNavbar = [
         label: 'Sign Up'
     },
     {
-        value: 'forgot-password',
-        label: 'Forgot password'
+        value: 'change-password',
+        label: 'Change password'
     },
     {
         value: 'login-with-google',

@@ -9,12 +9,17 @@
     </label>
 
     <div class="input-group">
+      <div class="input-icon">
+        <ng-content select=".icon"></ng-content>
+      </div>
+
       <input
+        #inputRef
         [type]="fieldTextType ? type : 'text'"
         [name]="id"
         [formControl]="control"
         [placeholder]="placeholder"
-        [disabled]="disabled"
+        [attr.disabled]="disabled"
         [class.invalid-input-custom]="
           control.invalid && control.dirty && control.touched
         "
@@ -23,15 +28,14 @@
 
       <div class="input-group-append" *ngIf="type === 'password'">
         <span
-          class="input-group-icon"
           *ngIf="fieldTextType === false; else showEyeIcon"
           (click)="toggleFieldTextType()"
         >
-          <img src="/assets/icons/eye.svg" />
+          <img class="icon" src="/assets/icons/eye.svg" />
         </span>
         <ng-template #showEyeIcon>
-          <span class="input-group-icon" (click)="toggleFieldTextType()">
-            <img src="/assets/icons/eye-closed.svg" />
+          <span (click)="toggleFieldTextType()">
+            <img class="icon" src="/assets/icons/eye-closed.svg" />
           </span>
         </ng-template>
       </div>
