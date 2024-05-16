@@ -9,10 +9,17 @@ import { accountNavbar } from 'src/app/core/constants/titles/account-navbar.cons
 })
 export class AccountNavBarComponent {
   accountNavbar = accountNavbar;
+  isMenuOpen = false;
+
+
 
   constructor(private router: Router) {}
   navigateToLink(value: string){
     alert(value)
     this.router.navigate(['/login'])
+  }
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }

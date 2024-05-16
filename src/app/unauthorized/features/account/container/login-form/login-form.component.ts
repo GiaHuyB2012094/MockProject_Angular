@@ -5,6 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { TOAST_STATE } from 'src/app/core/constants/toast.constant';
+import { ToastService } from 'src/app/core/services/toast.service';
 
 @Component({
   selector: 'app-login-form',
@@ -25,15 +27,25 @@ export class LoginFormComponent {
     ]),
   });
 
-  constructor() {
-    this.formGroup.valueChanges.subscribe((val) => console.log(this.formGroup));
-  }
-
-  get f(): { [key: string]: AbstractControl } {
-    return this.formGroup.controls;
+  constructor(private toast: ToastService) {
   }
 
   loginHandle() {
-    console.log(this.formGroup);
+    if (this.formGroup.status === 'VALID') {
+      console.log('You have successfully login!');
+      this.toast.showToast(TOAST_STATE.success, 'You have successfully login!');
+      this.dismissError();        
+
+    } else {
+      this.toast.showToast(TOAST_STATE.danger, 'Something went wrong, could not login!');
+      this.dismissError();  
+      console.log('Something went wrong, could not login!');
+    }
+  }
+
+  private dismissError(): void {    
+    setTimeout(() => {      
+      this.toast.dismissToast();    
+    }, 2000);  
   }
 }

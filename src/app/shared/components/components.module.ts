@@ -4,10 +4,12 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { TextInputGroupModule } from "./form-group/text-input-group/text-input-group.module";
 import { ButtonModule } from "./button/button.module";
+import { ToastModule } from "./toast/toast.module";
 
 const SHARED_MODULES: Array<Type<any>> = [
     TextInputGroupModule,
     ButtonModule,
+    ToastModule
 ]
 const MODULES: Array<Type<any>> = [
     CommonModule,

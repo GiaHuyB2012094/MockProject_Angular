@@ -40,6 +40,9 @@
       id="confirm password"
     >
     </app-text-input-group>
+    <p class="change-password-text" [routerLink]="'../change-password'">
+      Change Password?
+    </p>
     <primary-button
       type="submit"
       (click)="signupHandle()"
@@ -47,4 +50,16 @@
       >Sign up</primary-button
     >
   </form>
+  <primary-button
+    class="login-google-btn"
+    (click)="signupHandle()"
+    [outline]="true"
+  >
+    Continue with Google
+    <img class="btn-icon" src="/assets/icons/google.png" />
+  </primary-button>
+  <p class="login-text">
+    Are you ready to explore?
+    <span [routerLink]="'../login'">Log in here</span>
+  </p>
 </div>

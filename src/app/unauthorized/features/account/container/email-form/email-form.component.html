@@ -16,9 +16,15 @@
     >
       <img #iconRef class="icon" src="/assets/icons/email.svg" />
     </app-text-input-group>
+    <p class="login-signup-text">
+      Back to
+      <span [routerLink]="'../login'">Log in</span>
+      <span [routerLink]="'../signup'">Sign up</span>
+    </p>
     <primary-button (click)="emailFindHandle()">
       Change Password
-      <i class="fa fa-th fa-5x"></i>
+      <i class="btn-icon fa-solid fa-arrow-right"></i>
+      <!-- <i class="fa-solid fa-arrow-right"></i> -->
     </primary-button>
   </form>
 </div>

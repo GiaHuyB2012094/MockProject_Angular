@@ -1,5 +1,22 @@
 <div class="container">
-  <ng-container *ngFor="let item of accountNavbar; index as ii">
+  <!-- <div class="primary-logo">
+    <img src="/assets/icons/primary-logo.png" />
+  </div>
+  <div
+    class="burger"
+    (click)="toggleMenu()"
+    *ngIf="isMenuOpen; else showMenuClose"
+  >
+    <i class="menu-icon fa-solid fa-rectangle-xmark"></i>
+  </div>
+
+  <ng-template #showMenuClose>
+    <div class="burger" (click)="toggleMenu()">
+      <i class="menu-icon fa-solid fa-ellipsis"></i>
+    </div>
+  </ng-template> -->
+
+  <div class="menu" *ngFor="let item of accountNavbar; index as ii">
     <button
       class="btn-account-navbar"
       type="button"
@@ -10,6 +27,6 @@
     >
       {{ item.label }}
     </button>
-  </ng-container>
+  </div>
 </div>
 <!-- (click)="navigateToLink(item.value)" -->

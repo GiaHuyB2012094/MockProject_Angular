@@ -44,3 +44,29 @@
     row-gap: 6px;
   }
 }
+.change-password-text, .sign-up-text{
+cursor: pointer;
+ font-size: $small-text-size;
+ display: none;
+}
+.sign-up-text{
+ text-align: center;
+ span{
+  color: $primary-color
+ }
+}
+.login-google-btn{
+  display: none;
+  
+}
+@media only screen and (max-width:1024px) and (min-width: 641px) {
+ 
+}
+@media only screen and (max-width: 640px) {
+  .change-password-text, .sign-up-text{
+    display: block;
+  }
+  .login-google-btn{
+    display: flex;
+  }
+}

@@ -26,6 +26,7 @@
     flex-direction: column;
     align-items: center;
     row-gap: 6px;
+    padding-top: 12px;
     h1 {
       color: $primary-color;
       padding: 4px 0px;
@@ -42,5 +43,27 @@
     display: flex;
     flex-direction: column;
     row-gap: 6px;
+  }
+
+  
+}
+.login-signup-text{
+  cursor: pointer;
+ font-size: $small-text-size;
+ display: none;
+ span{
+  color: $primary-color;
+  padding: 0px 4px;
+  &:nth-child(1){
+    border-right: 1px solid #999;
+  }
+ }
+}
+@media only screen and (max-width:1024px) and (min-width: 641px) {
+   
+}
+@media only screen and (max-width: 640px) {
+  .login-signup-text{
+    display: block;
   }
 }

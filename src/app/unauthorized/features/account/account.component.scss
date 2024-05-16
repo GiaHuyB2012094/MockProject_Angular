@@ -4,4 +4,18 @@
   justify-content: center;
   row-gap: 12px;
   margin-top: 20%;
+
+}
+
+@media only screen and (max-width:1024px) and (min-width: 641px) {
+ 
+}
+@media only screen and (max-width: 640px) {
+  .container{
+    margin-top: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }
+  
 }

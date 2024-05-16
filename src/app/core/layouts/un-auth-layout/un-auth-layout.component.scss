@@ -33,8 +33,17 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 100;
+  z-index: 2;
   width: $width-account-navbar;
 }
 
+@media only screen and (max-width:1024px) and (min-width: 641px) {
+ 
+}
+@media only screen and (max-width: 640px) {
+  .bg-text{
+    min-width: 100%;
+  }
+  
+}
 
