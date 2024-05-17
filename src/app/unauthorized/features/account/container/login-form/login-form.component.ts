@@ -11,6 +11,7 @@ import { UserService } from '../../../../../core/services/api/user.service';
 import { Perform } from 'src/app/core/models/classes/perform';
 import { IUser } from 'src/app/core/models/interfaces/IUser.interface';
 import { LoginDTO } from 'src/app/core/models/dto/auth.dto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -18,8 +19,6 @@ import { LoginDTO } from 'src/app/core/models/dto/auth.dto';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent {
-  data = new Perform<LoginDTO>();
-
   formGroup = new FormGroup({
     email: new FormControl('', [
       Validators.required,
@@ -33,7 +32,11 @@ export class LoginFormComponent {
     ]),
   });
 
-  constructor(private toast: ToastService, private userService: UserService) {}
+  constructor(
+    private toast: ToastService, 
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   loginHandle() {
     const credentials = {
@@ -41,25 +44,27 @@ export class LoginFormComponent {
       password: this.formGroup.value.password || '',
     };
 
-    if (this.formGroup.status === 'VALID') {
-      this.data.load(this.userService.login(credentials));
-
-      console.log(credentials);
-      console.log(this.data);
-
-      if (this.data.data) {
-        this.toast.showToast(
-          TOAST_STATE.success,
-          'You have successfully login!'
-        );
-        this.dismissError();
-      } else {
-        this.toast.showToast(
-          TOAST_STATE.danger,
-          'Incorrect account information and password'
-        );
-        this.dismissError();
-      }
+    if (this.formGroup.valid) {
+      this.userService.login(credentials)
+        .subscribe(
+          success => {
+            if (success) {
+              this.toast.showToast(
+                TOAST_STATE.success,
+                'You have successfully login!'
+              );
+              this.dismissError();
+              this.formGroup.reset();
+              this.router.navigate(['home'])
+            } else {
+              this.toast.showToast(
+                TOAST_STATE.danger,
+                'Incorrect account information and password'
+              );
+              this.dismissError();
+            }
+          }
+        )
     } else {
       this.toast.showToast(
         TOAST_STATE.danger,

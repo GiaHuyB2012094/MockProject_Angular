@@ -15,14 +15,18 @@ export class ButtonComponent implements OnInit{
   @Input()
   outline: true | false = false;
 
+  @Input()
+  rounded: true | false = false;
+// rounded
+  @HostBinding('class.custom-button--rounded') 
+    get getRounded() {return this.rounded === true}
+// disable
   @HostBinding('class.custom-button--disabled') 
-  get getDisabled() {return this.disabled === true}
-
-
+    get getDisabled() {return this.disabled === true}
+// outline
   @HostBinding('class.custom-button--outline') 
-  get getOutline() {return this.outline === true}
-
-
+    get getOutline() {return this.outline === true}
+// size
   @HostBinding('class.custom-button--small') 
     get sizeSmall() {return this.size === 'small'}
 
@@ -30,7 +34,7 @@ export class ButtonComponent implements OnInit{
     get sizeMedium() {return this.size === 'medium'}
 
   @HostBinding('class.custom-button--large') 
-  get sizeLarge() {return this.size === 'large'}
+    get sizeLarge() {return this.size === 'large'}
   
   constructor() {}
   ngOnInit(): void {

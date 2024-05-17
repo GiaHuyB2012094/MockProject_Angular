@@ -9,19 +9,19 @@ export class MockData implements InMemoryDbService {
     const users: IUser[] = [
       {
         id: 1,
-        username: 'giaHuy',
+        username: 'gia huy',
         email: 'huyb2012094@student.ctu.edu.vn',
         password: '123456',
       },
       {
         id: 2,
-        username: 'giaHao',
+        username: 'gia hao',
         email: 'haodevse040902@gmail.com',
         password: '1234567889',
       },
       {
         id: 3,
-        username: 'trungHieu',
+        username: 'trung hieu',
         email: 'hieudevse040902@gmail.com',
         password: '1234567889',
       },

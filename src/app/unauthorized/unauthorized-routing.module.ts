@@ -8,7 +8,7 @@ const routes: Routes = [
     component: UnauthorizedComponent,
     children: [
       {
-        path: 'account',
+        path: '',
         loadChildren: () => import('./features/account/account.module').then(m => m.AccountModule),
       }
     ],

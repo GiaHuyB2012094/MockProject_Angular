@@ -1,0 +1,43 @@
+<nav class="container">
+  <ul>
+    <li
+      class="burger"
+      (click)="toggleMenu()"
+      *ngIf="isMenuOpen; else showMenuClose"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </li>
+
+    <ng-template #showMenuClose>
+      <li class="burger" (click)="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </li>
+    </ng-template>
+
+    <li class="primary-logo">
+      <img src="/assets/icons/primary-logo.png" />
+    </li>
+
+    <li class="menu" [class.is-open]="isMenuOpen">
+      <p class="menu-item">Home</p>
+      <p class="menu-item">Hotels</p>
+      <p class="menu-item">Promotions</p>
+      <p class="menu-item">Travel Guide</p>
+      <p class="menu-item">News</p>
+    </li>
+
+    <!-- <li class="translate">
+        
+    </li> -->
+    <li *ngIf="isLoggedIn" class="user-info">
+      <div class="user-avatar">
+        <img src="/assets/images/img-bg.jpg" />
+      </div>
+      <p>{{ username }}</p>
+    </li>
+
+    <li *ngIf="!isLoggedIn" class="book-btn">
+      <primary-button (click)="navigateToLogin()">Box now</primary-button>
+    </li>
+  </ul>
+</nav>

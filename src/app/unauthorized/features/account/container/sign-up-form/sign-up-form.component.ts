@@ -20,8 +20,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-up-form.component.scss'],
 })
 export class SignUpFormComponent {
-  data = new Perform<SignupDTO>();
-  data1 = new Perform<IUser[]>();
   router: Router = inject(Router);
 
   constructor(
@@ -65,28 +63,27 @@ export class SignUpFormComponent {
       password: this.formGroup.value.password || '',
     };
 
-    if (this.formGroup.status === 'VALID') {
-      console.log(credentials);
-      console.log(this.formGroup.status);
-      this.data.load(this.userService.signup(credentials));
-      this.data1.load(this.userService.getUsers());
-      console.log(this.data);
-
-      if (this.data.data) {
-        this.toast.showToast(
-          TOAST_STATE.success,
-          'You have successfully signup!'
-        );
-        this.dismissError();
-        this.formGroup.reset();
-        this.router.navigateByUrl('/login');
-      } else {
-        this.toast.showToast(
-          TOAST_STATE.danger,
-          'Incorrect account information and password'
-        );
-        this.dismissError();
-      }
+    if (this.formGroup.valid) {
+      this.userService.signup(credentials).subscribe(
+        respone => {
+          this.toast.showToast(
+            TOAST_STATE.success,
+            'You have successfully signup!'
+          );
+          console.log(respone);
+          this.dismissError();
+          this.formGroup.reset();
+          this.router.navigate(['account','login']);
+        },
+        error => {
+          this.toast.showToast(
+            TOAST_STATE.danger,
+            'Incorrect account information and password'
+          );
+          console.log(error)
+          this.dismissError();
+        }
+      )
     } else {
       this.toast.showToast(
         TOAST_STATE.danger,

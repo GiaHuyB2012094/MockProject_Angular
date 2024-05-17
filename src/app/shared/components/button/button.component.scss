@@ -52,7 +52,10 @@
   :host.custom-button--disabled{
     background-color: $disabled-color !important;
     cursor: not-allowed;
+  }
 
+  :host.custom-button--rounded{
+    border-radius: 9999px;
   }
   // :host([btn-icon]) { width: 30px; font-size: 30px; }
   ::ng-deep .btn-icon {
