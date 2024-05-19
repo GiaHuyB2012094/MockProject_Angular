@@ -1,0 +1,10 @@
+<div class="container">
+  <label [for]="name" [class.asterix]="required" class="label">{{
+    label
+  }}</label>
+  <select [id]="name" [formControl]="control">
+    <option *ngFor="let option of options" [value]="option.value">
+      {{ option.label | titlecase }}
+    </option>
+  </select>
+</div>

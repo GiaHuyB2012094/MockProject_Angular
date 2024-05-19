@@ -19,17 +19,74 @@
     </li>
 
     <li class="menu" [class.is-open]="isMenuOpen">
-      <p class="menu-item">Home</p>
-      <p class="menu-item">Hotels</p>
-      <p class="menu-item">Promotions</p>
-      <p class="menu-item">Travel Guide</p>
-      <p class="menu-item">News</p>
+      <p class="menu-item" *ngFor="let item of headerMenu">
+        <i [class]="item.icon"></i>
+        {{ item.label }}
+      </p>
+      <div
+        class="menu-change-language-wrapper"
+        (click)="isOpenLanguageOption = !isOpenLanguageOption"
+      >
+        <div class="current-language">
+          <div class="flag-language-wrap">
+            <span class="country-flag">
+              <img [src]="langChoose.img" class="flag" />
+            </span>
+            <span class="lang-text">{{ langChoose.label }}</span>
+          </div>
+
+          <div class="nav-item-caret">
+            <i class="fa-solid fa-caret-down"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-choose-language" [class.active]="isOpenLanguageOption">
+        <div
+          class="lang-item"
+          *ngFor="let lang of languages"
+          (click)="chooseLanguageHandle(lang)"
+        >
+          <span class="country-flag">
+            <img [src]="lang.img" class="flag" />
+          </span>
+          <span class="lang-text">{{ lang.label }}</span>
+        </div>
+      </div>
+      <!-- change language -->
     </li>
 
-    <!-- <li class="translate">
-        
-    </li> -->
     <li *ngIf="isLoggedIn" class="user-info">
+      <!-- change languages -->
+      <div class="change-language-wrapper">
+        <div class="current-language">
+          <div class="flag-language-wrap">
+            <span class="country-flag">
+              <img [src]="langChoose.img" class="flag" />
+            </span>
+            <span class="lang-text">{{ langChoose.label }}</span>
+          </div>
+
+          <div class="nav-item-caret">
+            <i class="fa-solid fa-caret-down"></i>
+          </div>
+        </div>
+
+        <div class="choose-language">
+          <div
+            class="lang-item"
+            *ngFor="let lang of languages"
+            (click)="chooseLanguageHandle(lang)"
+          >
+            <span class="country-flag">
+              <img [src]="lang.img" class="flag" />
+            </span>
+            <span class="lang-text">{{ lang.label }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!--  -->
       <div class="user-avatar">
         <img src="/assets/images/img-bg.jpg" />
       </div>
@@ -37,7 +94,9 @@
     </li>
 
     <li *ngIf="!isLoggedIn" class="book-btn">
-      <primary-button (click)="navigateToLogin()">Box now</primary-button>
+      <primary-button [rounded]="true" (click)="navigateToLogin()"
+        >Booking now</primary-button
+      >
     </li>
   </ul>
 </nav>
