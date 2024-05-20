@@ -1,0 +1,87 @@
+@import 'src/app.constants.scss';
+.room-card{
+    height: 100%;
+    display: grid;
+    row-gap: 10px;
+
+    width: 280px;
+    border-radius: 10px;
+    align-items: center;
+    background: #f7f7f7;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: hidden;
+    &:hover{
+        background: $sub-overlay-primary-color;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        transition: .3s ease;
+    }
+
+    .card-image{
+        height: 180px;
+        width: 100%;
+        overflow: hidden;
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: 2s ease;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .card-info{
+        padding: 0rem 1rem 1rem 1rem;
+        display: flex;
+        flex-direction: column;
+        row-gap: 6px;
+        .card-title{
+            font-weight: bold;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+        }
+        .desc {
+            font-size: $small-text-size;
+            font-weight: 500;
+            height: 100px;
+            overflow: hidden;
+        }
+        .branch{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .fees{
+            // width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: .6rem;
+            font-size: 1.2rem;
+            margin: .4rem 0;
+            border-top: 1.5px solid #e2e0e0;
+            border-bottom: 1.5px solid #e2e0e0;
+
+            .grade{
+                color: $text-color;
+                max-width: 200px;
+                display: flex;
+                font-size: 12px;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .price{
+                color: $sub-color;
+            }
+        }
+        .btn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+<div class="room-card">
+  <div class="card-image">
+    <img [src]="img" [alt]="img" />
+  </div>
+
+  <div class="card-info">
+    <div class="card-title">{{ name }}</div>
+    <span class="branch">
+      <i class="fa-solid fa-location-dot"></i>
+      <span class="name">Branch :{{ branch }}</span>
+    </span>
+
+    <div class="fees">
+      <div class="grade">
+        <p>Room charge per day</p>
+      </div>
+
+      <div class="price">
+        <h5>{{ currency }}</h5>
+      </div>
+    </div>
+
+    <div class="desc">
+      <p>{{ desc }}</p>
+    </div>
+
+    <primary-button size="small" class="btn">
+      Details
+      <i class="btn-icon fa-regular fa-clipboard"></i>
+    </primary-button>
+  </div>
+</div>

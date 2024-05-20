@@ -12,6 +12,5 @@ export class InMemoryApiDemoComponent {
   data = new Perform<IUser[]>();
   constructor(private userService: UserService) {
     this.data.load(this.userService.getUsers());
-    console.log(this.data);
   }
 }

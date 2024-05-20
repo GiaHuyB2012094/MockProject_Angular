@@ -1,0 +1,102 @@
+@import 'src/app.constants.scss';
+.container{
+    position: relative;
+    padding: 2rem;
+    background-color: $white-color;
+    border-radius: 10px;
+    gap: 1rem;
+    margin: 0 30px;
+    display: grid;
+    label{
+        display: block;
+        color: $text-color;
+        padding-bottom: 10px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+    
+    .label_total{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .total{
+            color: $text-color;
+            font-size: 18px;
+            padding-bottom: 10px;
+        }
+    }
+
+    .input{
+        display: flex;
+        align-items: center;
+        height: 40px;
+        padding: 0 1rem;
+        background-color: #e4e4e4;
+        border-radius: 3rem;
+
+        input{
+            background: none;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 13px;
+            font-weight: 500;
+            &::placeholder{
+                font-size: 13px;
+            }
+        }
+        .icon{
+            font-size: 18px;
+            color: $text-color o !important;
+            margin-left: 10px;
+        }
+
+        .input[type=range] {
+            background: $primary-color;
+        }
+    }
+
+    .search-Options{
+        position: absolute;
+        display: flex;
+        background: $primary-color;
+        width: max-content;
+        bottom: -0.9rem;
+        column-gap: 0.8rem;
+        padding: .6rem 2rem;
+        border-radius: 3rem;
+        left: 50%;
+        transform: translate(-50%);
+        justify-content: center;
+        color:$white-color;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover{
+            background: $overlay-primary-color;
+        }
+    }
+    @media screen and (min-width: 500px) {
+        grid-template-columns: repeat(2,1fr);
+    }
+    @media screen and (min-width: 660px) {
+        padding: 2rem 1rem;
+        grid-template-columns: repeat(3,1fr);
+    }
+    @media screen and (min-width: 1240px) {
+        padding: 2rem 1rem;
+        grid-template-columns: repeat(3,1fr);
+        margin: 0 100px;
+        .input{
+            margin-bottom: 1rem;
+        }
+        .search-Options{
+            bottom: -1rem;
+            padding: .8rem 2.4rem;
+            span{
+                font-size: 17px;
+            }
+        }
+    }
+}
+
