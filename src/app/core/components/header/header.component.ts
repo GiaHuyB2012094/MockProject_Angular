@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { headerMenu } from '../../constants/titles/header.constant';
 import { languages } from '../../constants/titles/languagesTranlate';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastService } from '../../services/toast.service';
+import { TOAST_STATE } from '../../constants/toast.constant';
 
 export interface Language {
   value: string;
@@ -33,7 +35,11 @@ export class HeaderComponent implements OnInit {
   });
 
   username: string = '';
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private toast: ToastService
+  ) {}
 
   ngOnInit(): void {
     this.username = this.getCurrentUsername();
@@ -52,5 +58,18 @@ export class HeaderComponent implements OnInit {
 
   chooseLanguageHandle(lang: Language): void {
     this.langChoose = lang;
+  }
+
+  logoutHandle() {
+    this.userService.logout();
+    this.toast.showToast(TOAST_STATE.success, 'You have successfully logout!');
+    this.dismissError();
+    this.navigateToLogin();
+  }
+
+  private dismissError(): void {
+    setTimeout(() => {
+      this.toast.dismissToast();
+    }, 2000);
   }
 }

@@ -87,10 +87,28 @@
       </div>
 
       <!--  -->
-      <div class="user-avatar">
-        <img src="/assets/images/img-bg.jpg" />
+      <div class="menu-user">
+        <div class="user-name">
+          <div class="user-avatar">
+            <img src="/assets/images/img-bg.jpg" />
+          </div>
+          <p>{{ username }}</p>
+          <div class="nav-item-caret">
+            <i class="fa-solid fa-caret-down"></i>
+          </div>
+        </div>
+
+        <ul class="user-options">
+          <li class="">
+            <span><i class="fa-solid fa-user"></i></span>
+            Personal information
+          </li>
+          <li class="" (click)="logoutHandle()">
+            <span><i class="fa-solid fa-right-from-bracket"></i></span>
+            Log out
+          </li>
+        </ul>
       </div>
-      <p>{{ username }}</p>
     </li>
 
     <li *ngIf="!isLoggedIn" class="book-btn">
