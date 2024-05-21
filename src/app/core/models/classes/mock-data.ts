@@ -454,6 +454,146 @@ export class MockData implements InMemoryDbService {
         convenient: ['Indoor slippers','Free Wi-Fi in all rooms!','Luggage storage','Comfortable bedding','Balcony/terrace','Hand sanitizer','Parking lot','Non-smoking'],
         maxcount: 10,
       },
+      {
+        id: 7,
+        name: "Standard Double",
+        branch: 2,
+        desc: "Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs. Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs.",
+        acreage: 23,
+        roomType: "Double Bedroom",
+        address: "31 Hoang Hoa Tham, Ward 10, Da Lat City, Dalat, Vietnam, 670000",
+        price: [180000, 720000, 400000],
+        imgs: [
+          '//pix8.agoda.net/hotelImages/6433136/-1/041d5a2e5fccf1be7a0098fd79d86708.jpg?ce=0&s=1024x768',
+          '//pix8.agoda.net/hotelImages/6433136/470582133/2cc6b24d213ad90fed0a7f752c107813.jpg?ca=25&ce=0&s=1024x768',
+          '//pix8.agoda.net/hotelImages/6433136/470582133/10e516f15652ea0c38bce535c74c54a5.jpg?ce=0&s=1024x768',
+          '//pix8.agoda.net/hotelImages/6433136/470582133/bbe8a0d5581502f2ef5d9a24961f2953.jpg?ca=25&ce=0&s=1024x768',
+          '//pix8.agoda.net/hotelImages/6433136/470582133/14686fd60aedd33d464b2401c015ccca.jpg?ce=0&s=1024x768',
+          '//pix8.agoda.net/hotelImages/6433136/470582133/76d9c563d2ab546ac6144c5aa35701c3.jpg?ce=0&s=1024x768',
+          '//pix8.agoda.net/hotelImages/6433136/470582133/99e170e59fe029b4832aee5f3a8590d7.jpg?ca=25&ce=0&s=1024x768',
+        ],
+        nearbyTouristSpot: [
+          {
+            name: "Da Lat Railway Station",
+            distance: "3 km",
+          },
+          {
+            name: "Truc Lam Zen Monastery",
+            distance: "1,7 km",
+          },
+          {
+            name: "Prenn Waterfall",
+            distance: "3,3 km",
+          },
+          {
+            name: "Da Lat Flower Park",
+            distance: "1,7km",
+          },
+          {
+            name: "Da Lat Weasel Coffee Farm",
+            distance: "100m",
+          },
+          {
+            name: "Linh Phuoc Pagoda (Dragon King's Temple)",
+            distance: "520 m",
+          },
+          {
+            name: "Minh Tam Flower Garden",
+            distance: "970 m",
+          },
+          {
+            name: "Hoan My Da Lat Hospital",
+            distance: "990 m",
+          },
+          {
+            name: "Linh Son Pagoda (Dragon King's Temple)",
+            distance: "1,2 km",
+          },
+          {
+            name: "Lam Dong Museum",
+            distance: "1,2 km",
+          },
+          {
+            name: "French Quarter",
+            distance: "1,3 km",
+          },
+          {
+            name: "Dinh 1 Dalat",
+            distance: "1,4 km",
+          },
+        ],
+        convenient: ['Indoor slippers','Free Wi-Fi in all rooms!','Luggage storage','Comfortable bedding','Balcony/terrace','Hand sanitizer','Parking lot','Non-smoking'],
+        maxcount: 5,
+      },
+      {
+        id: 7,
+        name: "Standard Double",
+        branch: 2,
+        desc: "Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs. Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs.",
+        acreage: 23,
+        roomType: "Twin Bedroom",
+        address: "31 Hoang Hoa Tham, Ward 10, Da Lat City, Dalat, Vietnam, 670000",
+        price: [200000, 800000, 500000],
+        imgs: [
+          '//q-xx.bstatic.com/xdata/images/hotel/max1024x768/258481346.jpg?k=7e58d5cc656239e2d821e634fb9a5d458c9e116dc43fffc56206bd11845f5a3d&o=',
+          '//q-xx.bstatic.com/xdata/images/hotel/max1024x768/262683291.jpg?k=151ea950ee1c2e501d2e11857c5edec0d756b005c980a1862af15f26e410a98a&o=',
+          '//q-xx.bstatic.com/xdata/images/hotel/max1024x768/258481354.jpg?k=dd9e5bf0031e966bafe896ce524f87428deccc17b199dd614669e3feef2c8717&o=',
+          '//q-xx.bstatic.com/xdata/images/hotel/max1024x768/262682757.jpg?k=25f8c18881960e54161716c7bcbbca81c0f4a11a9617714642fd5702322c0714&o=',
+          '//q-xx.bstatic.com/xdata/images/hotel/max1024x768/262682726.jpg?k=97c64d893700f0490cd334f7137beb219cbb9c0acee923c0bd6271ff9a0704f7&o=',
+        ],
+        nearbyTouristSpot: [
+          {
+            name: "Da Lat Railway Station",
+            distance: "3 km",
+          },
+          {
+            name: "Truc Lam Zen Monastery",
+            distance: "1,7 km",
+          },
+          {
+            name: "Prenn Waterfall",
+            distance: "3,3 km",
+          },
+          {
+            name: "Da Lat Flower Park",
+            distance: "1,7km",
+          },
+          {
+            name: "Da Lat Weasel Coffee Farm",
+            distance: "100m",
+          },
+          {
+            name: "Linh Phuoc Pagoda (Dragon King's Temple)",
+            distance: "520 m",
+          },
+          {
+            name: "Minh Tam Flower Garden",
+            distance: "970 m",
+          },
+          {
+            name: "Hoan My Da Lat Hospital",
+            distance: "990 m",
+          },
+          {
+            name: "Linh Son Pagoda (Dragon King's Temple)",
+            distance: "1,2 km",
+          },
+          {
+            name: "Lam Dong Museum",
+            distance: "1,2 km",
+          },
+          {
+            name: "French Quarter",
+            distance: "1,3 km",
+          },
+          {
+            name: "Dinh 1 Dalat",
+            distance: "1,4 km",
+          },
+        ],
+        convenient: ['Indoor slippers','Free Wi-Fi in all rooms!','Luggage storage','Comfortable bedding','Balcony/terrace','Hand sanitizer','Parking lot','Non-smoking'],
+        maxcount: 5,
+      },
     ]
     return { users, rooms };
   }

@@ -8,7 +8,7 @@ import { convertCurrencyVND } from 'src/app/shared/utils/currency';
   styleUrls: ['./room-card.component.scss']
 })
 export class RoomCardComponent implements OnInit {
-  @Input() room!: IRoom 
+  @Input() id!: number 
   @Input() img: string = ''
   @Input() name: string = ''
   @Input() branch: number = 1
@@ -17,11 +17,13 @@ export class RoomCardComponent implements OnInit {
   // @Input() img:string = ''
   currency: string | 0 = 0
   constructor() {
+
   }
 
   ngOnInit(): void {
     this.convertNumberToCurrent()
   }
+
   convertNumberToCurrent(){
     this.currency = convertCurrencyVND(this.price);
   }

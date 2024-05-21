@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { UnAuthLayoutComponent } from "./core/layouts/un-auth-layout/un-auth-layout.component";
 import { AuthLayoutComponent } from "./core/layouts/auth-layout/auth-layout.component";
+import { ForbiddenComponent } from "./forbidden/forbidden.component";
 
 const routes : Routes = [
     // {
@@ -24,7 +25,7 @@ const routes : Routes = [
             loadChildren: () => import('./unauthorized/unauthorized.module').then(m => m.UnauthorizedModule),
           },
         ],
-  },
+    },
     {
       path: '',
       component: AuthLayoutComponent,
@@ -34,7 +35,9 @@ const routes : Routes = [
             loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
           },
         ],
-  }
+  },
+  {path: '**', component: ForbiddenComponent},
+
 ]
 
 @NgModule({

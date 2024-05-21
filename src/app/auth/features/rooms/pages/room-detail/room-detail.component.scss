@@ -1,0 +1,13 @@
+@import "src/app.constants.scss";
+
+.img-info-top{
+    display: flex;
+    width: 100%;
+    .imgs{
+        width: 50%;
+        border-radius: 10px;
+        padding: 10px;
+        height: 100%;
+        background-color: $white-color;
+    }
+}

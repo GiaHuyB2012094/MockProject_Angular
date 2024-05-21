@@ -44,7 +44,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.username = this.getCurrentUsername();
     this.isLoggedIn = this.userService.isLoggedIn();
-    console.log(this.languages);
   }
 
   getCurrentUsername() {
@@ -65,6 +64,10 @@ export class HeaderComponent implements OnInit {
     this.toast.showToast(TOAST_STATE.success, 'You have successfully logout!');
     this.dismissError();
     this.navigateToLogin();
+  }
+
+  goToHome(){
+    this.router.navigate(['home']);
   }
 
   private dismissError(): void {

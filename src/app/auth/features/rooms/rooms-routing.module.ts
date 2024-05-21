@@ -6,7 +6,12 @@ const routes: Routes = [
   {
     path: '',
     component: RoomsComponent,
-    
+    children: [
+      {
+        path: 'room-detail/:id',
+        loadChildren: () => import('./pages/room-detail/room-detail.module').then(m => m.RoomDetailModule),
+      }
+    ],
   },
 ];
 

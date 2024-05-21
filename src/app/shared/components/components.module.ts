@@ -6,18 +6,23 @@ import { TextInputGroupModule } from './form-group/text-input-group/text-input-g
 import { ButtonModule } from './button/button.module';
 import { ToastModule } from './toast/toast.module';
 import { SelectListModule } from './form-group/select-list/select-list.module';
+import { BreadcrumbModule } from './breadcrumb/breadcrumb.module';
+import { LoaderModule } from './loader/loader.module';
 
 const SHARED_MODULES: Array<Type<any>> = [
   TextInputGroupModule,
   ButtonModule,
   ToastModule,
   SelectListModule,
+  BreadcrumbModule,
+  LoaderModule,
 ];
 const MODULES: Array<Type<any>> = [CommonModule, FormsModule, RouterModule];
 
 @NgModule({
   imports: [MODULES],
-  declarations: [],
+  declarations: [
+  ],
   exports: [...SHARED_MODULES],
 })
 export class SharedComponentsModule {}

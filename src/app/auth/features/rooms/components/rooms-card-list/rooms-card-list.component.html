@@ -1,6 +1,7 @@
 <div class="rooms">
   <app-room-card
     *ngFor="let room of rooms"
+    [id]="room.id"
     [img]="room.imgs[0]"
     [name]="room.name"
     [branch]="room.branch"

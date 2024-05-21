@@ -24,7 +24,11 @@
       <p>{{ desc }}</p>
     </div>
 
-    <primary-button size="small" class="btn">
+    <primary-button
+      size="small"
+      class="btn"
+      [routerLink]="['/room', 'room-detail', id]"
+    >
       Details
       <i class="btn-icon fa-regular fa-clipboard"></i>
     </primary-button>

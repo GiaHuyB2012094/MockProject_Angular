@@ -9,16 +9,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MockData } from './core/models/classes/mock-data';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryApiDemoComponent } from './in-memory-api-demo/in-memory-api-demo.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CoreModule } from './core/core.module';
+import { RouterModule } from '@angular/router';
+import { ForbiddenModule } from './forbidden/forbidden.module';
 @NgModule({
   declarations: [
     AppComponent,
     AuthLayoutComponent,
     UnAuthLayoutComponent,
-    InMemoryApiDemoComponent,
   ],
   imports: [
     CoreModule,
@@ -26,10 +26,11 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     ReactiveFormsModule,
     SharedModule,
-    HttpClientModule,
+    HttpClientModule,  
+    RouterModule,
     HttpClientInMemoryWebApiModule.forRoot(MockData, {delay: 500}),
     BrowserAnimationsModule,
-    
+    ForbiddenModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

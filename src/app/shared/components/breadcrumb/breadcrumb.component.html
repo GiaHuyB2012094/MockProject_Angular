@@ -1,0 +1,19 @@
+<div class="container">
+  <div
+    class="breadcrumb-item"
+    *ngFor="let breadcrumb of arrBreadcrumbs; index as ii"
+    [routerLink]="breadcrumb.link"
+  >
+    <div class="breadcrumb">
+      <i
+        *ngIf="breadcrumb.icon"
+        [class]="breadcrumb.icon"
+        class="breadcrumb-icon"
+      ></i>
+      <p>{{ breadcrumb.label }}</p>
+    </div>
+    <span *ngIf="ii < arrBreadcrumbs.length - 1" class="arrow"
+      ><i class="fa-solid fa-caret-right"></i
+    ></span>
+  </div>
+</div>

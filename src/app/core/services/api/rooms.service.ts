@@ -14,4 +14,10 @@ export class RoomsService {
   getRooms = (): Observable<any> => {
     return this.http.get<IRoom>(this.baseUrl);
   }
+
+  getRoomById = (id: number): Observable<any> => {
+    return this.http.get<IRoom>(`${this.baseUrl}/${id}`)
+  }
+
+  
 }

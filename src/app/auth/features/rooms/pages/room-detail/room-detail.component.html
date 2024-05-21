@@ -1,0 +1,17 @@
+<ng-container *ngIf="!isLoading; else loader">
+  <app-breadcrumb [arrBreadcrumbs]="breadcrumbs"></app-breadcrumb>
+  <div class="wrapper">
+    <app-show-images-room
+      class="box1"
+      [roomImgs]="roomImgs"
+    ></app-show-images-room>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+    <div class="box4">4</div>
+    <div class="box5">5</div>
+    <div class="box6">6</div>
+    <div class="box7">7</div>
+    <div class="box8">8</div>
+  </div>
+</ng-container>
+<ng-template #loader> <app-loader></app-loader></ng-template>

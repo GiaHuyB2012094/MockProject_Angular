@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="img-room">
+    <img [src]="choosedRoomImg" [alt]="choosedRoomImg" />
+  </div>
+  <div class="show-more-img">
+    <span class="show-more-img-icon" (click)="showRoomsImgHandle()">
+      show more images <i class="fa-solid fa-angles-right"></i>
+    </span>
+
+    <ul *ngIf="isOpenShow" class="imgs">
+      <li *ngFor="let roomImg of roomImgs" (click)="setChoosedRoomImg(roomImg)">
+        <img [src]="roomImg" [alt]="roomImg" />
+      </li>
+    </ul>
+  </div>
+</div>
