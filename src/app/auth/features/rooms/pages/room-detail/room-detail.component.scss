@@ -1,9 +1,9 @@
 @import "src/app.constants.scss";
 
-.img-info-top{
-    display: flex;
+.wrapper{
+    display: grid;
     width: 100%;
-    .imgs{
+    .box1{
         width: 50%;
         border-radius: 10px;
         padding: 10px;
