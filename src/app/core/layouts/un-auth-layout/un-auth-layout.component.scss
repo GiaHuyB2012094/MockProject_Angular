@@ -27,7 +27,7 @@
         background-color: $overlay-primary-color;
       }
 }
-.bg-text{
+.body{
   // font-weight: bold;
   position: fixed;
   top: 0;
@@ -41,7 +41,7 @@
  
 }
 @media only screen and (max-width: 640px) {
-  .bg-text{
+  .body{
     min-width: 100%;
   }
   

@@ -10,17 +10,22 @@ export class ShowImagesRoomComponent implements OnInit{
 
   choosedRoomImg: string = '';
   isOpenShow = false;
+  isExpendShow = false;
 
   constructor(){
   }
 
   ngOnInit(): void {
-    console.log(this.roomImgs)
     this.choosedRoomImg = this.roomImgs[0];
   }
 
   showRoomsImgHandle(): void{
     this.isOpenShow = !this.isOpenShow;
+  }
+
+  showExpendRoomsImgHandle(): void{
+    this.isExpendShow = !this.isExpendShow;
+    
   }
 
   setChoosedRoomImg(roomImg: string): void{

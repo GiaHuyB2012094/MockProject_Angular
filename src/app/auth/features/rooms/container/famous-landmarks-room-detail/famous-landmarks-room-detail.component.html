@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="map-tourist-spot">
+    <img src="/assets/images/map.svg" alt="map" />
+  </div>
+
+  <div class="near-by-tourist-spot">
+    <h5>Famous landmarks</h5>
+    <ul>
+      <li *ngFor="let spot of landmarks">
+        <span class="spot-name">{{ spot.name }}</span>
+        <span class="spot-distance">{{ spot.distance }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

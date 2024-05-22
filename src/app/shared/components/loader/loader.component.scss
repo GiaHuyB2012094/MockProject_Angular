@@ -1,11 +1,16 @@
 .container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding:100px 0px;
+    width: 100wh;
+    height: 100vh;
+    background: transparent;
+    z-index: 1000;
+    position: relative;
 }
 .loader {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    transform: scale();
     border: 16px solid #f3f3f3; /* Light grey */
     border-top: 16px solid #3498db; /* Blue */
     border-radius: 50%;

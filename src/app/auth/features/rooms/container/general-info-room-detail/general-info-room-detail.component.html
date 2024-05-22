@@ -1,0 +1,97 @@
+<div class="container">
+  <div class="room-name">
+    <h3>
+      {{ room.name }}
+    </h3>
+  </div>
+
+  <div class="room-branch">
+    <span class="branch">
+      <span class="title">
+        <i class="fa-solid fa-location-dot"></i>
+        Branch :
+      </span>
+
+      {{ room.branch }}
+    </span>
+  </div>
+
+  <div class="room-roomtype">
+    <span class="roomtype">
+      <span class="title">
+        <i class="fa-solid fa-hotel"></i>
+        Room Type:
+      </span>
+      <p>
+        {{ room.roomType }}
+      </p>
+    </span>
+  </div>
+
+  <div class="room-address">
+    <span class="address">
+      <span class="title">
+        <i class="fa-solid fa-map-location-dot"></i>
+        Address:
+      </span>
+
+      <p>
+        {{ room.address }}
+      </p>
+    </span>
+  </div>
+
+  <div class="room-maxcount">
+    <span class="maxcount">
+      <span class="title">
+        <i class="fa-solid fa-users"></i>
+        Capacity:
+      </span>
+      <p>
+        {{ room.maxcount }}
+        Adults
+      </p>
+    </span>
+  </div>
+
+  <div class="room-acreage">
+    <span class="acreage">
+      <span class="title">
+        <i class="fa-solid fa-ruler"></i>
+        Acreage:
+      </span>
+      <p>
+        {{ room.acreage }}
+        m2
+      </p>
+    </span>
+  </div>
+
+  <div class="room-fees">
+    <span>
+      <span class="title">
+        <i class="fa-solid fa-money-check-dollar"></i>
+        Fees:
+      </span>
+      <ul class="fees">
+        <li>
+          <i class="fa-solid fa-clock"></i>
+          {{ room.price[0] }}
+          per hour
+        </li>
+        <li>
+          <i class="fa-solid fa-moon"></i>
+          {{ room.price[1] }}
+          per night
+        </li>
+        <li>
+          <i class="fa-solid fa-sun"></i>
+          {{ room.price[2] }}
+          per day
+        </li>
+      </ul>
+    </span>
+  </div>
+
+  <primary-button>Booking</primary-button>
+</div>

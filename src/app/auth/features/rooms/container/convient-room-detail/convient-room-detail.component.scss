@@ -1,0 +1,14 @@
+.container{
+    h4{
+        font-weight: bold;
+    }
+    .room-convenients{
+        padding: 4px;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+
+        // column-gap: 6rem;
+        row-gap: 1rem;
+        // flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,20 @@
+@import "src/app.constants.scss";
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    .title{
+        color: $info-color;
+    }
+    .address{
+        color: $text-color;
+        padding-bottom: 4px;
+        border-bottom: 1px solid $gray-color;
+        span{
+            font-weight: bold;
+        }
+    }
+    .desc{
+
+    }
+}

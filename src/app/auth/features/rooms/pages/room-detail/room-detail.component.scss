@@ -3,11 +3,72 @@
 .wrapper{
     display: grid;
     width: 100%;
-    .box1{
-        width: 50%;
-        border-radius: 10px;
-        padding: 10px;
-        height: 100%;
+    grid-template-columns: repeat(4,1fr);
+    column-gap: 10px;
+    row-gap: 1em;
+
+    .box{
         background-color: $white-color;
+        border-radius: 5px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        padding: 1em;
     }
+    .box1,.box2{
+    }
+    .box3,.box8{
+	    grid-column: span 4 / span 4;
+        
+    }
+    .box4, .box6, .box7,.box1{
+	    grid-column: span 3 / span 3;
+    }
+    .box5{
+        grid-row: span 3 / span 3;
+    }
+    .box2{
+        grid-column: span 1 / span 1;
+    }
+    .box3{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .room-name{
+            color: $primary-color
+        }
+        .room-price{
+            color: $sub-color
+        }
+    }
+    .box7{
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+        .advertisement{
+            p{
+                span{
+                    color: $info-color
+                }
+            }
+        }
+    }
+    .box8{
+       height: 510px; 
+    }
+
+
+    @media screen and (max-width: 1030px) {
+        .box1, .box2, .box4, .box7{
+	        grid-column: span 4 / span 4;
+        }
+        .box5, .box6 {
+	        grid-row: span 2 / span 2;
+	        grid-column: span 2 / span 2;
+        }
+        .box6{
+
+        }
+    }
+
+
 }
+

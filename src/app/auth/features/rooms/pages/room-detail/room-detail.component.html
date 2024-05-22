@@ -1,17 +1,65 @@
 <ng-container *ngIf="!isLoading; else loader">
   <app-breadcrumb [arrBreadcrumbs]="breadcrumbs"></app-breadcrumb>
+
   <div class="wrapper">
     <app-show-images-room
-      class="box1"
+      class="box box1"
       [roomImgs]="roomImgs"
     ></app-show-images-room>
-    <div class="box2">2</div>
-    <div class="box3">3</div>
-    <div class="box4">4</div>
-    <div class="box5">5</div>
-    <div class="box6">6</div>
-    <div class="box7">7</div>
-    <div class="box8">8</div>
+    <div class="box box2">
+      <app-general-info-room-detail
+        [room]="room"
+      ></app-general-info-room-detail>
+    </div>
+
+    <div class="box box3">
+      <h3 class="room-name">
+        {{ room.name }}
+      </h3>
+      <h4 class="room-price">
+        {{ room.price[0] | currency }}
+      </h4>
+    </div>
+
+    <div class="box box4">
+      <app-address-room-detail [room]="room"></app-address-room-detail>
+    </div>
+
+    <div class="box box5">
+      <app-famous-landmarks-room-detail
+        [landmarks]="room.nearbyTouristSpot"
+      ></app-famous-landmarks-room-detail>
+    </div>
+
+    <div class="box box6">
+      <app-convient-room-detail
+        [convenients]="room.convenient"
+      ></app-convient-room-detail>
+    </div>
+    <div class="box box7">
+      <img src="/assets/images/clock.svg" alt="clock" class="clock" />
+      <div class="advertisement">
+        <p class="">The day you've chosen is a popular day for travelers.</p>
+        <p class="">
+          Every <span>19</span> minutes, someone books a spot in
+          <span>DHouse Dalat</span> on Agoda.com.
+        </p>
+      </div>
+    </div>
+    <div class="box box8">
+      <iframe
+        title="myFrame"
+        class="gmap_iframe"
+        height="510px !important"
+        width="100%"
+        frameBorder="0"
+        scrolling="no"
+        marginHeight="0"
+        marginWidth="0"
+        src="https://maps.google.com/maps?width=1610&amp;height=510&amp;hl=en&amp;q=Dhouse Đà Lạt&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+      >
+      </iframe>
+    </div>
   </div>
 </ng-container>
 <ng-template #loader> <app-loader></app-loader></ng-template>

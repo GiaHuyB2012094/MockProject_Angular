@@ -1,0 +1,35 @@
+@import "src/app.constants.scss";
+.container{
+    display: flex;
+    flex-direction:column ;
+    gap: 6px;
+    .map-tourist-spot{
+
+    }
+    .near-by-tourist-spot{
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        h5{
+            padding-bottom: 6px;
+            border-bottom: 1px solid $gray-color;
+        }
+        ul{
+            padding-left: 0px;
+            padding-right: 8px;
+            height: 250px;
+            overflow-y: auto;
+            li{
+                font-size: $small-text-size;
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                .spot-name{
+                    width:fit-content;
+                }
+                .spot-distance{
+                    text-align: end;
+                }
+            }
+        }
+    }
+}

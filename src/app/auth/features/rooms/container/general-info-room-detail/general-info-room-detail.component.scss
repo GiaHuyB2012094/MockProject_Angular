@@ -1,0 +1,75 @@
+@import "src/app.constants.scss";
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: space-around;
+    // align-items: center;
+    .room-name{
+        color: $primary-color;
+        padding-bottom: 4px;
+    }
+    
+    .room-branch{
+        color: $gray-color;
+        padding-bottom: 8px;
+        border-bottom: 1px solid $gray-color;
+    }
+    
+    .room-address{
+        background-color:rgb(241, 241, 241);
+        padding: 8px;
+        .address{
+            p{
+                font-size: 14px;
+                padding-left: 4px;
+            }
+        }
+    }
+
+    .room-roomtype{
+        background-color:rgb(255, 255, 240);
+        padding: 8px;
+        .roomtype{
+            p{
+                font-size: 14px;
+                padding-left: 4px;
+            }
+        }
+    }
+
+    .room-maxcount{
+        background-color:rgb(221, 248, 248);
+        padding: 8px;
+        .maxcount{
+            display: flex;
+            gap: 10px;
+        }
+    }
+
+    .room-acreage{
+        background-color:rgb(248, 221, 221);
+        padding: 8px;
+        .acreage{
+            display: flex;
+            gap: 10px;
+        }
+    }
+
+    .room-fees{
+        background-color: rgb(222, 241, 241);
+        padding: 8px;
+        .title{
+            color: $sub-color;
+        }
+        .fees{
+            li{
+                display: flex;
+                gap: 10px;
+            }
+        }
+    }
+}
+.title{
+    font-weight: bold;
+}
