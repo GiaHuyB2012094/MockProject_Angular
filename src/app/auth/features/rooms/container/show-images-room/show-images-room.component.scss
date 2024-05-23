@@ -30,11 +30,11 @@
     }
     .show-more-img{
         position: absolute;
-        bottom: 0;
+        bottom: 2%;
         left: 1%;
         display: flex;
         align-items: center;
-        height: 60px;
+        // height: 60px;
         &.active{
             position: relative;
         }
@@ -92,9 +92,7 @@
                 font-size: 24px;
                 cursor: pointer;
             }
-            &.active{
-
-            }
+        
         }
         
         .expend-image{
@@ -114,9 +112,24 @@
             
         }
         .show-more-img{
+            bottom: 2%;
+            align-items: flex-end;
+            height: 100%;
             &.active{
                 position: absolute;
             }
+            .imgs-options{
+                position: absolute;
+                bottom: 9%;
+                left: -29%;
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+        .show-expend-image{
+            &.active{
+                bottom: 2%;
+               }
         }
     }
 }

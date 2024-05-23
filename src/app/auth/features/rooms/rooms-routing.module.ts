@@ -10,6 +10,10 @@ const routes: Routes = [
       {
         path: 'room-detail/:id',
         loadChildren: () => import('./pages/room-detail/room-detail.module').then(m => m.RoomDetailModule),
+      },
+      {
+        path: 'general-rooms',
+        loadChildren: () => import('./pages/general-room/general-room.module').then(m => m.GeneralRoomModule),
       }
     ],
   },

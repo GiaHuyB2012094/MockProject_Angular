@@ -1,0 +1,46 @@
+<div class="container">
+  <app-text-input-group id="search" [iconRight]="true">
+    <i #iconRef class="icon fa-solid fa-magnifying-glass"></i>
+  </app-text-input-group>
+
+  <div class="room-type">
+    <p class="title">Room Type :</p>
+
+    <app-select-dropdown
+      [arrItem]="roomType"
+      (newItemEvent)="chooseRoomTypeHandle($event)"
+    ></app-select-dropdown>
+  </div>
+
+  <div class="fees">
+    <p class="title">Prices Format:</p>
+    <app-select-dropdown
+      [arrItem]="payFormat"
+      (newItemEvent)="choosePriceFormatHandle($event)"
+    ></app-select-dropdown>
+  </div>
+
+  <div class="price">
+    <div class="div-value-price">
+      <p class="title">Prices:</p>
+      <p class="value-price">{{ valuePrice | currency }}</p>
+    </div>
+    <div class="range-price">
+      <div class="value-range">
+        <p>{{ minPrice | currency }}</p>
+        <p>{{ maxPrice | currency }}</p>
+      </div>
+
+      <input
+        type="range"
+        id="price-range-slider"
+        [min]="minPrice"
+        [max]="maxPrice"
+        [(ngModel)]="valuePrice"
+        step="50000"
+        class=""
+      />
+    </div>
+  </div>
+</div>
+<!-- (newItemEvent)="chooseHandle($event)" -->

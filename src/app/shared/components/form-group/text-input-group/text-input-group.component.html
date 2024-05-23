@@ -4,12 +4,14 @@
       class="input-title"
       [for]="id"
       [ngStyle]="{ order: changeDirection ? 2 : 1 }"
-      >{{ label }}
+      *ngIf="label"
+    >
+      {{ label }}
       <span *ngIf="required" class="required-label">*</span>
     </label>
 
     <div class="input-group">
-      <div class="input-icon">
+      <div class="input-icon" [class.active]="iconRight">
         <ng-content select=".icon"></ng-content>
       </div>
 
@@ -33,6 +35,7 @@
         >
           <img class="icon" src="/assets/icons/eye.svg" />
         </span>
+
         <ng-template #showEyeIcon>
           <span (click)="toggleFieldTextType()">
             <img class="icon" src="/assets/icons/eye-closed.svg" />

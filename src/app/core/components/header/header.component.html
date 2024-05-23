@@ -19,10 +19,15 @@
     </li>
 
     <li class="menu" [class.is-open]="isMenuOpen">
-      <p class="menu-item" *ngFor="let item of headerMenu">
+      <p
+        class="menu-item"
+        *ngFor="let item of headerMenu"
+        [routerLink]="item.link"
+      >
         <i [class]="item.icon"></i>
         {{ item.label }}
       </p>
+
       <div
         class="menu-change-language-wrapper"
         (click)="isOpenLanguageOption = !isOpenLanguageOption"

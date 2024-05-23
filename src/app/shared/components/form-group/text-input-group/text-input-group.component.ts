@@ -15,6 +15,7 @@ export class TextInputGroupComponent implements OnInit, AfterViewChecked {
   @Input() isAutoValidators = true;
   @Input() disabled = false;
   @Input() changeDirection = false;
+  @Input() iconRight = false;
   @Input() placeholder = '';
 
   @ContentChild('iconRef') iconRef!: ElementRef;
@@ -56,7 +57,7 @@ export class TextInputGroupComponent implements OnInit, AfterViewChecked {
   }
 
   checkiconProjectedContentEmpty(): void {
-    if (this.iconRef) {
+    if (this.iconRef && this.iconRight === false) {
       this.inputRef.nativeElement.style.paddingLeft = '32px'
     }
     // console.log(this.iconRef.nativeElement)

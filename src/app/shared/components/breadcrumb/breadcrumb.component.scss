@@ -29,6 +29,24 @@
             &:hover{
                 color: $info-color;                    
             }
+            @media (max-width: 650px) and (min-width:500px) {
+                p{
+                    font-size: 14px;
+                }
+                .breadcrumb-icon {
+                    width: 14px;
+                    height: 16px;
+                }
+            }
+            @media (max-width: 495px) {
+                p{
+                    font-size: 12px;
+                }
+                .breadcrumb-icon {
+                    width: 14px;
+                    height: 16px;
+                }
+            }
         }
     }
 }

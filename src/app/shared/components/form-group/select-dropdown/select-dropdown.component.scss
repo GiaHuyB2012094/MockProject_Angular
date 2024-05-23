@@ -1,0 +1,61 @@
+@import "src/app.constants.scss";
+
+.container{
+    position: relative;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0px 4px;
+    
+    
+  .menu-select-option{
+    cursor: pointer;
+
+    background-color: $white-color;
+    border: 1px solid $gray-color;
+    border-radius: 5px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+    column-gap: 4px;
+    
+    .choosed-option{
+        // width: 90px;
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+    }
+  }
+  .dropdown-options{
+    position: absolute;
+    background-color: $white-color;
+    box-shadow: 0 3px 24px #252e4833;
+    border-radius: 10px;
+    opacity: 0;
+    right: 0;
+    top: 98%;
+    visibility: hidden;
+    z-index: 100;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+    width: 100%;
+    &.active{
+        opacity: 100;
+      visibility: visible;
+
+    }
+    .option-item{
+        padding: 7px 10px;
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+        &:hover {
+            background-color: $sub-overlay-primary-color;
+          }
+    }
+  }
+
+  
+}

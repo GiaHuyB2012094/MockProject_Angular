@@ -6,9 +6,9 @@
         padding: 4px;
         display: grid;
         grid-template-columns: repeat(3,1fr);
-
-        // column-gap: 6rem;
         row-gap: 1rem;
-        // flex-wrap: wrap;
-    }
+        }
+        @media (max-width: 900px) {
+            grid-template-columns: repeat(2,1fr);
+        }
 }

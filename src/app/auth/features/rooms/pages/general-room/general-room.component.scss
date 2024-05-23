@@ -1,0 +1,20 @@
+@import "src/app.constants.scss";
+.wrapper{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 10px;
+    row-gap: 1em;
+    .box{
+        background-color: $white-color;
+        border-radius: 5px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        padding: 1em;
+    }
+    .box1{
+        grid-column: span 1 / span 1;
+    }
+    .box2{
+        grid-column: span 2/ span 2;
+    }
+}

@@ -1,0 +1,8 @@
+<div class="container">
+  <app-breadcrumb [arrBreadcrumbs]="breadcrumbs"></app-breadcrumb>
+  <div class="wrapper">
+    <app-filter-rooms class="box box1"></app-filter-rooms>
+    <div class="box box2" *ngIf="!isLoading; else loader"></div>
+  </div>
+</div>
+<ng-template #loader> <app-loader></app-loader></ng-template>
