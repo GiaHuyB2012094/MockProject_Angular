@@ -14,7 +14,6 @@ export class RoomCardComponent implements OnInit {
   @Input() branch: number = 1
   @Input() price: number = 100000
   @Input() desc: string = ''
-  @Input() address: string = ''
   // @Input() img:string = ''
   currency: string | 0 = 0
   constructor() {
