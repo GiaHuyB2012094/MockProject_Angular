@@ -96,3 +96,53 @@ export const roomType = [
       img: '/assets/images/sun-icon.svg',
     },
   ]
+
+  export const branch = [
+    {
+      value: 1,
+      label: 'Branch 1',
+    },
+    {
+      value: 2,
+      label: 'Branch 2',
+    },
+    {
+      value: 3,
+      label: 'Branch 3',
+    },
+  ]
+
+  export const address = [
+    {
+      value: 1,
+      label: '31 Hoang Hoa Tham, Ward 10, Da Lat City, Dalat, Vietnam',
+    },
+    {
+      value: 2,
+      label: 'Nguyen Thi Nghia, Da Lat Central, Da Lat City, Vietnam',
+    },
+    {
+      value: 3,
+      label: 'Alley 163, Ba Thang Hai Street, Da Lat, Phuong 4, 66110, Vietnam',
+    },
+  ]
+
+  export const convenients = [
+    'Indoor slippers',
+    'Free Wi-Fi in all rooms!',
+    'Luggage storage',
+    'Comfortable bedding',
+    'Balcony/terrace',
+    'Non-smoking',
+    'Hand sanitizer',
+    'Access to Business Lounge',
+    'Parking lot',
+    'Mountain view rooms',
+    'Street view rooms',
+    'Shared bathroom',
+    'Garden view rooms',
+    'Outdoor cooking facilities',
+    'Restaurant',
+    'Laundry service',
+  ]
+

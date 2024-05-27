@@ -1,13 +1,13 @@
 <div class="rooms">
-  <app-room-card
+  <app-horizontal-room-card
     *ngFor="let room of rooms"
     [id]="room.id"
     [img]="room.imgs[0]"
     [name]="room.name"
     [branch]="room.branch"
-    [price]="room.price[0]"
-    [desc]="room.desc"
+    [price]="room.price"
     [address]="room.address"
+    [desc]="room.desc"
   >
-  </app-room-card>
+  </app-horizontal-room-card>
 </div>

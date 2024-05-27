@@ -1,0 +1,27 @@
+@import "src/app.constants.scss";
+.container{
+    font-size: 14px;
+    .items{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding-left: 0px;
+        .item{
+            background-color: #868686;
+            padding: 6px 12px;
+            border-radius: 5px;
+            width: max-content;
+            color: $white-color;
+            cursor: pointer;
+            &:hover{
+                background-color: $overlay-primary-color;
+                color: $text-color;
+            }
+            &.active{
+                background-color: $primary-color;
+                color: $white-color;
+            }
+        }
+        
+    }
+}

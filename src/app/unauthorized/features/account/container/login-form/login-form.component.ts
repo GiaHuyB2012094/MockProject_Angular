@@ -8,9 +8,6 @@ import {
 import { TOAST_STATE } from 'src/app/core/constants/toast.constant';
 import { ToastService } from 'src/app/core/services/toast.service';
 import { UserService } from '../../../../../core/services/api/user.service';
-import { Perform } from 'src/app/core/models/classes/perform';
-import { IUser } from 'src/app/core/models/interfaces/IUser.interface';
-import { LoginDTO } from 'src/app/core/models/dto/auth.dto';
 import { Router } from '@angular/router';
 
 @Component({

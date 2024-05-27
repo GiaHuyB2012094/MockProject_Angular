@@ -1,5 +1,6 @@
 import { AfterContentChecked, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { payFormat, roomType } from 'src/app/core/constants/titles/room-type.constant';
+import { FormControl, FormGroup } from '@angular/forms';
+import { address, branch, convenients, payFormat, roomType } from 'src/app/core/constants/titles/room-type.constant';
 
 export interface IRoomType {
   value: string,
@@ -15,94 +16,82 @@ export interface IRoomType {
 export class FilterRoomsComponent implements OnInit, AfterContentChecked, OnChanges {
   roomType = roomType;
   payFormat = payFormat;
-
+  branch = branch;
+  address = address;
+  convenients = convenients;
   minPrice!: number;
   maxPrice!: number;
-
-  private _choosedRoomTypeObj!:IRoomType;
-  private _choosedRoomType!: string;
-  private _priceFormat!: string;
-
+  choosedRoomTypeObj!:IRoomType;
+  choosedRoomType!: string;
+  choosedBranch: number = 1;
+  choosedAddress: string = '';
+  priceFormat!: string;
   valuePrice!: number;
 
+  formGroup = new FormGroup({
+    search: new FormControl(''),
+    checkInDate: new FormControl((new Date()).toISOString().substring(0,10))
+  })
 
   constructor() {}
 
-  get choosedRoomTypeObj(): IRoomType{
-    return this.choosedRoomTypeObj;
-  }
-  set choosedRoomTypeObj(value: IRoomType){
-    if (value !== this._choosedRoomTypeObj) {
-      this._choosedRoomTypeObj = value;
-    }
-  }
-  
-  get choosedRoomType(): string{
-    return this.choosedRoomType;
-  }
-  set choosedRoomType(value: string){
-    if (value !== this._choosedRoomType) {
-      this._choosedRoomType = value;
-      this.onSetPriceValueChange();
-    }
-  }
-  get priceFormat(): string{
-    return this.priceFormat;
-  }
-  set priceFormat(value: string){
-    if (value !== this._priceFormat) {
-      this._priceFormat = value;
-      this.onSetPriceValueChange();
-    }
-  }
-
   ngOnInit(): void {
-    this.setInitialRoomType();  
+    this.setInitial();  
   }
-
   ngAfterContentChecked(): void {
-    
-
   }
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges) { //only work when have input
     console.log(changes)
   }
 
-  setInitialRoomType(): void{
+  setInitial(): void{
     const PriceRoomTpyeItem = roomType[0].price;
     this.minPrice = PriceRoomTpyeItem[0].value - 100000;
     this.maxPrice = PriceRoomTpyeItem[0].value;
     this.valuePrice = PriceRoomTpyeItem[0].value - 100000;
     this.choosedRoomType = roomType[0].value;
     this.priceFormat = PriceRoomTpyeItem[0].priceFormat;
+    this.choosedAddress = address[0].label;
   }
 
   choosePriceFormatHandle(e: string) {
-    this.choosedRoomType = e;
+    this.priceFormat = e;
+    this.onSetPriceValueChange();
   }
 
   chooseRoomTypeHandle(e: string) {
-    this.priceFormat = e;
+    this.choosedRoomType = e;
+    this.onSetPriceValueChange();
+  }
+
+  chooseBranchHandle(e: number) {
+    this.choosedBranch = e;
+    const addrItem = address.find(addr => addr.value === e) 
+    this.choosedAddress = addrItem!.label;
+    this.onSetPriceValueChange();
   }
   
   onSetPriceValueChange(): void{
-    const roomTypeObj = this.roomType.find(t => t.value === this._choosedRoomType)
+    
+    const roomTypeObj = this.roomType.find(t => t.value === this.choosedRoomType)
+
     if (roomTypeObj !== undefined) {
-      this._choosedRoomTypeObj = roomTypeObj;
+      this.choosedRoomTypeObj = roomTypeObj;
     }
     
-    const  priceRoomTpyeItem = this._choosedRoomTypeObj.price.find(t => t.priceFormat === this._priceFormat)
-    if (priceRoomTpyeItem !== undefined) {
-      this.minPrice = priceRoomTpyeItem!.value - 100000;
-      this.maxPrice = priceRoomTpyeItem!.value;
-      this.valuePrice = priceRoomTpyeItem!.value - 100000;
+    const  priceMaxRoomTpye = this.choosedRoomTypeObj.price.find(t => t.priceFormat === this.priceFormat)
+    const  priceMinRoomTpye = this.choosedRoomTypeObj.price.find(t => t.priceFormat === 'hour')
+    
+    if (priceMaxRoomTpye !== undefined && (priceMaxRoomTpye !== priceMinRoomTpye)) {
+      this.minPrice = priceMinRoomTpye!.value;
+      this.maxPrice = priceMaxRoomTpye!.value;
+      this.valuePrice = priceMinRoomTpye!.value;
+    } else {
+      this.minPrice = priceMinRoomTpye!.value / 2;
+      this.maxPrice = priceMaxRoomTpye!.value;
+      this.valuePrice = priceMinRoomTpye!.value /2;
     }
-    console.log(roomTypeObj)
 
-    console.log(priceRoomTpyeItem)
-
-    console.log([this.minPrice, this.maxPrice, this.valuePrice])
- 
   }
 
 }

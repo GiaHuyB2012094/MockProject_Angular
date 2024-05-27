@@ -36,7 +36,7 @@ export class MockData implements InMemoryDbService {
         desc: "Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs. Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs.",
         acreage: 23,
         roomType: "Double Bedroom",
-        address: "31 Hoang Hoa Tham, Ward 10, Da Lat City, Dalat, Vietnam, 670000",
+        address: "31 Hoang Hoa Tham, Ward 10, Da Lat City, Dalat, Vietnam",
         
         price: [180000, 720000, 400000],
         imgs: [
@@ -107,7 +107,7 @@ export class MockData implements InMemoryDbService {
         desc: "Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs. Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs.",
         acreage: 30,
         roomType: "Triple Bedroom",
-        address: "31 Hoang Hoa Tham, Ward 10, Da Lat City, Dalat, Vietnam, 670000",
+        address: "31 Hoang Hoa Tham, Ward 10, Da Lat City, Dalat, Vietnam",
         
         price: [250000, 1000000, 700000],
         imgs: [
@@ -178,7 +178,7 @@ export class MockData implements InMemoryDbService {
         desc: "Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs. Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs.",
         acreage: 23,
         roomType: "Twin Bedroom",
-        address: "31 Hoang Hoa Tham, Ward 10, Da Lat City, Dalat, Vietnam, 670000",
+        address: "31 Hoang Hoa Tham, Ward 10, Da Lat City, Dalat, Vietnam",
         
         price: [200000, 800000, 500000],
         imgs: [
@@ -249,7 +249,7 @@ export class MockData implements InMemoryDbService {
         desc: "Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs. Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs.",
         acreage: 27,
         roomType: "Twin Bedroom",
-        address: "31 Hoang Hoa Tham, Ward 10, Da Lat City, Dalat, Vietnam, 670000",
+        address: "31 Hoang Hoa Tham, Ward 10, Da Lat City, Dalat, Vietnam",
         
         price: [200000, 800000, 500000],
         imgs: [
@@ -319,7 +319,7 @@ export class MockData implements InMemoryDbService {
         desc: "Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs. Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs.",
         acreage: 35,
         roomType: "Twin Bedroom",
-        address: "31 Hoang Hoa Tham, Ward 10, Da Lat City, Dalat, Vietnam, 670000",
+        address: "Nguyen Thi Nghia, Da Lat Central, Da Lat City, Vietnam",
         
         price: [200000, 800000, 500000],
         imgs: [
@@ -390,7 +390,7 @@ export class MockData implements InMemoryDbService {
         desc: "Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs. Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs.",
         acreage: 18,
         roomType: "Single Bedroom",
-        address: "31 Hoang Hoa Tham, Ward 10, Da Lat City, Dalat, Vietnam, 670000",
+        address: "Nguyen Thi Nghia, Da Lat Central, Da Lat City, Vietnam",
         price: [150000, 500000, 300000],
         imgs: [
           '//pix8.agoda.net/hotelImages/21963103/-1/604edc120dd9ca355ff7da6d86280aae.jpg?ca=29&ce=0&s=512x384',
@@ -461,7 +461,7 @@ export class MockData implements InMemoryDbService {
         desc: "Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs. Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs.",
         acreage: 23,
         roomType: "Double Bedroom",
-        address: "31 Hoang Hoa Tham, Ward 10, Da Lat City, Dalat, Vietnam, 670000",
+        address: "Nguyen Thi Nghia, Da Lat Central, Da Lat City, Vietnam",
         price: [180000, 720000, 400000],
         imgs: [
           '//pix8.agoda.net/hotelImages/6433136/-1/041d5a2e5fccf1be7a0098fd79d86708.jpg?ce=0&s=1024x768',
@@ -532,7 +532,7 @@ export class MockData implements InMemoryDbService {
         desc: "Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs. Parking and Wi-Fi are always complimentary, so you can stay connected and come and go as you please. Located centrally in Dalat, this accommodation puts you close to attractions and a variety of dining options. Don't miss visiting the famous Crazy House before you leave. As an added convenience, there's a restaurant right on the premises to cater to your needs.",
         acreage: 23,
         roomType: "Twin Bedroom",
-        address: "31 Hoang Hoa Tham, Ward 10, Da Lat City, Dalat, Vietnam, 670000",
+        address: "Nguyen Thi Nghia, Da Lat Central, Da Lat City, Vietnam",
         price: [200000, 800000, 500000],
         imgs: [
           '//q-xx.bstatic.com/xdata/images/hotel/max1024x768/258481346.jpg?k=7e58d5cc656239e2d821e634fb9a5d458c9e116dc43fffc56206bd11845f5a3d&o=',

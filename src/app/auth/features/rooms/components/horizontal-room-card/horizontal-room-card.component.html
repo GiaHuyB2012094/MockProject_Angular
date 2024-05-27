@@ -1,0 +1,59 @@
+<div class="room-card">
+  <div class="card-image">
+    <img [src]="img" [alt]="img" />
+  </div>
+
+  <div class="card-info">
+    <div class="card-title">
+      <p>
+        {{ name }}
+      </p>
+      <div class="card-save">
+        <i class="fa-regular fa-heart"></i>
+      </div>
+    </div>
+
+    <span class="branch">
+      <i class="fa-solid fa-location-dot"></i>
+      <span class="name">Branch :{{ branch }}</span>
+    </span>
+
+    <div class="fees">
+      <div class="price-item" *ngFor="let f of payFormat; index as ii">
+        <div class="price-icon">
+          <img [src]="f.img" [alt]="f.img" />
+        </div>
+
+        <div class="price-value">
+          <p>{{ price[ii] | currencyVND }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="desc">
+      <p>{{ desc }}</p>
+    </div>
+
+    <div class="address">
+      <i class="fa-solid fa-building"></i>
+      <p>{{ address }}</p>
+    </div>
+
+    <div class="card-info-bottom">
+      <div class="card-info-convenient-icons">
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-sink"></i>
+        <i class="fa-solid fa-mug-hot"></i><i class="fa-solid fa-headphones"></i
+        ><i class="fa-solid fa-phone-volume"></i>
+      </div>
+      <primary-button
+        size="small"
+        class="btn"
+        [routerLink]="['/room', 'room-detail', id]"
+      >
+        Details
+        <i class="btn-icon fa-regular fa-clipboard"></i>
+      </primary-button>
+    </div>
+  </div>
+</div>

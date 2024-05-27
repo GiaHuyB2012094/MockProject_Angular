@@ -16,12 +16,16 @@
       </div>
 
       <div class="price">
-        <h5>{{ currency }}</h5>
+        <h5>{{ price | currencyVND }}</h5>
       </div>
     </div>
 
     <div class="desc">
       <p>{{ desc }}</p>
+    </div>
+
+    <div class="address">
+      <p>{{ address }}</p>
     </div>
 
     <primary-button

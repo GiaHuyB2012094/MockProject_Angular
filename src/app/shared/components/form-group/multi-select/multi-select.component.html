@@ -1,0 +1,12 @@
+<div class="container">
+  <ul class="items">
+    <li
+      #itemRef
+      class="item"
+      *ngFor="let item of arrItems"
+      (click)="chooseItemHandle(item)"
+    >
+      {{ item }}
+    </li>
+  </ul>
+</div>

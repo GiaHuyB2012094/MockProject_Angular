@@ -9,6 +9,7 @@ import { SelectListModule } from './form-group/select-list/select-list.module';
 import { BreadcrumbModule } from './breadcrumb/breadcrumb.module';
 import { LoaderModule } from './loader/loader.module';
 import { SelectDropdownModule } from './form-group/select-dropdown/select-dropdown.module';
+import { MultiSelectModule } from './form-group/multi-select/multi-select.module';
 
 const SHARED_MODULES: Array<Type<any>> = [
   TextInputGroupModule,
@@ -17,7 +18,8 @@ const SHARED_MODULES: Array<Type<any>> = [
   SelectListModule,
   BreadcrumbModule,
   LoaderModule,
-  SelectDropdownModule
+  SelectDropdownModule,
+  MultiSelectModule,
 ];
 const MODULES: Array<Type<any>> = [CommonModule, FormsModule, RouterModule];
 

@@ -3,6 +3,17 @@
     <i #iconRef class="icon fa-solid fa-magnifying-glass"></i>
   </app-text-input-group>
 
+  <div class="branch">
+    <p class="title">Branch :</p>
+
+    <p class="address-of-branch">{{ choosedAddress }}</p>
+
+    <app-select-dropdown
+      [arrItem]="branch"
+      (newItemEvent)="chooseBranchHandle($event)"
+    ></app-select-dropdown>
+  </div>
+
   <div class="room-type">
     <p class="title">Room Type :</p>
 
@@ -23,12 +34,12 @@
   <div class="price">
     <div class="div-value-price">
       <p class="title">Prices:</p>
-      <p class="value-price">{{ valuePrice | currency }}</p>
+      <p class="value-price">{{ valuePrice | currencyVND }}</p>
     </div>
     <div class="range-price">
       <div class="value-range">
-        <p>{{ minPrice | currency }}</p>
-        <p>{{ maxPrice | currency }}</p>
+        <p>{{ minPrice | currencyVND }}</p>
+        <p>{{ maxPrice | currencyVND }}</p>
       </div>
 
       <input
@@ -37,10 +48,25 @@
         [min]="minPrice"
         [max]="maxPrice"
         [(ngModel)]="valuePrice"
-        step="50000"
+        step="10000"
         class=""
       />
     </div>
+  </div>
+
+  <div class="checkin-date">
+    <p class="title">Check-in Date:</p>
+    <app-text-input-group
+      id="checkin-date"
+      type="Date"
+      [control]="formGroup.controls.checkInDate"
+    >
+    </app-text-input-group>
+  </div>
+
+  <div class="convenients">
+    <p class="title">Convenients :</p>
+    <app-multi-select [arrItems]="convenients"></app-multi-select>
   </div>
 </div>
 <!-- (newItemEvent)="chooseHandle($event)" -->

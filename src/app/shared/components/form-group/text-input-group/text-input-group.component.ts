@@ -59,7 +59,8 @@ export class TextInputGroupComponent implements OnInit, AfterViewChecked {
   checkiconProjectedContentEmpty(): void {
     if (this.iconRef && this.iconRight === false) {
       this.inputRef.nativeElement.style.paddingLeft = '32px'
+    } else if (this.iconRef && this.iconRight) {
+      this.inputRef.nativeElement.style.paddingRight = '32px'
     }
-    // console.log(this.iconRef.nativeElement)
   }
 }

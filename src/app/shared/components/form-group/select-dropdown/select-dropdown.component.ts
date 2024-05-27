@@ -22,13 +22,11 @@ export class SelectDropdownComponent implements OnInit{
     this.newItemEvent.emit(r.value)
 
     this.choosedItem = r;
+
+    this.isOpenDropdown = !this.isOpenDropdown
   }
 
   openOptionsHandle():void{
     this.isOpenDropdown = !this.isOpenDropdown;
   }
-  
-  
-
-
 }

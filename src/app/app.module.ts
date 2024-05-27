@@ -14,14 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CoreModule } from './core/core.module';
 import { RouterModule } from '@angular/router';
 import { ForbiddenModule } from './forbidden/forbidden.module';
-@NgModule({
-  declarations: [
-    AppComponent,
-    AuthLayoutComponent,
-    UnAuthLayoutComponent,
-  ],
-  imports: [
-    CoreModule,
+
+const MODULES = [
+  CoreModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
@@ -31,6 +26,16 @@ import { ForbiddenModule } from './forbidden/forbidden.module';
     HttpClientInMemoryWebApiModule.forRoot(MockData, {delay: 500}),
     BrowserAnimationsModule,
     ForbiddenModule,
+]
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    AuthLayoutComponent,
+    UnAuthLayoutComponent,
+  ],
+  imports: [
+    ...MODULES
   ],
   providers: [],
   bootstrap: [AppComponent]
