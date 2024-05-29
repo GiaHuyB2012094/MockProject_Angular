@@ -15,6 +15,7 @@ export class HorizontalRoomCardComponent {
   @Input() price: number[] = []
   @Input() address: string = ''
   @Input() desc: string = ''
+  @Input() level: string = ''
   // @Input() img:string = ''
   currency: string | 0 = 0
   constructor() {

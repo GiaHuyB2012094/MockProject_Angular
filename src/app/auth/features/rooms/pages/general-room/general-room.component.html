@@ -2,12 +2,14 @@
   <app-breadcrumb [arrBreadcrumbs]="breadcrumbs"></app-breadcrumb>
   <div class="wrapper">
     <div class="box box1">
-      <app-filter-rooms></app-filter-rooms>
+      <app-filter-rooms
+        (newItemEvent)="setFilterOptions($event)"
+      ></app-filter-rooms>
     </div>
     <app-horizontal-room-card-list
       class="box box2"
       *ngIf="!isLoading; else loader"
-      [rooms]="rooms"
+      [rooms]="roomFiltered"
     ></app-horizontal-room-card-list>
   </div>
 </div>

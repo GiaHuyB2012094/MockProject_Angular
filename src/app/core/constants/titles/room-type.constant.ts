@@ -1,6 +1,6 @@
 export const roomType = [
   {
-    value: 'singleBedroom',
+    value: 'Single Bedroom',
     label: 'Single Bedroom',
     price: [
       {
@@ -19,7 +19,7 @@ export const roomType = [
     img: '/assets/images/single-bedroom.png',
   },
     {
-        value: 'doubleBedroom',
+        value: 'Double Bedroom',
         label: 'Double Bedroom',
         price: [
           {
@@ -38,7 +38,7 @@ export const roomType = [
         img: '/assets/images/double-bedroom.svg',
     },
     {
-        value: 'tripleBedroom',
+        value: 'Triple Bedroom',
         label: 'Triple Bedroom',
         price: [
           {
@@ -58,7 +58,7 @@ export const roomType = [
 
       },
       {
-        value: 'twinBedroom',
+        value: 'Twin Bedroom',
         label: 'Twin Bedroom',
         price: [
           {
@@ -99,6 +99,10 @@ export const roomType = [
 
   export const branch = [
     {
+      value: 0,
+      label: 'All Branch',
+    },
+    {
       value: 1,
       label: 'Branch 1',
     },
@@ -114,6 +118,10 @@ export const roomType = [
 
   export const address = [
     {
+      value: 0,
+      label: 'All Branch',
+    },
+    {
       value: 1,
       label: '31 Hoang Hoa Tham, Ward 10, Da Lat City, Dalat, Vietnam',
     },
@@ -127,22 +135,5 @@ export const roomType = [
     },
   ]
 
-  export const convenients = [
-    'Indoor slippers',
-    'Free Wi-Fi in all rooms!',
-    'Luggage storage',
-    'Comfortable bedding',
-    'Balcony/terrace',
-    'Non-smoking',
-    'Hand sanitizer',
-    'Access to Business Lounge',
-    'Parking lot',
-    'Mountain view rooms',
-    'Street view rooms',
-    'Shared bathroom',
-    'Garden view rooms',
-    'Outdoor cooking facilities',
-    'Restaurant',
-    'Laundry service',
-  ]
+  
 

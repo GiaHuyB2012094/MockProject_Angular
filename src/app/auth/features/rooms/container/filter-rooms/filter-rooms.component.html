@@ -1,72 +1,111 @@
 <div class="container">
-  <app-text-input-group id="search" [iconRight]="true">
-    <i #iconRef class="icon fa-solid fa-magnifying-glass"></i>
+  <app-text-input-group
+    id="search"
+    [iconRight]="true"
+    [control]="formGroup.controls.search"
+    (keydown.enter)="searchHandle()"
+  >
+    <i
+      #iconRef
+      class="icon-search icon fa-solid fa-magnifying-glass"
+      (click)="searchHandle()"
+    ></i>
   </app-text-input-group>
 
-  <div class="branch">
-    <p class="title">Branch :</p>
-
-    <p class="address-of-branch">{{ choosedAddress }}</p>
-
-    <app-select-dropdown
-      [arrItem]="branch"
-      (newItemEvent)="chooseBranchHandle($event)"
-    ></app-select-dropdown>
+  <div class="menu-filter-options" (click)="openShowFilterOptionsHandle()">
+    <p>Filter Options</p>
+    <i class="fa-solid fa-arrow-down-wide-short"></i>
   </div>
 
-  <div class="room-type">
-    <p class="title">Room Type :</p>
+  <div class="filter-options" [class.active]="isOpenShowFilterOptions">
+    <div class="date-wrapper">
+      <p class="title">Date:</p>
 
-    <app-select-dropdown
-      [arrItem]="roomType"
-      (newItemEvent)="chooseRoomTypeHandle($event)"
-    ></app-select-dropdown>
-  </div>
-
-  <div class="fees">
-    <p class="title">Prices Format:</p>
-    <app-select-dropdown
-      [arrItem]="payFormat"
-      (newItemEvent)="choosePriceFormatHandle($event)"
-    ></app-select-dropdown>
-  </div>
-
-  <div class="price">
-    <div class="div-value-price">
-      <p class="title">Prices:</p>
-      <p class="value-price">{{ valuePrice | currencyVND }}</p>
-    </div>
-    <div class="range-price">
-      <div class="value-range">
-        <p>{{ minPrice | currencyVND }}</p>
-        <p>{{ maxPrice | currencyVND }}</p>
+      <div class="date">
+        <app-text-input-group
+          id="checkin-date"
+          type="Date"
+          class="date-input"
+          [control]="formGroup.controls.checkInDate"
+        >
+        </app-text-input-group>
+        <i class="fa-solid fa-angles-right"></i>
+        <app-text-input-group
+          id="checkout-date"
+          type="Date"
+          class="date-input"
+          [control]="formGroup.controls.checkOutDate"
+        >
+        </app-text-input-group>
       </div>
-
-      <input
-        type="range"
-        id="price-range-slider"
-        [min]="minPrice"
-        [max]="maxPrice"
-        [(ngModel)]="valuePrice"
-        step="10000"
-        class=""
-      />
     </div>
+
+    <div class="branch">
+      <p class="title">Branch :</p>
+
+      <p class="address-of-branch">{{ choosedAddress }}</p>
+
+      <app-select-dropdown
+        [arrItem]="branch"
+        (newItemEvent)="chooseBranchHandle($event)"
+      ></app-select-dropdown>
+    </div>
+
+    <div class="room-type">
+      <p class="title">Room Type :</p>
+
+      <app-select-dropdown
+        [arrItem]="roomType"
+        (newItemEvent)="chooseRoomTypeHandle($event)"
+      ></app-select-dropdown>
+    </div>
+
+    <div class="fees">
+      <p class="title">Prices Format:</p>
+      <app-select-dropdown
+        [arrItem]="payFormat"
+        (newItemEvent)="choosePriceFormatHandle($event)"
+      ></app-select-dropdown>
+    </div>
+
+    <div class="price">
+      <div class="div-value-price">
+        <p class="title">Prices:</p>
+        <p class="value-price">{{ valuePrice | currencyVND }}</p>
+      </div>
+      <div class="range-price">
+        <div class="value-range">
+          <p>{{ minPrice | currencyVND }}</p>
+          <p>{{ maxPrice | currencyVND }}</p>
+        </div>
+
+        <input
+          type="range"
+          id="price-range-slider"
+          [min]="minPrice"
+          [max]="maxPrice"
+          [(ngModel)]="valuePrice"
+          step="10000"
+          class=""
+        />
+      </div>
+    </div>
+
+    <div class="convenients">
+      <p class="title">Convenients :</p>
+      <app-multi-select
+        [arrItems]="convenients"
+        (newItemEvent)="chooseConveniencesHandle($event)"
+      ></app-multi-select>
+    </div>
+    <primary-button class="btn-filter" (click)="filterOptionsHandle()">
+      <i class="btn-icon fa-solid fa-filter"></i>
+      Filter
+    </primary-button>
   </div>
 
-  <div class="checkin-date">
-    <p class="title">Check-in Date:</p>
-    <app-text-input-group
-      id="checkin-date"
-      type="Date"
-      [control]="formGroup.controls.checkInDate"
-    >
-    </app-text-input-group>
-  </div>
-
-  <div class="convenients">
-    <p class="title">Convenients :</p>
-    <app-multi-select [arrItems]="convenients"></app-multi-select>
-  </div>
+  <!-- <app-cancel-buttons class="btn-filter" (click)="clearFilterOptionsHandle()">
+    <i class="btn-icon fa-solid fa-broom"></i>
+    Clear Filter</app-cancel-buttons
+  > -->
 </div>
-<!-- (newItemEvent)="chooseHandle($event)" -->

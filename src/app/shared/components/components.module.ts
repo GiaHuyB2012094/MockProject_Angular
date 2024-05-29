@@ -3,23 +3,26 @@ import { NgModule, Type } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TextInputGroupModule } from './form-group/text-input-group/text-input-group.module';
-import { ButtonModule } from './button/button.module';
+import { ButtonModule } from './buttons/button/button.module';
 import { ToastModule } from './toast/toast.module';
 import { SelectListModule } from './form-group/select-list/select-list.module';
 import { BreadcrumbModule } from './breadcrumb/breadcrumb.module';
 import { LoaderModule } from './loader/loader.module';
 import { SelectDropdownModule } from './form-group/select-dropdown/select-dropdown.module';
 import { MultiSelectModule } from './form-group/multi-select/multi-select.module';
+import { CancelButtonsModule } from './buttons/cancel-buttons/cancel-buttons.module';
 
 const SHARED_MODULES: Array<Type<any>> = [
   TextInputGroupModule,
   ButtonModule,
+  CancelButtonsModule,
   ToastModule,
   SelectListModule,
   BreadcrumbModule,
   LoaderModule,
   SelectDropdownModule,
   MultiSelectModule,
+  
 ];
 const MODULES: Array<Type<any>> = [CommonModule, FormsModule, RouterModule];
 

@@ -1,47 +1,106 @@
 @import "src/app.constants.scss";
 .container{
+    position: sticky;
+    top: 100px;
+    width: 100%;
+    .menu-filter-options{
+        display: none;
+        
+        justify-content: space-between;
+        margin: 4px 0px;
+        background-color: #eceaea;
+        padding: 8px 20px;
+
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 18px;
+        &:hover{
+            background-color: #cfcfcf;
+        }
+    }
+    .filter-options{
+        
+        .branch{
+            .address-of-branch{
+                font-size: small;
+                background-color: $sub-overlay-primary-color;
+                padding: 6px 12px;
+                margin-bottom: 12px;
+            }
+        }
+        .price{
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+            .range-price{
+                
+                input{
+                    accent-color: $primary-color;  
+                    width: 100%;
+                }
+    
+                column-gap: 8px;
+                .value-range{
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+            .div-value-price{
+                margin-top: 6px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .value-price{
+                    padding: 5px 30px;
+                    border-radius: 5px;
+                    margin: 2px;
+                    border: 1px solid #cfcfcf;
+                }
+            }
+        }
+        .date-wrapper{
+            .date{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                column-gap: 6px;
+                .date-input{
+                    width: 100%;
+                }
+            }
+        }
+        .btn-filter{
+            margin-top: 10px;
+        }
+    }
+    .icon-search{
+        cursor: pointer;
+        padding: 2px;
+    }
     .title{
         font-size: 14px;
         font-weight: 600;
         // padding: 0px 4px;
         padding: 8px 0;
     }
-    .branch{
-        .address-of-branch{
-            font-size: small;
-            background-color: $sub-overlay-primary-color;
+    @media (max-width: 1200px) {
+        .menu-filter-options{
+            display: flex;
+        }
+        .filter-options{
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
             padding: 6px 12px;
-            margin-bottom: 12px;
-        }
-    }
-    .price{
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        .range-price{
-            
-            input{
-                accent-color: $primary-color;  
-                width: 100%;
-            }
-
-            column-gap: 8px;
-            .value-range{
-                display: flex;
-                justify-content: space-between;
+            transition: all .5s ease;
+            opacity: 0;
+            visibility: hidden;
+            height: 0;
+            &.active{
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+                height: 100%;
             }
         }
-        .div-value-price{
-            margin-top: 6px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            .value-price{
-                padding: 5px 30px;
-                border-radius: 5px;
-                margin: 2px;
-                border: 1px solid #cfcfcf;
-            }
-        }
+        
     }
 }

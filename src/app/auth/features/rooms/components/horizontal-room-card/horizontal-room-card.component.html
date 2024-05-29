@@ -1,6 +1,10 @@
 <div class="room-card">
   <div class="card-image">
     <img [src]="img" [alt]="img" />
+
+    <div class="level-box">
+      <div *ngIf="level === 'Deluxe'" class="box1">Deluxe</div>
+    </div>
   </div>
 
   <div class="card-info">

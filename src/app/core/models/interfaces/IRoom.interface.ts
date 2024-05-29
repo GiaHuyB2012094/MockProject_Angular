@@ -7,6 +7,7 @@ export interface IRoom {
     roomType: string;
     maxcount: number;
     address: string;
+    level: string;
     
     price: Array<number>;
     imgs: Array<string>;

@@ -8,8 +8,6 @@ import { IRoom } from 'src/app/core/models/interfaces/IRoom.interface';
 })
 export class HorizontalRoomCardListComponent implements OnInit{
   @Input() rooms!: IRoom[];
-
   ngOnInit(): void {
-    console.log(this.rooms);
   }
 }
