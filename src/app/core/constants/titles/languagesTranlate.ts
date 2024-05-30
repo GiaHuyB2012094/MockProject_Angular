@@ -1,12 +1,12 @@
 export const languages = [
   {
-    value: 'vietnamese',
-    label: 'Việt Nam',
-    img: '/assets/images/vietnam_flat.png',
-  },
-  {
-    value: 'english',
+    value: 'en',
     label: 'English',
     img: '/assets/images/england_flat.png',
+  },
+  {
+    value: 'vi',
+    label: 'Việt Nam',
+    img: '/assets/images/vietnam_flat.png',
   },
 ];

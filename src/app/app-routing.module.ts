@@ -5,16 +5,6 @@ import { AuthLayoutComponent } from "./core/layouts/auth-layout/auth-layout.comp
 import { ForbiddenComponent } from "./forbidden/forbidden.component";
 
 const routes : Routes = [
-    // {
-    //     path: '',
-    //     component: UnAuthLayoutComponent,
-    //     children: [
-    //         {
-    //           path: '',
-    //           loadChildren: () => import('./unauthorized/unauthorized.module').then(m => m.UnauthorizedModule),
-    //         },
-    //       ],
-    // },
     { path: '', redirectTo: 'home', pathMatch: 'full'},
     {
       path: '',

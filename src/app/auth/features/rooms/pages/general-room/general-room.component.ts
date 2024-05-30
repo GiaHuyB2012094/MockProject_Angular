@@ -32,7 +32,6 @@ export class GeneralRoomComponent implements OnInit, AfterViewChecked {
   }
   ngAfterViewChecked(): void {
     this.updateRoomFiltered()
-    console.log(this.filterOptions)
   }
   
   getRooms(): void {
@@ -95,7 +94,7 @@ export class GeneralRoomComponent implements OnInit, AfterViewChecked {
     }
     return true;
   }
-// co van de` o cho nay`
+  
   checkRoomPrice(p: Array<number>): boolean{
     return p[this.filterOptions.priceFormat] > this.filterOptions.price;
   }

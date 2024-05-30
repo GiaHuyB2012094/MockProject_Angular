@@ -1,15 +1,35 @@
+// light-mode
 $primary-color: #0ea5e9;
-$sub-color: #14b8a6;
-$white-color: #fff;
-$sub-white-color: #eef0f1;
+$text-color: #082f49;
+$overlay-primary-color: #bae6fd;
+$sub-overlay-primary-color: #e0f2fe;
+// dark-mode
+$dark-primary-color: #082f49;
+$dark-text-color: #fff;
+$dark-overlay-primary-color: #184766;
+$dark-sub-overlay-primary-color: #6a92ac;
+
+// mixin that enables css variables in light mode
+@mixin lighten() {
+    --bgColor: #{$primary-color};
+    --textColor: #{$text-color};
+  }
+  
+// mixin that enables css variables in dark mode
+@mixin darken() {
+    --bgColor: #{$dark-primary-color};
+    --textColor: #{$dark-text-color};
+}
+
+// 
 $info-color: #3b82f6;
+$white-color: #fff;
+$sub-color: #14b8a6;
+$sub-white-color: #eef0f1;
 $errors-color: #f43f5e;
 $warning-color: #facc15;
 $success-color: #10b981;
-$text-color: #082f49;
-$overlay-primary-color: #bae6fd;
 $disabled-color: #94a3b8;
-$sub-overlay-primary-color: #e0f2fe;
 $gray-color:#94a3b8;
 $width-account-navbar: 550px;
 
@@ -17,7 +37,5 @@ $small-text-size: 12px;
 $text-size: 18px;
 $icon-size: 22px;
 $menuHeight: 50px;
-
 $menuBreakpoint: 768px;
-
 $header-height: 40px;

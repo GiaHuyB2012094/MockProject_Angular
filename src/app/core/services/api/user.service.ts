@@ -4,6 +4,8 @@ import { IUser } from '../../models/interfaces/IUser.interface';
 import { Observable, map } from 'rxjs';
 import { LoginDTO } from '../../models/dto/auth.dto';
 import { SignupDTO } from '../../models/dto/user.dto';
+import { Store } from '@ngxs/store';
+import { UserActions } from '../../store/actions/user.actions';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +13,10 @@ import { SignupDTO } from '../../models/dto/user.dto';
 export class UserService {
   baseUrl = '/api/users';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private store: Store,
+  ) {}
 
   private setUserToLocalStorage(user: any){
     localStorage.setItem('currentUser', JSON.stringify(user))
@@ -31,12 +36,11 @@ export class UserService {
               map(users => {
                 const user = users.find((u: LoginDTO) => u.email === dto.email && u.password === dto.password); 
                 if (user) {
-                  const result = Object.fromEntries(Object.entries(user).filter(([k]) => k !== 'password'));
+                  const result:any = Object.fromEntries(Object.entries(user).filter(([k]) => k !== 'password'));
                   this.setUserToLocalStorage(result);
-                  console.log('Login successful for', user.username);
+                  this.store.dispatch(new UserActions.RegisterLoggedInUser(result))
                   return true;
                 } else {
-                  console.log('Login failed');
                   return false;
                 }
               }) 
