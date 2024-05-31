@@ -1,6 +1,6 @@
 // light-mode
-$primary-color: #0ea5e9;
-$text-color: #082f49;
+// var(--primary-color): #0ea5e9;
+// var(--text-primary): #082f49;
 $overlay-primary-color: #bae6fd;
 $sub-overlay-primary-color: #e0f2fe;
 // dark-mode
@@ -9,17 +9,7 @@ $dark-text-color: #fff;
 $dark-overlay-primary-color: #184766;
 $dark-sub-overlay-primary-color: #6a92ac;
 
-// mixin that enables css variables in light mode
-@mixin lighten() {
-    --bgColor: #{$primary-color};
-    --textColor: #{$text-color};
-  }
-  
-// mixin that enables css variables in dark mode
-@mixin darken() {
-    --bgColor: #{$dark-primary-color};
-    --textColor: #{$dark-text-color};
-}
+
 
 // 
 $info-color: #3b82f6;

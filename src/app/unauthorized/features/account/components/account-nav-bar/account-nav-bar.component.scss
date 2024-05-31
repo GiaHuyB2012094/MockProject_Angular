@@ -26,13 +26,13 @@
     border-bottom: 4px solid $white-color;
     
     &:hover{
-        border-bottom: 4px solid $primary-color;
+        border-bottom: 4px solid var(--primary-color);
         background-color: #ebf7fd;
-        border-right: 1px solid $primary-color;
-        border-left: 1px solid $primary-color;
+        border-right: 1px solid var(--primary-color);
+        border-left: 1px solid var(--primary-color);
     }
     &.active{
-        border-bottom: 4px solid $primary-color;
+        border-bottom: 4px solid var(--primary-color);
         background-color: #ebf7fd;
     }
 }

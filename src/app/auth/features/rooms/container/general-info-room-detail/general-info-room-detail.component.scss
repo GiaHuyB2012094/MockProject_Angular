@@ -6,12 +6,12 @@
     justify-content: space-around;
     // align-items: center;
     .room-name{
-        color: $primary-color;
+        color: var(--title-primary);
         padding-bottom: 4px;
     }
     
     .room-branch{
-        color: $gray-color;
+        color: var(--text-secondary);
         padding-bottom: 8px;
         border-bottom: 1px solid $gray-color;
     }

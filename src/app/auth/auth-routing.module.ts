@@ -14,7 +14,8 @@ const routes: Routes = [
       {
         path: 'room',
         loadChildren: () => import('./features/rooms/rooms.module').then(m => m.RoomsModule),
-      }
+      },
+      
     ],
   }
 ];

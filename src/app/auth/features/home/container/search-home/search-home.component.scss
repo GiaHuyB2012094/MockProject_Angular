@@ -2,14 +2,14 @@
 .container {
   position: relative;
   padding: 2rem;
-  background-color: $white-color;
+  background-color: var(--bg-secondary);
   border-radius: 10px;
   gap: 1rem;
   margin: 0 30px;
   display: grid;
   label {
     display: block;
-    color: $text-color;
+    color: var(--text-primary);
     padding-bottom: 10px;
     font-size: 13px;
     font-weight: 500;
@@ -20,7 +20,7 @@
     justify-content: space-between;
     align-items: center;
     .total {
-      color: $text-color;
+      color: var(--text-primary);
       font-size: 18px;
       padding-bottom: 10px;
     }
@@ -31,7 +31,7 @@
     align-items: center;
     height: 40px;
     padding: 0 1rem;
-    background-color: #e4e4e4;
+    background-color: var(--bg-primary);
     border-radius: 3rem;
 
     input {
@@ -40,26 +40,28 @@
       outline: none;
       width: 100%;
       font-size: 13px;
-      font-weight: 500;
+        color: var(--text-primary);
+        font-weight: 500;
       &::placeholder {
         font-size: 13px;
+        color: var(--text-primary);
       }
     }
     .icon {
       font-size: 18px;
-      color: $text-color o !important;
+      color: var(--text-primary)  !important;
       margin-left: 10px;
     }
 
     .input[type="range"] {
-      background: $primary-color;
+      background: var(--primary-color);
     }
   }
 
   .search-Options {
     position: absolute;
     display: flex;
-    background: $primary-color;
+    background: var(--primary-color);
     width: max-content;
     bottom: -0.9rem;
     column-gap: 0.8rem;
@@ -73,7 +75,7 @@
     cursor: pointer;
 
     &:hover {
-      background: $overlay-primary-color;
+      background: var(--sub-overlay-color);
     }
   }
   @media screen and (min-width: 500px) {

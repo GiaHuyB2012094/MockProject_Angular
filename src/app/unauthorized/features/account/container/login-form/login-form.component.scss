@@ -27,13 +27,13 @@
     align-items: center;
     row-gap: 6px;
     h1 {
-      color: $primary-color;
+      color: var(--primary-color);
       padding: 4px 0px;
     }
     p {
       padding: 5px;
       font-size: $small-text-size;
-      color: $text-color;
+      color: var(--text-primary);
       border-radius: 0.375rem;
       background-color: $overlay-primary-color;
     }
@@ -52,7 +52,7 @@ cursor: pointer;
 .sign-up-text{
  text-align: center;
  span{
-  color: $primary-color
+  color: var(--primary-color)
  }
 }
 .login-google-btn{

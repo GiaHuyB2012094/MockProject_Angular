@@ -21,6 +21,9 @@ import { UserState } from './core/store/states/user.state';
 import { LangState } from './core/store/states/language.state';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ThemeModule } from './Theme/theme.module';
+import { lightTheme } from './Theme/light.theme';
+import { darkTheme } from './Theme/dark.theme';
 // import { TranslationModule } from './translation/translation.module';
 
 
@@ -58,6 +61,11 @@ const MODULES = [
         deps: [HttpClient]
       }
     }),
+
+    ThemeModule.forRoot({
+      themes: [lightTheme, darkTheme],
+      active: 'light'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

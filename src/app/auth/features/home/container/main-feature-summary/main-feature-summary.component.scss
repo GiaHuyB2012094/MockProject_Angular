@@ -2,13 +2,15 @@
 .container {
   padding: 2rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  background-color: #fff;
+  background-color: var(--bg-primary);
   display: flex;
   font-size: $text-size;
   .left {
     width: 50%;
+    color: var(--text-primary);
+
     .title {
-      color: $primary-color;
+
     }
     .body {
       width: 100%;
@@ -28,13 +30,13 @@
         }
 
         .feature-content {
-          color: #333;
+          color: var(--text-primary);
           padding: 0 1rem;
           margin: 0 2rem;
         }
 
         &:hover {
-          background-color: $sub-overlay-primary-color;
+          background-color: var(--sub-overlay-color);
           // padding: 2.5rem;
           cursor: pointer;
           box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

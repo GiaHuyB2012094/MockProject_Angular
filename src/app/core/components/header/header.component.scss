@@ -12,8 +12,8 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: $white-color;
-    // border-bottom: 1px solid #eee;
+    background: var(--bg-primary);
+
 
     @media (max-width: 880px) {
       justify-content: space-between;
@@ -30,10 +30,10 @@
 
   .burger {
     padding: 0 10px;
-    border-right: 1px solid #eee;
+    border-right: 1px solid var(--btn-primary);
     display: none;
     cursor: pointer;
-    color: $primary-color;
+    color: var(--btn-primary);
     font-size: 25px;
     width: 30px;
     i {
@@ -58,10 +58,10 @@
       display: flex;
       align-items: center;
       column-gap: 6px;
-      color: $text-color;
+      color: var(--text-primary);
       cursor: pointer;
       &:hover {
-        color: $primary-color;
+        color: var(--text-hover);
       }
     }
 
@@ -72,21 +72,23 @@
       left: -100%;
       padding: 0px;
       width: 45%;
-      bottom: 0;
+      bottom: 1px;
       transition: 0.6s ease-out;
-      background: $white-color;
+      background: var(--bg-secondary);
       box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
       &.is-open {
         left: 0;
+        top: 74px;
+        bottom: 0px;
         .menu-item,
         .menu-change-language-wrapper {
-          border-bottom: 1px solid #d3d3d3;
+          border-bottom: 1px solid var(--bg-secondary);
           padding-left: 10px;
           column-gap: 10px;
+          color: var(--text-primary);
           &:hover {
-            background-color: $sub-overlay-primary-color;
-            border-right: 3px solid $primary-color;
-            color: $text-color;
+            background-color: var(--sub-overlay-color);
+            border-right: 5px solid var(--btn-primary);
             font-weight: 500;
           }
         }
@@ -96,7 +98,7 @@
 
   .user-info {
     display: flex;
-    row-gap: 6px;
+    gap: 6px;
     align-items: center;
     padding: 0 10px;
     .menu-user {
@@ -124,7 +126,7 @@
           }
           &:hover {
             transition: ease-out 0.2s;
-            border: 2px solid $primary-color;
+            border: 2px solid var(--primary-color);
           }
         }
         p {
@@ -162,7 +164,7 @@
           border-radius: 10px;
           width: 88%;
           &:hover {
-            background-color: $sub-overlay-primary-color;
+            background-color: var(--sub-overlay-color);
           }
         }
       }
@@ -186,10 +188,10 @@
   padding: 0px 4px;
   margin-right: 10px;
   .current-language {
-    background-color: $white-color;
     box-shadow: 0 3px 24px #252e4833;
     border-radius: 10px;
-    padding: 8px;
+  background-color: white;
+  padding: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -224,11 +226,12 @@
     display: none;
   }
 }
+
 .choose-language {
   position: absolute;
-  background-color: $white-color;
   box-shadow: 0 3px 24px #252e4833;
   border-radius: 10px;
+  background-color: white;
   opacity: 0;
   right: 0;
   top: 40px;
@@ -240,9 +243,10 @@
   .lang-item {
     padding: 7px 10px;
     column-gap: 8px;
+    border-radius: 10px;
 
     &:hover {
-      background-color: $sub-overlay-primary-color;
+      background-color: var(--sub-overlay-color);
     }
   }
 }
@@ -284,8 +288,9 @@
     padding: 10px;
   }
 }
+
 .menu-choose-language {
-  background-color: #edebeb;
+  background-color: var(--card-color);
   opacity: 0;
   display: none;
   visibility: hidden;
@@ -295,11 +300,11 @@
     display: flex;
     align-items: center;
     column-gap: 4px;
+    color: var(--text-primary);
 
     &:hover {
-      background-color: $sub-overlay-primary-color;
-      border-right: 3px solid $primary-color;
-      color: $text-color;
+      background-color: var(--sub-overlay-color);
+      border-right: 3px solid var(--primary-color);
       font-weight: 500;
     }
   }

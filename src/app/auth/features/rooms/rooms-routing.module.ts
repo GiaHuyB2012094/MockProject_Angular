@@ -15,6 +15,11 @@ const routes: Routes = [
         path: 'general-rooms',
         loadChildren: () => import('./pages/general-room/general-room.module').then(m => m.GeneralRoomModule),
       }
+      ,
+      {
+        path: 'booking/:id',
+        loadChildren: () => import('./pages/booking/booking.module').then(m => m.BookingModule),
+      }
     ],
   },
 ];

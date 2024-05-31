@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IRoom } from 'src/app/core/models/interfaces/IRoom.interface';
 
 @Component({
@@ -8,4 +9,13 @@ import { IRoom } from 'src/app/core/models/interfaces/IRoom.interface';
 })
 export class GeneralInfoRoomDetailComponent {
   @Input() room!: IRoom;
+  constructor(
+    private activeRoute: ActivatedRoute,
+    private router: Router,
+  ){}
+
+  bookingHandle(): void{
+    this.activeRoute.paramMap 
+      .subscribe(params => this.router.navigate(['room','booking',Number(params.get('id'))]))
+  }
 }

@@ -6,6 +6,7 @@ import { languages } from '../../constants/titles/languagesTranlate';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from '../../services/toast.service';
 import { TOAST_STATE } from '../../constants/toast.constant';
+import { ThemeService } from 'src/app/Theme/theme.service';
 
 export interface Language {
   value: string;
@@ -34,11 +35,12 @@ export class HeaderComponent implements OnInit {
     option: new FormControl('defaultValue', Validators.required),
   });
 
-  username: string = '';
+      username: string = '';
   constructor(
     private userService: UserService,
     private router: Router,
     private toast: ToastService,
+    private themeService: ThemeService
   ) {}
 
   ngOnInit(): void {
@@ -75,4 +77,18 @@ export class HeaderComponent implements OnInit {
       this.toast.dismissToast();
     }, 2000);
   }
+
+  changeThemeModeHandle(e: boolean){
+    console.log(e)
+    console.log(this.themeService.getActiveTheme())
+    const active = this.themeService.getActiveTheme() ;
+      console.log(active.name)
+      if (e === true) {
+        this.themeService.setTheme('dark');
+      } else if (e === false) {
+        this.themeService.setTheme('light');
+      }
+    console.log(this.themeService.getActiveTheme())
+  }
+  
 }

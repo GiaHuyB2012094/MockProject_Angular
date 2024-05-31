@@ -5,15 +5,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--bg-primary);
+  
   .home-bg {
     position: relative;
     width: 85%;
+
     border-radius: 50px;
     background: center no-repeat url("/assets/gif/home.gif");
     background-size: cover;
     object-fit: cover;
     height: 80vh;
-    margin-bottom: 30px;
+    margin: 30px 0;
   }
   .search {
     width: 100%;
@@ -37,32 +40,22 @@
     @media (max-width: 659px) {
       top: 15%;
     }
-    // @media screen and (min-width: 660px) {
-    //     h1{
-    //         margin-bottom: 30% !important;
-    //     }
-
-    // }
-    // @media screen and (min-width: 1240px) {
-    //     h1{
-    //         margin-bottom: 20%;
-    //     }
-    // }
+    
   }
 
   .rooms-list {
-    background-color: $sub-white-color;
+    background-color: var(--bg-secondary);
     padding: 1rem 2rem;
     .title {
       position: relative;
       width: max-content;
-      color: $text-color;
+      color: var(--text-primary);
       margin: 1rem 0;
       z-index: 2;
       &::after {
         content: "";
         position: absolute;
-        background: $primary-color;
+        background: var(--primary-color);
         height: 5px;
         width: 220px;
         right: 0;
@@ -74,7 +67,7 @@
         &::after {
           content: "";
           position: absolute;
-          background: $primary-color;
+          background: var(--primary-color);
           height: 5px;
           width: 190px;
           right: 0;

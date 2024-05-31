@@ -8,16 +8,16 @@
     row-gap: 1em;
 
     .box{
-        background-color: $white-color;
+        background-color: var(--box-color);
         border-radius: 5px;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         padding: 1em;
     }
     .box1,.box2{
     }
     .box3,.box8{
 	    grid-column: span 4 / span 4;
-        
     }
     .box4, .box6, .box7,.box1{
 	    grid-column: span 3 / span 3;
@@ -33,7 +33,7 @@
         align-items: center;
         justify-content: space-between;
         .room-name{
-            color: $primary-color
+            color: var(--title-primary)
         }
         .room-price{
             color: $sub-color
@@ -43,6 +43,7 @@
         display: flex;
         align-items: center;
         column-gap: 20px;
+        color: var(--text-primary);
         .advertisement{
             p{
                 span{

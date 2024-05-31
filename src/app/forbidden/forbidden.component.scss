@@ -168,7 +168,7 @@ $white: white;
     margin-top: 4rem;
     padding: 1.2rem 3rem;
     color: $white;
-    background-color: $primary-color;
+    background-color: var(--primary-color);
     cursor: pointer;
     &:hover {
       background-color: $info-color;
@@ -184,5 +184,5 @@ $white: white;
   }
   
   .byLink {
-    color: $primary-color;
+    color: var(--primary-color);
   }

@@ -11,6 +11,7 @@ import { LoaderModule } from './loader/loader.module';
 import { SelectDropdownModule } from './form-group/select-dropdown/select-dropdown.module';
 import { MultiSelectModule } from './form-group/multi-select/multi-select.module';
 import { CancelButtonsModule } from './buttons/cancel-buttons/cancel-buttons.module';
+import { SwitchThemeModeModule } from './buttons/switch-dark-light-mode/switch-theme-mode/switch-theme-mode.module';
 
 const SHARED_MODULES: Array<Type<any>> = [
   TextInputGroupModule,
@@ -22,7 +23,7 @@ const SHARED_MODULES: Array<Type<any>> = [
   LoaderModule,
   SelectDropdownModule,
   MultiSelectModule,
-  
+  SwitchThemeModeModule,
 ];
 const MODULES: Array<Type<any>> = [CommonModule, FormsModule, RouterModule];
 
