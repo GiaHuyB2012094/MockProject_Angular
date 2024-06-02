@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit {
   langChoose = languages[0];
 
   isOpenLanguageOption = false;
+  currentUser: any;
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -35,7 +36,6 @@ export class HeaderComponent implements OnInit {
     option: new FormControl('defaultValue', Validators.required),
   });
 
-      username: string = '';
   constructor(
     private userService: UserService,
     private router: Router,
@@ -44,13 +44,12 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.username = this.getCurrentUsername();
+    this.getCurrentUser();
     this.isLoggedIn = this.userService.isLoggedIn();
   }
 
-  getCurrentUsername() {
-    const user = this.userService.getCurrentUser();
-    return user.username;
+  getCurrentUser() {
+    this.currentUser = this.userService.getCurrentUser();
   }
 
   navigateToLogin() {
@@ -68,7 +67,7 @@ export class HeaderComponent implements OnInit {
     this.navigateToLogin();
   }
 
-  goToHome(){
+  goToHome() {
     this.router.navigate(['home']);
   }
 
@@ -78,17 +77,16 @@ export class HeaderComponent implements OnInit {
     }, 2000);
   }
 
-  changeThemeModeHandle(e: boolean){
-    console.log(e)
-    console.log(this.themeService.getActiveTheme())
-    const active = this.themeService.getActiveTheme() ;
-      console.log(active.name)
-      if (e === true) {
-        this.themeService.setTheme('dark');
-      } else if (e === false) {
-        this.themeService.setTheme('light');
-      }
-    console.log(this.themeService.getActiveTheme())
+  changeThemeModeHandle(e: boolean) {
+    console.log(e);
+    console.log(this.themeService.getActiveTheme());
+    const active = this.themeService.getActiveTheme();
+    console.log(active.name);
+    if (e === true) {
+      this.themeService.setTheme('dark');
+    } else if (e === false) {
+      this.themeService.setTheme('light');
+    }
+    console.log(this.themeService.getActiveTheme());
   }
-  
 }

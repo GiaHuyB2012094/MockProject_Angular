@@ -1,0 +1,114 @@
+.container {
+  .title {
+    display: flex;
+    gap: 6px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 0.5rem;
+    color: #fff;
+    background-image: linear-gradient(
+      137deg,
+      rgb(26, 47, 120) 0%,
+      rgb(24, 112, 201) 46.1%,
+      rgb(81, 149, 227) 96.84%
+    );
+    img {
+      width: 34px;
+      height: 34px;
+    }
+    p {
+      font-weight: 600;
+      span {
+        color: #fbbf24;
+      }
+    }
+  }
+
+  .room-detail-info-booking {
+    background-color: var(--box-color);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .title-room {
+      padding: 1rem 1rem 0 1rem;
+      .hotel {
+        display: flex;
+        justify-content: space-between;
+        .hotel-name {
+          color: var(--primary-color);
+          font-weight: bold;
+        }
+      }
+    }
+    .room-img {
+      img {
+        width: 100%;
+        height: 200px;
+      }
+    }
+
+    .room-checkin-and-checkout {
+      padding: 1rem 3rem 0 3rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+
+      .checkin,
+      .checkout {
+        border-radius: 12px;
+        border: 2px solid var(--divider-primary);
+        padding: 12px 20px;
+        p {
+          color: var(--text-secondary);
+          padding: 4px 0px;
+        }
+      }
+      .relation-checkin-and-checkout {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+    }
+
+    .room-type {
+      padding: 0 1rem;
+      color: var(--text-primary);
+      span {
+        color: #eab308;
+      }
+    }
+    .room-conveniences {
+      padding: 0 1rem;
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 10px 0px;
+
+        li {
+          padding: 4px 10px;
+          border-radius: 6px;
+          background-color: var(--primary-color);
+        }
+      }
+    }
+    .room-price-total {
+      padding: 1rem 0;
+      border-top: 1px solid var(--divider-primary);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .price-content {
+        padding: 0 1rem;
+        .price-total {
+          display: flex;
+          justify-content: space-between;
+          .final-price {
+            color: orangered;
+          }
+        }
+      }
+    }
+  }
+}

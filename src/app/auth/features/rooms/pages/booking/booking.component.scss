@@ -1,0 +1,99 @@
+.booking-title {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: var(--text-primary);
+  p {
+    color: var(--text-disabled);
+  }
+}
+.booking-main {
+  display: grid;
+  margin: 20px 0px;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  gap: 20px;
+
+  color: var(--text-primary);
+  .booking-left-box {
+    grid-column: span 2 / span 2;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .booking-right-box {
+    grid-column: span 1 / span 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+}
+.box {
+  background-color: var(--box-color);
+  border-radius: 5px;
+  // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1em;
+}
+
+.box-intro {
+  border-top-left-radius: 50px;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .box-top-intro {
+    display: flex;
+    column-gap: 20px;
+    .user-avatar {
+      line-height: 0;
+      display: inline-block;
+      border: 2px solid var(--sub-overlay-color);
+      border-radius: 50%;
+      transition: linear 0.25s;
+
+      img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+      }
+      &:hover {
+        transition: ease-out 0.2s;
+        border: 2px solid var(--primary-color);
+      }
+    }
+    .box-title-top-intro {
+      color: var(--text-primary);
+      .user-name {
+        font-weight: bold;
+        color: var(--primary-color);
+        text-transform: capitalize;
+      }
+    }
+  }
+  .box-bottom-intro {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: var(--bg-secondary);
+    .box-child-bottom-intro {
+      display: flex;
+      border: 1px solid var(--divider-primary);
+      padding: 4px 10px;
+      border-radius: 5px;
+      .title-intro {
+        padding: 5px 10px;
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+.box-room-detail-info-booking {
+  background-color: var(--box-color);
+  border-radius: 10px;
+  // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 0;
+}

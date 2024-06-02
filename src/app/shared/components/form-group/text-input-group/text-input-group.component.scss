@@ -1,6 +1,10 @@
 @import "src/app.constants.scss";
-
+.container {
+  width: 100%;
+}
 .input-control {
+  width: 100%;
+
   .input-title {
     text-transform: capitalize;
   }
@@ -29,15 +33,15 @@
       right: 2%;
       top: 30%;
     }
-    .input-icon{
-        position: absolute;
-        z-index: 10;
-        left: 2%;
-        top: 30%;
-        &.active{
-          // right: 2%;
-          left: 90%;
-        }
+    .input-icon {
+      position: absolute;
+      z-index: 10;
+      left: 2%;
+      top: 30%;
+      &.active {
+        // right: 2%;
+        left: 90%;
+      }
     }
   }
 }

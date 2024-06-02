@@ -99,9 +99,9 @@
       <div class="menu-user">
         <div class="user-name">
           <div class="user-avatar">
-            <img src="/assets/images/img-bg.jpg" />
+            <img [src]="currentUser.avatar" alt="user-avatar" />
           </div>
-          <p>{{ username }}</p>
+          <p>{{ currentUser.username }}</p>
           <div class="nav-item-caret">
             <i class="fa-solid fa-caret-down"></i>
           </div>

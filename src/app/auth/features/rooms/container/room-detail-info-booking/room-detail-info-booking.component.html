@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="title">
+    <img src="/assets/images/clock.svg" alt="clock-cion" />
+    <p>
+      Stop for about 2 seconds! There is only <span>1 room</span> left at this
+      lowest price!
+    </p>
+  </div>
+  <div class="room-detail-info-booking">
+    <!-- room title -->
+    <div class="title-room">
+      <h4>{{ room.name }}</h4>
+      <div class="hotel">
+        <p class="hotel-name">DHouse Dalat</p>
+        <p>Branch {{ room.branch }}</p>
+      </div>
+    </div>
+    <!-- room image -->
+    <div class="room-img">
+      <img [src]="room.imgs[0]" alt="room-image" />
+    </div>
+    <!-- room checkin, checkout -->
+    <div class="room-checkin-and-checkout">
+      <div class="checkin">
+        <p>Check in</p>
+        <h4>{{ checkin | date : "dd/MM/yyyy" }}</h4>
+      </div>
+      <div class="relation-checkin-and-checkout">
+        <p>1 night</p>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+      <div class="checkout">
+        <p>Check out</p>
+        <h4>{{ checkout | date : "dd/MM/yyyy" }}</h4>
+      </div>
+    </div>
+    <div class="room-type">
+      <h4>
+        (1x) {{ room.roomType }} -
+        <span>{{ room.level }}</span>
+      </h4>
+    </div>
+    <div class="room-conveniences">
+      <h4>Conveniences:</h4>
+      <ul>
+        <li *ngFor="let conv of room.convenient">{{ conv }}</li>
+      </ul>
+    </div>
+    <div class="room-price-total">
+      <div class="price-content">
+        <h4>Price Total</h4>
+        <div class="price-total">
+          <p>1 room, 1 night</p>
+          <h4 class="final-price">{{ room.price[0] | currencyVND }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

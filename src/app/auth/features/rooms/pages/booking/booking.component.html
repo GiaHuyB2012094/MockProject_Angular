@@ -1,1 +1,98 @@
-<p>booking works!</p>
+<ng-container *ngIf="!isLoading; else loader">
+  <app-breadcrumb [arrBreadcrumbs]="breadcrumbs"></app-breadcrumb>
+
+  <div class="booking-title">
+    <h2>Book your room</h2>
+    <p>
+      Please ensure all details on this page are correct before making payment.
+    </p>
+  </div>
+  <div class="booking-main">
+    <div class="booking-left-box">
+      <!-- intro -->
+      <div class="box box-intro">
+        <div class="box-top-intro">
+          <div class="user-avatar">
+            <img [src]="currentUser.avatar" alt="user-avatar" />
+          </div>
+          <div class="box-title-top-intro">
+            <p>
+              Welcome <span class="user-name">{{ currentUser.username }}</span>
+            </p>
+            <p>
+              ! Get the following perks by completing this room installation:
+            </p>
+          </div>
+        </div>
+        <div class="box-bottom-intro">
+          <div class="box-child-bottom-intro">
+            <img src="/assets/images/24-7-time.svg" alt="clock" />
+            <div class="title-intro">
+              <h5>Customer Service 24/7</h5>
+              <p>
+                Our customer care staff will always be there when you need them.
+              </p>
+            </div>
+          </div>
+
+          <div class="box-child-bottom-intro">
+            <img src="/assets/images/accumlate-points.svg" alt="clock" />
+            <div class="title-intro">
+              <h5>Accumulate points</h5>
+              <p>
+                Accumulate points to become a priority member and enjoy more
+                benefits.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- user-info -->
+      <div class="box box-user-info">
+        <div class="booking-title">
+          <h2>Contact information (for E-voucher)</h2>
+          <p>
+            Please fill in all details accurately to ensure you receive the
+            booking confirmation voucher (E-voucher) through your email
+          </p>
+        </div>
+
+        <app-form-user-info-booking></app-form-user-info-booking>
+      </div>
+      <!-- requirement -->
+      <div class="box box-requirement">
+        <div class="booking-title">
+          <h2>What request do you have?</h2>
+          <p>
+            Upon check-in, the hotel will inform you whether this request can be
+            accommodated or not. Some requests may require an additional fee,
+            but you can cancel the request afterward.
+          </p>
+        </div>
+        <app-request-booking></app-request-booking>
+      </div>
+      <!-- services -->
+      <div class="box box-services"></div>
+      <!-- payment-method -->
+      <div class="box box-payment-method"></div>
+      <!-- payment -->
+      <div class="box box-payment"></div>
+    </div>
+    <div class="booking-right-box">
+      <div class="box-room-detail-info-booking">
+        <app-room-detail-info-booking
+          [room]="room"
+        ></app-room-detail-info-booking>
+      </div>
+      <div class="box cancellation-rescheduling-policy">
+        <app-cancellation-rescheduling-policy
+          [depositRefund]="room.depositRefund"
+          [reschedulable]="room.reschedulable"
+        >
+        </app-cancellation-rescheduling-policy>
+      </div>
+      <div class="box accommodation-policy"></div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loader> <app-loader></app-loader></ng-template>
