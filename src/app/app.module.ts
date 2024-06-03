@@ -28,7 +28,7 @@ import { darkTheme } from './Theme/dark.theme';
 
 
 export function createTranslateLoader(http: HttpClient){
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  // return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 const MODULES = [
     CoreModule,
@@ -42,7 +42,11 @@ const MODULES = [
     BrowserAnimationsModule,
     ForbiddenModule,
     NgxsModule.forRoot([UserState, LangState]),
-    NgxsReduxDevtoolsPluginModule.forRoot()
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    ThemeModule.forRoot({
+      themes: [lightTheme, darkTheme],
+      active: 'light'
+    })
 ]
 @NgModule({
   declarations: [
@@ -52,20 +56,18 @@ const MODULES = [
   ],
   imports: [
     ...MODULES,
-    TranslateModule.forRoot({
-      defaultLanguage: 'en',
-      useDefaultLang: true,
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      }
-    }),
 
-    ThemeModule.forRoot({
-      themes: [lightTheme, darkTheme],
-      active: 'light'
-    })
+    // TranslateModule.forRoot({
+    //   defaultLanguage: 'en',
+    //   useDefaultLang: true,
+    //   loader: {
+    //     provide: TranslateLoader,
+    //     useFactory: (createTranslateLoader),
+    //     deps: [HttpClient]
+    //   }
+    // }),
+
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

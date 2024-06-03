@@ -5,6 +5,8 @@ import { IRoom } from '../interfaces/IRoom.interface';
 import { userData } from '../data/users.data';
 import { roomsData } from '../data/rooms.data';
 import { conveniencesData } from '../data/conveniences.data';
+import { IServices } from '../interfaces/IServices.interface';
+import { servicesData } from '../data/services.data';
 
 export class MockData implements InMemoryDbService {
   createDb(
@@ -13,6 +15,7 @@ export class MockData implements InMemoryDbService {
     const users: IUser[] = userData;
     const rooms: IRoom[] = roomsData;
     const conveniences: string[] = conveniencesData;
-    return { users, rooms, conveniences};
+    const services: IServices[] = servicesData;
+    return { users, rooms, conveniences, services};
   }
 }

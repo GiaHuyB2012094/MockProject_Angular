@@ -1,7 +1,7 @@
 <div class="container">
   <div class="menu-select-option" (click)="openOptionsHandle()">
     <div class="choosed-option">
-      <span class="option-icon" *ngIf="choosedItem.img">
+      <span class="option-icon" *ngIf="choosedItem?.img">
         <img [src]="choosedItem.img" class="icon" [alt]="choosedItem.img" />
       </span>
       <span class="option-text">{{ choosedItem.label }}</span>
@@ -18,7 +18,7 @@
       *ngFor="let r of arrItem"
       (click)="chooseHandle(r)"
     >
-      <span class="option-icon" *ngIf="r.img">
+      <span class="option-icon" *ngIf="r?.img">
         <img [src]="r.img" class="icon" />
       </span>
       <span class="option-text">{{ r.label }}</span>

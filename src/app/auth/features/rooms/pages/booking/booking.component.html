@@ -9,7 +9,6 @@
   </div>
   <div class="booking-main">
     <div class="booking-left-box">
-      <!-- intro -->
       <div class="box box-intro">
         <div class="box-top-intro">
           <div class="user-avatar">
@@ -47,30 +46,16 @@
           </div>
         </div>
       </div>
-      <!-- user-info -->
-      <div class="box box-user-info">
-        <div class="booking-title">
-          <h2>Contact information (for E-voucher)</h2>
-          <p>
-            Please fill in all details accurately to ensure you receive the
-            booking confirmation voucher (E-voucher) through your email
-          </p>
-        </div>
 
-        <app-form-user-info-booking></app-form-user-info-booking>
-      </div>
-      <!-- requirement -->
-      <div class="box box-requirement">
-        <div class="booking-title">
-          <h2>What request do you have?</h2>
-          <p>
-            Upon check-in, the hotel will inform you whether this request can be
-            accommodated or not. Some requests may require an additional fee,
-            but you can cancel the request afterward.
-          </p>
-        </div>
-        <app-request-booking></app-request-booking>
-      </div>
+      <app-form-user-info-booking
+        class="box box-user-info"
+      ></app-form-user-info-booking>
+
+      <app-request-booking
+        [room]="room"
+        class="box box-requirement"
+      ></app-request-booking>
+
       <!-- services -->
       <div class="box box-services"></div>
       <!-- payment-method -->
@@ -79,18 +64,18 @@
       <div class="box box-payment"></div>
     </div>
     <div class="booking-right-box">
-      <div class="box-room-detail-info-booking">
-        <app-room-detail-info-booking
-          [room]="room"
-        ></app-room-detail-info-booking>
-      </div>
-      <div class="box cancellation-rescheduling-policy">
-        <app-cancellation-rescheduling-policy
-          [depositRefund]="room.depositRefund"
-          [reschedulable]="room.reschedulable"
-        >
-        </app-cancellation-rescheduling-policy>
-      </div>
+      <app-room-detail-info-booking
+        class="box-room-detail-info-booking"
+        [room]="room"
+      ></app-room-detail-info-booking>
+
+      <app-cancellation-rescheduling-policy
+        class="box cancellation-rescheduling-policy"
+        [depositRefund]="room.depositRefund"
+        [reschedulable]="room.reschedulable"
+      >
+      </app-cancellation-rescheduling-policy>
+
       <div class="box accommodation-policy"></div>
     </div>
   </div>

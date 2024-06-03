@@ -62,6 +62,5 @@ export class BookingComponent implements OnInit {
     //   console.log(data);
     // });
     this.currentUser = this.userService.getCurrentUser();
-    console.log(this.currentUser);
   }
 }

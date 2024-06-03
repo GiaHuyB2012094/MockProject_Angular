@@ -12,10 +12,12 @@
     <p>This booking is non-refundable.</p>
   </div>
   <ng-template #depositRefundTime>
-    <i class="fa-solid fa-square-check"></i>
-    <p>
-      Free cancellation before {{ depositRefundDate | date : "dd/MM/yyyy" }}
-    </p>
+    <div class="cancellation-policy" [class.active]="depositRefund !== 0">
+      <i class="fa-solid fa-square-check"></i>
+      <p>
+        Free cancellation before {{ depositRefundDate | date : "dd/MM/yyyy" }}
+      </p>
+    </div>
   </ng-template>
 
   <div
@@ -26,9 +28,11 @@
     <p>Non-reschedulable</p>
   </div>
   <ng-template #reschedulableTime>
-    <i class="fa-solid fa-square-check"></i>
-    <p>
-      Free reschedulable before {{ reschedulableDate | date : "dd/MM/yyyy" }}
-    </p>
+    <div class="rescheduling-policy" [class.active]="reschedulable !== 0">
+      <i class="fa-solid fa-square-check"></i>
+      <p>
+        Free reschedulable before {{ reschedulableDate | date : "dd/MM/yyyy" }}
+      </p>
+    </div>
   </ng-template>
 </div>

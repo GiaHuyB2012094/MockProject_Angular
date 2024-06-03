@@ -1,1 +1,125 @@
-<div class="container"></div>
+<div class="container">
+  <div class="booking-title">
+    <h2>What request do you have?</h2>
+    <p>
+      Upon check-in, the hotel will inform you whether this request can be
+      accommodated or not. Some requests may require an additional fee, but you
+      can cancel the request afterward.
+    </p>
+  </div>
+  <div class="request-options">
+    <div class="services-options">
+      <h4>Services of:</h4>
+      <div class="horizontal-box">
+        <app-select-dropdown
+          *ngIf="roomServices.length > 0"
+          class="select-dropdown-services"
+          [arrItem]="roomServices"
+          (newItemEvent)="chooseRoomServicesHandle($event)"
+        ></app-select-dropdown>
+
+        <i class="fa-solid fa-right-long"></i>
+
+        <input
+          type="number"
+          placeholder="Enter quantity"
+          min="0"
+          [(ngModel)]="serviceQuantity"
+        />
+
+        <i class="fa-solid fa-right-long"></i>
+
+        <input
+          type="number"
+          class="service-quantity"
+          disabled
+          [value]="servicePrice"
+        />
+        <button class="btn-add-service" (click)="addServiceHandle()">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+
+      <div class="room-services-table">
+        <table class="" *ngIf="servicesFees.length > 0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Price Total</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sev of servicesFees">
+              <td>{{ sev.id }}</td>
+              <td>{{ sev.name }}</td>
+              <td>{{ sev.quantity }}</td>
+              <td>{{ sev.totalPrice | currencyVND }}</td>
+              <td (click)="deleteServiceHandle(sev.id)">
+                <i class="delete-service-btn fa-solid fa-square-xmark"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="checkin-checkout">
+      <h4>Check In:</h4>
+      <div class="checkin-option">
+        <div class="vertical-box">
+          <app-text-input-group
+            type="date"
+            class="checkin-date-input"
+            label="From date"
+            [control]="formGroup.controls.checkInDate"
+          >
+          </app-text-input-group>
+          <p>Time selection</p>
+          <app-select-dropdown
+            class="select-dropdown-services"
+            [arrItem]="payFormat"
+            (newItemEvent)="choosePriceFormatHandle($event)"
+          ></app-select-dropdown>
+          <app-text-input-group
+            type="number"
+            placeholder="Enter Duration"
+            label="Duration"
+            [control]="formGroup.controls.duration"
+          >
+          </app-text-input-group>
+          <app-text-input-group
+            type="time"
+            label="Check-in Time"
+            [control]="formGroup.controls.checkInTime"
+          >
+          </app-text-input-group>
+          <div class="time-price-total">
+            <p>{{ checkinAndCheckoutPrice | currencyVND }}</p>
+          </div>
+        </div>
+
+        <i class="fa-solid fa-right-long"></i>
+
+        <div class="date-horizontal-box">
+          <div class="room-checkin-and-checkout">
+            <div class="checkin">
+              <p>Check in</p>
+              <h4>{{ formGroup.value.checkInDate | date : "dd/MM/yyyy" }}</h4>
+            </div>
+            <div class="relation-checkin-and-checkout">
+              <p>{{ formGroup.value.duration }} {{ priceFormat }}</p>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div class="checkout">
+              <p>Check out</p>
+              <h4>{{ checkOutDate | date : "dd/MM/yyyy" }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

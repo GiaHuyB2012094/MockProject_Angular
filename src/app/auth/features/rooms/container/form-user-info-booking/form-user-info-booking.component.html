@@ -1,81 +1,90 @@
-<form
-  class="form-user-info-booking"
-  [formGroup]="formGroup"
-  (ngSubmit)="submitHandle()"
->
-  <!-- username -->
-  <app-text-input-group
-    [required]="true"
-    [control]="formGroup.controls.username"
-    label="username"
-    placeholder="Enter the user's name"
-    id="username"
-  >
-  </app-text-input-group>
-  <div class="horizontal-box">
-    <!-- email -->
-    <div class="input-box">
-      <app-text-input-group
-        type="email"
-        [required]="true"
-        [control]="formGroup.controls.email"
-        label="email"
-        placeholder="Enter the user's email"
-        id="email"
-      >
-        <img #iconRef class="icon" src="/assets/icons/email.svg" />
-      </app-text-input-group>
-    </div>
-    <!-- phone -->
-    <div class="input-box">
-      <app-text-input-group
-        [required]="true"
-        [control]="formGroup.controls.phone"
-        placeholder="Enter the user's number phone"
-        label="phone"
-        id="phone"
-      >
-      </app-text-input-group>
-    </div>
+<div class="container">
+  <div class="booking-title">
+    <h2>Contact information (for E-voucher)</h2>
+    <p>
+      Please fill in all details accurately to ensure you receive the booking
+      confirmation voucher (E-voucher) through your email
+    </p>
   </div>
+  <form
+    class="form-user-info-booking"
+    [formGroup]="formGroup"
+    (ngSubmit)="submitHandle()"
+  >
+    <!-- username -->
+    <app-text-input-group
+      [required]="true"
+      [control]="formGroup.controls.username"
+      label="username"
+      placeholder="Enter the user's name"
+      id="username"
+    >
+    </app-text-input-group>
+    <div class="horizontal-box">
+      <!-- email -->
+      <div class="input-box">
+        <app-text-input-group
+          type="email"
+          [required]="true"
+          [control]="formGroup.controls.email"
+          label="email"
+          placeholder="Enter the user's email"
+          id="email"
+        >
+          <img #iconRef class="icon" src="/assets/icons/email.svg" />
+        </app-text-input-group>
+      </div>
+      <!-- phone -->
+      <div class="input-box">
+        <app-text-input-group
+          [required]="true"
+          [control]="formGroup.controls.phone"
+          placeholder="Enter the user's number phone"
+          label="phone"
+          id="phone"
+        >
+        </app-text-input-group>
+      </div>
+    </div>
 
-  <div class="horizontal-box">
-    <div class="input-checkbox-box">
-      <input
-        id="guestStaying"
-        type="radio"
-        name="userBooking"
-        formControlName="userBooking"
-        value="guestStaying"
-        checked
-      />
-      <label for="guestStaying">I am a guest staying.</label>
+    <div class="horizontal-box">
+      <div class="input-checkbox-box">
+        <input
+          id="guestStaying"
+          type="radio"
+          name="userBooking"
+          formControlName="userBooking"
+          value="guestStaying"
+          checked
+        />
+        <label for="guestStaying">I am a guest staying.</label>
+      </div>
+      <div class="input-checkbox-box">
+        <input
+          id="other"
+          type="radio"
+          name="userBooking"
+          value="other"
+          formControlName="userBooking"
+        />
+        <label for="other">I booking for others.</label>
+      </div>
     </div>
-    <div class="input-checkbox-box">
-      <input
-        id="other"
-        type="radio"
-        name="userBooking"
-        value="other"
-        formControlName="userBooking"
-      />
-      <label for="other">I book for others.</label>
-    </div>
-  </div>
-  <app-text-input-group
-    *ngIf="formGroup.controls.userBooking.value === 'other'"
-    [control]="formGroup.controls.customerUsername"
-    placeholder="
+    <app-text-input-group
+      *ngIf="formGroup.controls.userBooking.value === 'other'"
+      [control]="formGroup.controls.customerUsername"
+      placeholder="
     Enter the guest's name"
-    label="customer username"
-    id="customerUsername"
-  >
-  </app-text-input-group>
-  <button type="button" class="confirm-btn" (click)="submitHandle()">
-    Confirm
-  </button>
-  <!-- <p class="change-password-text" [routerLink]="'../change-password'">
+      label="customer username"
+      id="customerUsername"
+    >
+    </app-text-input-group>
+    <button type="button" class="confirm-btn" (click)="submitHandle()">
+      Confirm
+    </button>
+    <!-- <p class="change-password-text" [routerLink]="'../change-password'">
     Change Password?
   </p> -->
-  <!-- <primary-button (click)="submitHandle()">Login</primary-button> -->
-</form>
+    <!-- <primary-button (click)="submitHandle()">Login</primary-button> -->
+  </form>
+</div>
