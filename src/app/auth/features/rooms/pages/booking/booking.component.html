@@ -53,20 +53,28 @@
 
       <app-request-booking
         [room]="room"
+        (newItemEvent)="setCheckinAndCheckoutHandle($event)"
         class="box box-requirement"
       ></app-request-booking>
 
-      <!-- services -->
-      <div class="box box-services"></div>
-      <!-- payment-method -->
-      <div class="box box-payment-method"></div>
-      <!-- payment -->
-      <div class="box box-payment"></div>
+      <app-booking-pay
+        class="box box-payment"
+        [roomPrice]="roomPriceTotal"
+        [room]="room"
+        [duration]="duration"
+        [priceFormat]="priceFormat"
+        [services]="services"
+      ></app-booking-pay>
     </div>
+
     <div class="booking-right-box">
       <app-room-detail-info-booking
         class="box-room-detail-info-booking"
         [room]="room"
+        [fromDate]="fromDate"
+        [toDate]="toDate"
+        [duration]="duration"
+        [priceFormat]="priceFormat"
       ></app-room-detail-info-booking>
 
       <app-cancellation-rescheduling-policy

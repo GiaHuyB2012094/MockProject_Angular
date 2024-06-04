@@ -17,6 +17,8 @@ export class TextInputGroupComponent implements OnInit, AfterViewChecked {
   @Input() changeDirection = false;
   @Input() iconRight = false;
   @Input() placeholder = '';
+  @Input() min = 0; 
+  @Input() max = 1000000000; 
 
   @ContentChild('iconRef') iconRef!: ElementRef;
   @ViewChild('inputRef') inputRef!: ElementRef;

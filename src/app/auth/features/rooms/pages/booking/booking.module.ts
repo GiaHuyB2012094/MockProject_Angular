@@ -8,11 +8,13 @@ import { FormUserInfoBookingModule } from '../../container/form-user-info-bookin
 import { RoomDetailInfoBookingModule } from '../../container/room-detail-info-booking/room-detail-info-booking.module';
 import { RequestBookingModule } from '../../container/request-booking/request-booking.module';
 import { CancellationReschedulingPolicyModule } from '../../container/cancellation-rescheduling-policy/cancellation-rescheduling-policy.module';
+import { BookingPayModule } from '../../container/booking-pay/booking-pay.module';
 const MODULES = [
   FormUserInfoBookingModule,
   RoomDetailInfoBookingModule,
   RequestBookingModule,
   CancellationReschedulingPolicyModule,
+  BookingPayModule,
 ];
 @NgModule({
   declarations: [BookingComponent],

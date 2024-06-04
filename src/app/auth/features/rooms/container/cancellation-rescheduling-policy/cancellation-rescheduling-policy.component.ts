@@ -19,9 +19,5 @@ export class CancellationReschedulingPolicyComponent implements OnInit {
     this.reschedulableDate.setDate(
       this.reschedulableDate.getDate() + this.reschedulable
     );
-    console.log(this.depositRefund)
-    console.log(this.reschedulable)
-    console.log(this.depositRefundDate)
-    console.log(this.reschedulableDate)
   }
 }

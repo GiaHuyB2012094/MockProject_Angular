@@ -22,6 +22,8 @@
         [formControl]="control"
         [placeholder]="placeholder"
         [attr.disabled]="disabled"
+        [attr.min]="min"
+        [attr.max]="max"
         [class.invalid-input-custom]="
           control.invalid && control.dirty && control.touched
         "

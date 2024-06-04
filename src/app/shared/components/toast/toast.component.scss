@@ -1,5 +1,12 @@
 @import "src/app.constants.scss";
-
+.container{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: aqua;
+    z-index: 1000;
+}
 .toast-class, .success-toast, .warning-toast, .danger-toast{
   position: absolute;
   top: 0;

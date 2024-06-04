@@ -1,0 +1,32 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+
+}
+.invoice-left{
+    grid-column: span 1 / span 1;
+    padding-right: 20px;
+    border-right: 1px solid var(--divider-primary)
+}
+.invoice-right{
+    grid-column: span 1 / span 1;
+    .room-card{
+        img{
+            width: 400px;
+            height: 200px;
+            box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px;
+            border-radius: 16px;
+            border: 0px;
+        }
+    }
+}
+.user-box, .checkin-box, .checkout-box, .hotel-box, .room-price,
+.stay-duration,
+.tax-price,
+.services-price,
+.price-toal{
+    display: flex;
+    align-items: center;
+    justify-content: space-between  ;
+}

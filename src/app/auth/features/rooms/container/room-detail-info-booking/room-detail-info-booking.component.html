@@ -23,15 +23,15 @@
     <div class="room-checkin-and-checkout">
       <div class="checkin">
         <p>Check in</p>
-        <h4>{{ checkin | date : "dd/MM/yyyy" }}</h4>
+        <h4>{{ fromDate | date : "dd/MM/yyyy" }}</h4>
       </div>
       <div class="relation-checkin-and-checkout">
-        <p>1 night</p>
+        <p>{{ duration }} {{ priceFormat }}</p>
         <i class="fa-solid fa-arrow-right"></i>
       </div>
       <div class="checkout">
         <p>Check out</p>
-        <h4>{{ checkout | date : "dd/MM/yyyy" }}</h4>
+        <h4>{{ toDate | date : "dd/MM/yyyy" }}</h4>
       </div>
     </div>
     <div class="room-type">

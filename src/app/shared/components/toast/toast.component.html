@@ -1,12 +1,14 @@
-<div
-  [@toastTrigger]="(toast.showsToast$ | async) ? 'open' : 'close'"
-  [class]="toast.toastState$ | async"
->
-  <div style="max-width: 200px">
-    {{ toast.toastMessage$ | async }}
-  </div>
+<div class="container">
+  <div
+    [@toastTrigger]="(toast.showsToast$ | async) ? 'open' : 'close'"
+    [class]="toast.toastState$ | async"
+  >
+    <div style="max-width: 200px">
+      {{ toast.toastMessage$ | async }}
+    </div>
 
-  <a class="close-btn" (click)="dismiss()">
-    <i class="fa-solid fa-xmark"></i>
-  </a>
+    <a class="close-btn" (click)="dismiss()">
+      <i class="fa-solid fa-xmark"></i>
+    </a>
+  </div>
 </div>

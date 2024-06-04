@@ -8,6 +8,10 @@ import { IRoom } from 'src/app/core/models/interfaces/IRoom.interface';
 })
 export class RoomDetailInfoBookingComponent implements OnInit {
   @Input() room!: IRoom;
+  @Input() duration: number = 1;
+  @Input() fromDate = new Date();
+  @Input() toDate = new Date();
+  @Input() priceFormat = 'hours'
 
   checkin = new Date();
   checkout = new Date();

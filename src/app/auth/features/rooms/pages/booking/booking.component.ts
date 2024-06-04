@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
@@ -13,7 +13,7 @@ import { UserState } from 'src/app/core/store/states/user.state';
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.scss'],
 })
-export class BookingComponent implements OnInit {
+export class BookingComponent implements OnInit, AfterViewInit, OnDestroy, AfterViewChecked {
   // @Select()
 
   room: any;
@@ -22,13 +22,24 @@ export class BookingComponent implements OnInit {
   breadcrumbs: IBreadcrumb[] = [{ label: 'rooms', link: '/rooms' }];
   roomID!: number;
   currentUser!: any;
+  // checkin and checkout
+  fromDate = new Date();
+  toDate = new Date();
+  duration = 1;
+  roomPriceTotal = 0;
+  priceFormat = 'hours';
+  services = [];
+
+  // 
 
   constructor(
     private roomsService: RoomsService,
     private activeRoute: ActivatedRoute,
     private store: Store,
-    private userService: UserService
-  ) {}
+    private userService: UserService,
+    private cdr: ChangeDetectorRef,
+  ) {
+  }
 
   ngOnInit(): void {
     this.activeRoute.paramMap.subscribe((params) => {
@@ -37,6 +48,23 @@ export class BookingComponent implements OnInit {
     });
 
     this.getCurrentUser();
+
+  }
+  ngAfterViewInit(): void {
+  }
+
+  ngAfterViewChecked(): void {
+    this.fromDate = this.fromDate;
+    this.toDate = this.toDate;
+    this.duration = this.duration;
+    this.roomPriceTotal = this.roomPriceTotal;
+    this.priceFormat = this.priceFormat;
+    this.services = this.services;
+    this.cdr.detectChanges();
+
+  }
+  ngOnDestroy() {
+    this.cdr.reattach();
   }
 
   getRoomData(): void {
@@ -62,5 +90,15 @@ export class BookingComponent implements OnInit {
     //   console.log(data);
     // });
     this.currentUser = this.userService.getCurrentUser();
+  }
+
+  setCheckinAndCheckoutHandle(e: any){
+    this.fromDate = e.fromDate;
+    this.toDate = e.toDate;
+    this.duration = e.duration;
+    this.roomPriceTotal = e.priceTotal;
+    this.priceFormat = e.priceFormat;
+    this.services = e.services;
+
   }
 }

@@ -1,0 +1,80 @@
+<ng-container *ngIf="!isLoading; else loader">
+  <div class="container">
+    <div class="invoice-left">
+      <div class="user-contact-info">
+        <div class="user-box">
+          <h5>Name</h5>
+          <p>Nguyen Gia Huy</p>
+        </div>
+        <div class="user-box">
+          <h5>Phone</h5>
+          <p>Nguyen Gia Huy</p>
+        </div>
+        <div class="user-box">
+          <h5>Email</h5>
+          <p>Nguyen Gia Huy</p>
+        </div>
+      </div>
+      <div class="checkin-checkout">
+        <div class="checkin-box">
+          <h5>Check-in</h5>
+          <p>12/12/2024</p>
+        </div>
+        <div class="checkout-box">
+          <h5>Check-in</h5>
+          <p>12/12/2024</p>
+        </div>
+      </div>
+    </div>
+    <div class="invoice-right">
+      <div class="room-card">
+        <img [src]="room.imgs[0]" alt="room-image" />
+        <h4 class="room-name">{{ room.name }}</h4>
+        <p class="room-branch">{{ room.branch }}</p>
+
+        <div class="room-type">
+          <h5>{{ room?.level }} {{ room.roomType }}</h5>
+        </div>
+      </div>
+      <div class="hotel-contact-info">
+        <div class="hotel-box">
+          <h5>Hotel Address</h5>
+          <p>Nguyen Gia Huy</p>
+        </div>
+        <div class="hotel-box">
+          <h5>E-mail</h5>
+          <p>Nguyen Gia Huy</p>
+        </div>
+        <div class="hotel-box">
+          <h5>Phone</h5>
+          <p>Nguyen Gia Huy</p>
+        </div>
+      </div>
+      <div class="price-details">
+        <div class="room-price">
+          <h5>Price per night</h5>
+          <p>123213</p>
+        </div>
+        <div class="stay-duration">
+          <h5>3 nights</h5>
+          <p>123213</p>
+        </div>
+        <div class="tax-price">
+          <h5>City Tax</h5>
+          <p>123213</p>
+        </div>
+        <div class="services-price">
+          <h5>Service fees</h5>
+          <p>123213</p>
+        </div>
+        <div class="price-toal">
+          <h5>Toal</h5>
+          <p>123213</p>
+        </div>
+      </div>
+    </div>
+
+    <primary-button>Book now</primary-button>
+  </div>
+</ng-container>
+<ng-template #loader> <app-loader></app-loader></ng-template>

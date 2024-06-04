@@ -1,0 +1,13 @@
+<div class="modal-overlay" *ngIf="visible" (click)="close()"></div>
+<div class="modal" *ngIf="visible">
+  <div class="modal-header">
+    <span class="modal-title">{{ title }}</span>
+    <button class="close-btn" (click)="close()">X</button>
+  </div>
+  <div class="modal-content">
+    <ng-content></ng-content>
+  </div>
+  <div class="modal-footer">
+    <button class="close-btn" (click)="close()">Close</button>
+  </div>
+</div>

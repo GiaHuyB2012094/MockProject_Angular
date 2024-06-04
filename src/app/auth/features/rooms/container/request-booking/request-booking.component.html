@@ -41,7 +41,7 @@
       </div>
 
       <div class="room-services-table">
-        <table class="" *ngIf="servicesFees.length > 0">
+        <table class="" *ngIf="checkinAndCheckout['services'].length > 0">
           <thead>
             <tr>
               <th>ID</th>
@@ -52,7 +52,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let sev of servicesFees">
+            <tr *ngFor="let sev of checkinAndCheckout['services']">
               <td>{{ sev.id }}</td>
               <td>{{ sev.name }}</td>
               <td>{{ sev.quantity }}</td>
@@ -90,9 +90,15 @@
             [control]="formGroup.controls.duration"
           >
           </app-text-input-group>
+
+          <div class="box-show-date-time">
+            <p>Check-in Time</p>
+            <input type="checkbox" [(ngModel)]="isOpenCheckinTime" />
+          </div>
+
           <app-text-input-group
+            *ngIf="isOpenCheckinTime"
             type="time"
-            label="Check-in Time"
             [control]="formGroup.controls.checkInTime"
           >
           </app-text-input-group>

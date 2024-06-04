@@ -115,6 +115,11 @@
             padding: 10px 0px;
             border-radius: 6px;
           }
+          .box-show-date-time{
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+          }
         }
       }
 }

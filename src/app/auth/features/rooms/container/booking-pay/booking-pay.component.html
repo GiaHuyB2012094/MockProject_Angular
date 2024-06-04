@@ -1,0 +1,55 @@
+<div class="container">
+  <h3>Price Details</h3>
+  <div class="note">
+    <i class="fa-solid fa-circle-info"></i>
+    <p>
+      Taxes and fees are amounts that DHouse Dalat transfers to the hotel. For
+      any questions about taxes and invoices, please refer to DHouse Dalta's
+      Terms and Conditions for answers.
+    </p>
+  </div>
+
+  <div class="body">
+    <div class="room-price">
+      <div class="room-title">
+        <p class="title">Room Price</p>
+        <p class="room-name">
+          ({{ duration }}x) {{ room?.level }} {{ room.roomType }} ({{
+            duration
+          }}
+          {{ priceFormat }})
+        </p>
+      </div>
+      <p class="price">{{ roomPrice | currencyVND }}</p>
+    </div>
+    <div *ngIf="serviceTotal !== 0" class="services-price">
+      <div class="services-title">
+        <p class="title">Services Price</p>
+      </div>
+      <p class="price">{{ serviceTotal | currencyVND }}</p>
+    </div>
+    <div class="taxes-fees-price">
+      <div class="taxes-fees-title">
+        <p class="title">Taxes and Fees</p>
+      </div>
+      <p class="price">{{ tax | currencyVND }}</p>
+    </div>
+    <div class="price-total">
+      <h3>Total Price</h3>
+      <p class="price">{{ allPriceToal | currencyVND }}</p>
+    </div>
+    <div class="advertisement">
+      <i class="fa-solid fa-clock-rotate-left"></i>
+      <p>Book this room now before the price goes up!</p>
+    </div>
+
+    <primary-button (click)="openModal()">By continuing to pay</primary-button>
+    <app-modal
+      title="Booking Details"
+      [visible]="showModal"
+      (closeEvent)="closeModal()"
+    >
+      <app-invoice-details> </app-invoice-details>
+    </app-modal>
+  </div>
+</div>

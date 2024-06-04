@@ -16,7 +16,6 @@ export class SelectDropdownComponent implements OnInit{
 
   ngOnInit(): void {
     this.choosedItem = this.arrItem[0];
-    console.log(this.arrItem)
   }
 
   chooseHandle(r: any):void{

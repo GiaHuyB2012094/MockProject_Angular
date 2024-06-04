@@ -1,0 +1,57 @@
+@import "src/app.constants.scss";
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+.body{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 30px;
+}
+    .note{
+        display: flex;
+        gap: 10px;
+        font-weight: bold;
+        color: $info-color;
+        font-size: 14px;
+    }
+    .advertisement{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        color: $info-color;
+        font-weight: bold;
+        // padding: 10px;
+        padding: 6px;
+    }
+    .body{
+        .title{
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .room-price, .services-price, .taxes-fees-price, .price-total{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .price{
+            font-size: 16px;
+            color: var(--text-color)            
+        }
+        .price-total{
+            padding-top: 10px;
+            color: orangered;
+            border-top: 4px solid var(--divider-primary);
+            p {
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+        .room-name{
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+    }
+}
