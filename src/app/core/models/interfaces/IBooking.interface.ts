@@ -1,6 +1,6 @@
 
 export interface IBooking {
-    id?: number,
+    id?: number;
     roomID: number,
     userID: number,
 

@@ -38,6 +38,7 @@ export class InvoiceDetailsComponent implements OnInit, AfterViewChecked{
   currentUser!: IUser;
   roomRootPrice!: number;
 
+  bookings: any;
   constructor(
     private store: Store,
     private toast: ToastService, 
@@ -46,12 +47,13 @@ export class InvoiceDetailsComponent implements OnInit, AfterViewChecked{
   }
   ngOnInit(): void {
     this.getCurrentUser()
-    console.log(payFormat);
-    console.log(this.priceFormat);
-  
+    this.bookingService.getBookings().subscribe(data=> this.bookings = data)
+
+    // this.bookingService.getBookings().subscribe(data=> console.log(data))
   }
   ngAfterViewChecked(): void {
     this.roomRootPrice = this.room.price[this.convertPriceFormat(this.priceFormat)];
+    console.log(this.bookings)
   }
   getCurrentUser() {
     this.user$ = this.store.select(UserState.user);
@@ -65,45 +67,50 @@ export class InvoiceDetailsComponent implements OnInit, AfterViewChecked{
   }
 
   submitPayHandle(): void{
-    const booking: any = Object.assign({},{
-      roomID : this.room.id ,
-      userID: this.currentUser.id ,
-      fromDate: this.fromDate,
-      toDate: this.toDate,
-      duration: this.duration,
-      priceFormat: this.priceFormat,
-      payment: this.payment,
-      roomPriceTotal: this.roomPriceTotal,
-      tax: this.tax,
-      services: this.services,
-      userInfoBooking: this.userInfoBooking,
-    })
+    if (this.currentUser.id && this.payment) {
+      const booking: IBooking = Object.assign({},{
+        roomID : this.room.id ,
+        userID: this.currentUser.id,
+        fromDate: this.fromDate,
+        toDate: this.toDate,
+        duration: this.duration,
+        priceFormat: this.priceFormat,
+        payment: this.payment,
+        roomPriceTotal: this.roomPriceTotal,
+        tax: this.tax,
+        services: this.services,
+        userInfoBooking: this.userInfoBooking,
+      })
 
-    if (this.payment === 'payLater') {
-      this.bookingService.createBooking(booking)
-      .subscribe(
-        success => {
-          if (success) {
-            this.toast.showToast(
-              TOAST_STATE.success,
-              'You have successfully booking!'
-            );
-            this.dismissError();
-          } else {
-            this.toast.showToast(
-              TOAST_STATE.danger,
-              'You have fail booking!'
-            );
-            this.dismissError();
+      if (this.payment === 'payLater') {
+        this.bookingService.createBooking(booking)
+        .subscribe(
+          success => {
+            if (success) {
+              this.toast.showToast(
+                TOAST_STATE.success,
+                'You have successfully booking!'
+              );
+              this.dismissError();
+            } else {
+              this.toast.showToast(
+                TOAST_STATE.danger,
+                'You have fail booking!'
+              );
+              this.dismissError();
+            }
           }
-        }
-      )
-
-    } else if (this.payment === 'payPal') {
-
-    } else if (this.payment === 'payATM') {
+        )
+  
+      } else if (this.payment === 'payPal') {
+  
+      } else if (this.payment === 'payATM') {
+  
+      }
 
     }
+
+  
   }
 
   private dismissError(): void {

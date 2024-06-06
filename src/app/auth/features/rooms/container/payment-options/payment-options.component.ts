@@ -33,7 +33,6 @@ export class PaymentOptionsComponent implements OnInit, AfterViewChecked{
     let diff_in_time = this.fromDate.getTime() - now.getTime();
 
     let diff_in_days = Math.round (diff_in_time / (1000 * 3600 * 24));
-    console.log(diff_in_days)
     
     if (diff_in_days > -1 && diff_in_days <= 2) {
       return false;

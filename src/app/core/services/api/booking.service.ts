@@ -11,6 +11,11 @@ export class BookingService {
 
   constructor(private http: HttpClient) { 
   }
+  
+  getBookings = (): Observable<any> => {
+    return this.http.get<IBooking>(this.baseUrl);
+  }
+
 
   getBookingOfUser = (id: number): Observable<any> => {
     return this.http.get<any>(this.baseUrl)
@@ -24,7 +29,7 @@ export class BookingService {
 
   createBooking = (data: IBooking): Observable<any> => {
     data.status = 'successfull';
-    return this.http.post<any>(this.baseUrl, data)
+    return this.http.post<IBooking>(this.baseUrl, data);
   };
 
 }
