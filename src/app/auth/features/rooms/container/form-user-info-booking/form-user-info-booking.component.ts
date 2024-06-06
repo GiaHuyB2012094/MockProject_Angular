@@ -45,8 +45,10 @@ export class FormUserInfoBookingComponent implements OnInit, AfterViewChecked {
 
   constructor() {}
   ngOnInit(): void {}
-  ngAfterViewChecked(): void {}
-
+  ngAfterViewChecked(): void {
+    this.submitHandle()
+  }
+  
   submitHandle() {
     const userInfor = {
       email: this.formGroup.value.email || '',

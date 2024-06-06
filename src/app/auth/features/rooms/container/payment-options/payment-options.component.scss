@@ -1,0 +1,58 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    
+    .payment-options{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .pay-later, .pay-with-paypal, .pay-with-ATM{
+        padding: 12px;
+        border: 1px solid var(--divider-primary);
+        border-radius: 8px;
+        display: flex;
+        gap: 10px; 
+        align-items: start;
+
+        input {
+            width: 20px;
+            height: 20px;
+          }
+        .pay-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    .pay-later{
+        &.disabled{
+            background-color: rgba(168, 168, 168, 0.5);
+            cursor: not-allowed;
+        }
+    }
+    .payment-images{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .title{
+        font-weight: bold;
+
+    }
+    
+    .text-content{
+        font-size: 14px;
+        color: var(--text-secondary);
+        span{
+            font-weight: bold;
+        }
+    }
+    .pay-content{
+        cursor: pointer;
+    }
+}

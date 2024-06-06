@@ -1,80 +1,134 @@
-<ng-container *ngIf="!isLoading; else loader">
-  <div class="container">
-    <div class="invoice-left">
+<div class="container">
+  <div class="invoice-left">
+    <div class="invoice-left-top">
       <div class="user-contact-info">
         <div class="user-box">
-          <h5>Name</h5>
-          <p>Nguyen Gia Huy</p>
+          <h4>Name</h4>
+          <p>{{ userInfoBooking?.username }}</p>
         </div>
         <div class="user-box">
-          <h5>Phone</h5>
-          <p>Nguyen Gia Huy</p>
+          <h4>Phone</h4>
+          <p>{{ userInfoBooking?.phone }}</p>
         </div>
         <div class="user-box">
-          <h5>Email</h5>
-          <p>Nguyen Gia Huy</p>
+          <h4>Email</h4>
+          <p>{{ userInfoBooking?.email }}</p>
+        </div>
+      </div>
+      <div *ngIf="timeDate" class="check-in-time">
+        <h5>
+          You will check in at
+          <span>{{ timeDate }}</span>
+          at our hotel
+        </h5>
+      </div>
+      <div *ngIf="otherReqs" class="other-requests">
+        <h4>Requests</h4>
+        <p>{{ otherReqs }}</p>
+      </div>
+    </div>
+
+    <div class="invoice-left-bot">
+      <div class="payment">
+        <div class="payLater" *ngIf="payment === 'payLater'">
+          <img src="/assets/icons/creaditCard.png" alt="creditCard-icon" />
+          <p>
+            You will pay using
+            <span>pay later</span>
+            method. Therefore, the room fee has not yet been paid. On the day of
+            check-in, {{ fromDate | date : "dd/MM/yyyy" }} you will need to pay
+            directly at the hotel.
+          </p>
+        </div>
+
+        <div class="payPal" *ngIf="payment === 'payPal'">
+          <img src="/assets/icons/creaditCard.png" alt="creditCard-icon" />
+          <p>
+            You will pay using
+            <span>pay PayPal</span>
+            method. Therefore, you will need to use a Visa card to pay for the
+            room online through PayPal.
+          </p>
+        </div>
+
+        <div class="payATM" *ngIf="payment === 'payATM'">
+          <img src="/assets/icons/creaditCard.png" alt="creditCard-icon" />
+          <p>
+            You will pay using
+            <span>pay later</span>
+            method. Therefore, you will need to perform some required actions to
+            transfer the room payment to the hotel owner.
+          </p>
         </div>
       </div>
       <div class="checkin-checkout">
-        <div class="checkin-box">
-          <h5>Check-in</h5>
-          <p>12/12/2024</p>
+        <div class="date-box">
+          <i class="fa-solid fa-calendar"></i>
+          <h4>Check-in</h4>
+          <p>{{ fromDate | date : "dd/MM/yyyy" }}</p>
         </div>
-        <div class="checkout-box">
-          <h5>Check-in</h5>
-          <p>12/12/2024</p>
-        </div>
-      </div>
-    </div>
-    <div class="invoice-right">
-      <div class="room-card">
-        <img [src]="room.imgs[0]" alt="room-image" />
-        <h4 class="room-name">{{ room.name }}</h4>
-        <p class="room-branch">{{ room.branch }}</p>
-
-        <div class="room-type">
-          <h5>{{ room?.level }} {{ room.roomType }}</h5>
+        <div class="date-box">
+          <i class="fa-regular fa-calendar"></i>
+          <h4>Check-out</h4>
+          <p>{{ toDate | date : "dd/MM/yyyy" }}</p>
         </div>
       </div>
       <div class="hotel-contact-info">
+        <h4 class="title">Hotel Information</h4>
         <div class="hotel-box">
-          <h5>Hotel Address</h5>
-          <p>Nguyen Gia Huy</p>
-        </div>
-        <div class="hotel-box">
-          <h5>E-mail</h5>
-          <p>Nguyen Gia Huy</p>
+          <h4>Address :</h4>
+          <p class="text-hotel-sub">{{ room.address }}</p>
         </div>
         <div class="hotel-box">
-          <h5>Phone</h5>
-          <p>Nguyen Gia Huy</p>
+          <h4>The Hotel Owner :</h4>
+          <p class="text-hotel-sub">Nguyen Trung Hieu</p>
         </div>
-      </div>
-      <div class="price-details">
-        <div class="room-price">
-          <h5>Price per night</h5>
-          <p>123213</p>
-        </div>
-        <div class="stay-duration">
-          <h5>3 nights</h5>
-          <p>123213</p>
-        </div>
-        <div class="tax-price">
-          <h5>City Tax</h5>
-          <p>123213</p>
-        </div>
-        <div class="services-price">
-          <h5>Service fees</h5>
-          <p>123213</p>
-        </div>
-        <div class="price-toal">
-          <h5>Toal</h5>
-          <p>123213</p>
+        <div class="hotel-box">
+          <h4>Phone :</h4>
+          <p class="text-hotel-sub">0336070648</p>
         </div>
       </div>
     </div>
-
-    <primary-button>Book now</primary-button>
   </div>
-</ng-container>
-<ng-template #loader> <app-loader></app-loader></ng-template>
+
+  <div class="invoice-right">
+    <div class="room-card">
+      <img [src]="room.imgs[0]" alt="room-image" />
+      <div class="room-name-branch">
+        <p class="title">{{ room.name }}</p>
+        <p class="room-branch">Branch {{ room.branch }}</p>
+      </div>
+
+      <div class="room-type">
+        <p>{{ room?.level }} {{ room.roomType }}</p>
+      </div>
+      <div class="room-price">
+        <h4>Price per {{ priceFormat }}</h4>
+        <p>{{ roomRootPrice | currencyVND }}</p>
+      </div>
+    </div>
+
+    <div class="price-details">
+      <div class="stay-duration">
+        <h4>{{ duration }} {{ priceFormat }}</h4>
+        <p>{{ roomPriceTotal | currencyVND }}</p>
+      </div>
+      <div class="tax-price">
+        <h4>Tax</h4>
+        <p>{{ tax | currencyVND }}</p>
+      </div>
+      <ul class="services-price">
+        <li *ngFor="let sev of services">
+          <h4>{{ sev.name }} (x{{ sev.quantity }})</h4>
+          <p>{{ sev.totalPrice | currencyVND }}</p>
+        </li>
+      </ul>
+      <div class="price-toal">
+        <h4>Price Total</h4>
+        <p>{{ priceTotal | currencyVND }}</p>
+      </div>
+    </div>
+
+    <primary-button (click)="submitPayHandle()">Book now</primary-button>
+  </div>
+</div>

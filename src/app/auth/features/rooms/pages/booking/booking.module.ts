@@ -9,12 +9,14 @@ import { RoomDetailInfoBookingModule } from '../../container/room-detail-info-bo
 import { RequestBookingModule } from '../../container/request-booking/request-booking.module';
 import { CancellationReschedulingPolicyModule } from '../../container/cancellation-rescheduling-policy/cancellation-rescheduling-policy.module';
 import { BookingPayModule } from '../../container/booking-pay/booking-pay.module';
+import { PaymentOptionsModule } from '../../container/payment-options/payment-options.module';
 const MODULES = [
   FormUserInfoBookingModule,
   RoomDetailInfoBookingModule,
   RequestBookingModule,
   CancellationReschedulingPolicyModule,
   BookingPayModule,
+  PaymentOptionsModule,
 ];
 @NgModule({
   declarations: [BookingComponent],

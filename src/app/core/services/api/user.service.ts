@@ -6,6 +6,7 @@ import { LoginDTO } from '../../models/dto/auth.dto';
 import { SignupDTO } from '../../models/dto/user.dto';
 import { Store } from '@ngxs/store';
 import { UserActions } from '../../store/actions/user.actions';
+import { SetUserAction } from '../../store/states/user.state';
 
 @Injectable({
   providedIn: 'root',
@@ -38,7 +39,7 @@ export class UserService {
                 if (user) {
                   const result:any = Object.fromEntries(Object.entries(user).filter(([k]) => k !== 'password'));
                   this.setUserToLocalStorage(result);
-                  this.store.dispatch(new UserActions.RegisterLoggedInUser(result))
+                  this.store.dispatch(new SetUserAction(user));
                   return true;
                 } else {
                   return false;

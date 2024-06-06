@@ -13,25 +13,29 @@ import { UserState } from 'src/app/core/store/states/user.state';
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.scss'],
 })
-export class BookingComponent implements OnInit, AfterViewInit, OnDestroy, AfterViewChecked {
-  // @Select()
-
+export class BookingComponent implements OnInit, OnDestroy, AfterViewChecked {
   room: any;
   isLoading = true;
-
   breadcrumbs: IBreadcrumb[] = [{ label: 'rooms', link: '/rooms' }];
   roomID!: number;
-  currentUser!: any;
+// user account
+  user$!: Observable<IUser>;
+  currentUser!: IUser;
   // checkin and checkout
   fromDate = new Date();
   toDate = new Date();
-  duration = 1;
-  roomPriceTotal = 0;
-  priceFormat = 'hours';
-  services = [];
+  timeDate !: Date;
+  duration!: number;
+  roomPriceTotal!: number;
+  priceFormat!: string;
+  services: any;
+  tax!: number;
+  roomPrice!: number;
+  priceTotal!: number;
+  otherReqs!: string;
 
-  // 
-
+  userInfoBooking: any;
+  payment = 'payATM'
   constructor(
     private roomsService: RoomsService,
     private activeRoute: ActivatedRoute,
@@ -42,29 +46,54 @@ export class BookingComponent implements OnInit, AfterViewInit, OnDestroy, After
   }
 
   ngOnInit(): void {
+    
     this.activeRoute.paramMap.subscribe((params) => {
       this.roomID = Number(params.get('id'));
       this.getRoomData();
     });
-
     this.getCurrentUser();
 
+    this.setInitialBookingValue();
+
+    
+  
   }
-  ngAfterViewInit(): void {
+  
+  ngAfterViewChecked(): void {
+    this.setUpdateBookingValue();
+  }
+  setInitialBookingValue(): void{
+    this.tax = 70000;
+    this.fromDate = new Date();
+    this.toDate.setDate(this.fromDate.getDate() + 1);
+    this.duration = 1;
+    this.roomPrice = this.room?.price[0] || 0;
+    this.roomPriceTotal = this.room?.price[0] || 0;
+    this.priceFormat= 'hour';
+    this.services = [];
+
+    this.priceTotal = this.tax + this.roomPrice;
   }
 
-  ngAfterViewChecked(): void {
+  setUpdateBookingValue(): void{
     this.fromDate = this.fromDate;
     this.toDate = this.toDate;
     this.duration = this.duration;
     this.roomPriceTotal = this.roomPriceTotal;
     this.priceFormat = this.priceFormat;
     this.services = this.services;
-    this.cdr.detectChanges();
+    this.roomPrice = this.roomPrice;
 
+    this.priceTotal = this.priceTotal;
+    this.timeDate = this.timeDate;
+
+    this.userInfoBooking = this.userInfoBooking;
+
+    this.cdr.detectChanges();
   }
+  
   ngOnDestroy() {
-    this.cdr.reattach();
+    // this.cdr.reattach();
   }
 
   getRoomData(): void {
@@ -72,6 +101,8 @@ export class BookingComponent implements OnInit, AfterViewInit, OnDestroy, After
       next: (data) => {
         this.isLoading = false;
         this.room = data;
+        this.roomPrice = data.price[0];
+        this.roomPriceTotal = data.price[0];
         this.breadcrumbs.push(
           {
             label: `${data.name}`,
@@ -85,20 +116,27 @@ export class BookingComponent implements OnInit, AfterViewInit, OnDestroy, After
   }
 
   getCurrentUser() {
-    // this.currentUser = this.store.select(UserState.loggedInUser);
-    // this.currentUser.subscribe((data) => {
-    //   console.log(data);
-    // });
-    this.currentUser = this.userService.getCurrentUser();
+    this.user$ = this.store.select(UserState.user);
+    this.user$.subscribe((user) => {
+      this.currentUser = user
+    });
   }
-
-  setCheckinAndCheckoutHandle(e: any){
+  setUserInfoBookingHanlde(e: any): void{
+    this.userInfoBooking = e;
+  }
+  setCheckinAndCheckoutHandle(e: any): void{
     this.fromDate = e.fromDate;
     this.toDate = e.toDate;
     this.duration = e.duration;
-    this.roomPriceTotal = e.priceTotal;
+    this.roomPriceTotal = e.roomPriceTotal;
     this.priceFormat = e.priceFormat;
     this.services = e.services;
-
+    this.timeDate = e.checkInTime;
+    this.roomPrice = e.roomPrice;
+    this.otherReqs = e.otherReqs;
+    this.priceTotal = e.priceTotal;
+  }
+  setPayment(e: string): void{
+    this.payment = e;
   }
 }

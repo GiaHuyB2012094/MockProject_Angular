@@ -41,7 +41,9 @@ const MODULES = [
     HttpClientInMemoryWebApiModule.forRoot(MockData, {delay: 500}),
     BrowserAnimationsModule,
     ForbiddenModule,
+    
     NgxsModule.forRoot([UserState, LangState]),
+
     NgxsReduxDevtoolsPluginModule.forRoot(),
     ThemeModule.forRoot({
       themes: [lightTheme, darkTheme],

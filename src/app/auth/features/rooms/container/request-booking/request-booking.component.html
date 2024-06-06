@@ -23,7 +23,7 @@
         <input
           type="number"
           placeholder="Enter quantity"
-          min="0"
+          [attr.min]="1"
           [(ngModel)]="serviceQuantity"
         />
 
@@ -41,7 +41,7 @@
       </div>
 
       <div class="room-services-table">
-        <table class="" *ngIf="checkinAndCheckout['services'].length > 0">
+        <table class="" *ngIf="services.length > 0">
           <thead>
             <tr>
               <th>ID</th>
@@ -52,7 +52,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let sev of checkinAndCheckout['services']">
+            <tr *ngFor="let sev of services">
               <td>{{ sev.id }}</td>
               <td>{{ sev.name }}</td>
               <td>{{ sev.quantity }}</td>
@@ -87,6 +87,7 @@
             type="number"
             placeholder="Enter Duration"
             label="Duration"
+            [min]="1"
             [control]="formGroup.controls.duration"
           >
           </app-text-input-group>
@@ -121,11 +122,24 @@
             </div>
             <div class="checkout">
               <p>Check out</p>
-              <h4>{{ checkOutDate | date : "dd/MM/yyyy" }}</h4>
+              <h4>{{ toDate | date : "dd/MM/yyyy" }}</h4>
             </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="other-requests">
+      <h4>Others</h4>
+      <textarea
+        aria-invalid="true"
+        autocapitalize="sentences"
+        autocomplete="on"
+        autocorrect="on"
+        dir="auto"
+        spellcheck="true"
+        [(ngModel)]="otherReqs"
+      ></textarea>
     </div>
   </div>
 </div>

@@ -1,0 +1,91 @@
+<div class="container">
+  <h4>Flexible Payment Option</h4>
+
+  <div [formGroup]="formGroup" class="payment-options">
+    <label for="payLater" class="pay-later" [class.disabled]="checkPayLater">
+      <input
+        id="payLater"
+        type="radio"
+        name="payment"
+        formControlName="payment"
+        value="payLater"
+        [attr.disabled]="checkPayLater ? true : null"
+      />
+      <div class="pay-content">
+        <p class="title">Pay Later</p>
+        <p class="text-content">
+          Only applicable for bookings with check-in dates from 1 to 2 days
+          after the booking date
+        </p>
+      </div>
+    </label>
+
+    <label for="payPal" class="pay-with-paypal">
+      <input
+        id="payPal"
+        type="radio"
+        name="payment"
+        formControlName="payment"
+        value="payPal"
+      />
+      <div class="pay-content">
+        <p class="title">Pay with Paypal</p>
+        <p class="text-content">
+          Complete the payment using
+          <span> Credit/Debit Card, Bank Transfer, </span> or
+          <span> other available methods </span>
+        </p>
+
+        <div class="payment-images">
+          <img
+            src="/assets/images/Visa.webp"
+            style="width: 40px; height: 15px"
+            alt="visa-image"
+          />
+          <img
+            src="/assets/images/paypal.png"
+            style="width: 80px; height: 35px"
+            alt="paypal-image"
+          />
+        </div>
+      </div>
+    </label>
+
+    <label for="payATM" class="pay-with-ATM">
+      <input
+        id="payATM"
+        type="radio"
+        name="payment"
+        formControlName="payment"
+        checked
+        value="payATM"
+      />
+      <div class="pay-content">
+        <p class="title">Pay with ATM</p>
+        <p class="text-content">Pay by direct transfer to the hotel owner</p>
+
+        <div class="payment-images">
+          <img
+            src="/assets/images/SacombankLogo.png"
+            style="width: 65px; height: 30px"
+            alt="sc-image"
+          />
+          <img
+            src="/assets/images/vietinBank.png"
+            style="width: 55px; height: 30px"
+            alt="vt-image"
+          /><img
+            src="/assets/images/hdbank.webp"
+            style="width: 65px; height: 30px"
+            alt="hd-image"
+          />
+          <img
+            src="/assets/images/agribank.png"
+            style="width: 60px; height: 30px"
+            alt="ar-image"
+          />
+        </div>
+      </div>
+    </label>
+  </div>
+</div>

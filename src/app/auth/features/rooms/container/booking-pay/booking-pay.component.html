@@ -20,7 +20,7 @@
           {{ priceFormat }})
         </p>
       </div>
-      <p class="price">{{ roomPrice | currencyVND }}</p>
+      <p class="price">{{ roomPriceTotal | currencyVND }}</p>
     </div>
     <div *ngIf="serviceTotal !== 0" class="services-price">
       <div class="services-title">
@@ -36,7 +36,7 @@
     </div>
     <div class="price-total">
       <h3>Total Price</h3>
-      <p class="price">{{ allPriceToal | currencyVND }}</p>
+      <p class="price">{{ priceTotal | currencyVND }}</p>
     </div>
     <div class="advertisement">
       <i class="fa-solid fa-clock-rotate-left"></i>
@@ -49,7 +49,23 @@
       [visible]="showModal"
       (closeEvent)="closeModal()"
     >
-      <app-invoice-details> </app-invoice-details>
+      <app-invoice-details
+        [roomPriceTotal]="roomPriceTotal"
+        [room]="room"
+        [duration]="duration"
+        [priceFormat]="priceFormat"
+        [services]="services"
+        [priceTotal]="priceTotal"
+        [tax]="tax"
+        [serviceTotal]="serviceTotal"
+        [fromDate]="fromDate"
+        [toDate]="toDate"
+        [timeDate]="timeDate"
+        [userInfoBooking]="userInfoBooking"
+        [otherReqs]="otherReqs"
+        [payment]="payment"
+      >
+      </app-invoice-details>
     </app-modal>
   </div>
 </div>

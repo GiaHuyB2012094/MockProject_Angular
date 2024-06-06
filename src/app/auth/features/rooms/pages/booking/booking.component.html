@@ -49,21 +49,41 @@
 
       <app-form-user-info-booking
         class="box box-user-info"
+        (newItemEvent)="setUserInfoBookingHanlde($event)"
       ></app-form-user-info-booking>
 
       <app-request-booking
         [room]="room"
+        [fromDate]="fromDate"
+        [toDate]="toDate"
+        [duration]="duration"
+        [roomPriceTotal]="roomPriceTotal"
+        [services]="services"
+        [tax]="tax"
+        [priceFormat]="priceFormat"
         (newItemEvent)="setCheckinAndCheckoutHandle($event)"
         class="box box-requirement"
       ></app-request-booking>
-
+      <app-payment-options
+        class="box box-payment-options"
+        [fromDate]="fromDate"
+        (newItemEvent)="setPayment($event)"
+      ></app-payment-options>
       <app-booking-pay
         class="box box-payment"
-        [roomPrice]="roomPriceTotal"
         [room]="room"
+        [roomPriceTotal]="roomPriceTotal"
         [duration]="duration"
         [priceFormat]="priceFormat"
         [services]="services"
+        [tax]="tax"
+        [priceTotal]="priceTotal"
+        [fromDate]="fromDate"
+        [toDate]="toDate"
+        [timeDate]="timeDate"
+        [userInfoBooking]="userInfoBooking"
+        [otherReqs]="otherReqs"
+        [payment]="payment"
       ></app-booking-pay>
     </div>
 

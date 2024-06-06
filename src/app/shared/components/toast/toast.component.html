@@ -3,7 +3,7 @@
     [@toastTrigger]="(toast.showsToast$ | async) ? 'open' : 'close'"
     [class]="toast.toastState$ | async"
   >
-    <div style="max-width: 200px">
+    <div>
       {{ toast.toastMessage$ | async }}
     </div>
 

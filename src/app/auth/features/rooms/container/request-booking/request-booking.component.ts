@@ -14,6 +14,13 @@ import { ToastService } from 'src/app/core/services/toast.service';
 })
 export class RequestBookingComponent implements AfterViewChecked{
   @Input() room!: IRoom;
+  @Input() fromDate!: Date;
+  @Input() toDate!: Date;
+  @Input() duration!: number;
+  @Input() roomPriceTotal!: number;
+  @Input() services: any;
+  @Input() priceFormat: any;
+  @Input() tax!: number;
   @Output() newItemEvent = new EventEmitter<any>();
 
   payFormat = payFormat;
@@ -22,23 +29,14 @@ export class RequestBookingComponent implements AfterViewChecked{
   roomServices: IServices[] = [];
   servicePrice: number = 0;
   choosedService!: IServices;
-  serviceQuantity = 0;
-  priceFormat: string = 'hours';
+  serviceQuantity = 1;
+
   choosedServices:string = '';
   checkinAndCheckoutPrice!: number;
-  checkOutDate = new Date();
   isOpenCheckinTime = false;
   // output services prices
   servicesFees: any = [];
-
-  checkinAndCheckout: any = Object.assign({},{
-    fromDate : new Date(),
-    toDate : new Date(), 
-    duration: 1,
-    priceTotal: 0,
-    priceFormat: 'hours',
-    services: []
-  }) 
+  otherReqs!: string;
 
   constructor(
     private roomServicesService: RoomServicesService,
@@ -51,11 +49,10 @@ export class RequestBookingComponent implements AfterViewChecked{
     checkInDate: new FormControl((new Date()).toISOString().substring(0,10)),
     checkInTime: new FormControl((new Date()).toISOString().substring(11,16)),
   })
-
   
   ngOnInit(): void {
     this.getRoomServices()
-    this.checkOutDate.setDate(this.currentDay.getDate() + 1);
+
     this.checkinAndCheckoutPrice = this.room.price[0];
     this.roomRootPrice = this.room.price[0];
     
@@ -63,14 +60,27 @@ export class RequestBookingComponent implements AfterViewChecked{
       this.onFormChange(value);
     });
 
-    this.checkinAndCheckout['toDate'] = new Date(this.currentDay.getTime() + 86400000);
   }
 
   ngAfterViewChecked(): void {
-    this.newItemEvent.emit(this.checkinAndCheckout);
-  }
+    const result: any = Object.assign({},{
+      fromDate: this.fromDate,
+      toDate: this.toDate,
+      duration: this.duration,
+      roomPriceTotal: this.roomPriceTotal,
+      services: this.services,
+      priceFormat: this.priceFormat,
+      roomPrice: this.roomRootPrice,
+      priceTotal: this.tax + this.calculateSerivePriceTotal() + this.roomPriceTotal,
+      otherReqs: this.otherReqs,
+    })
 
-  
+    if (this.isOpenCheckinTime) {
+      result['checkInTime'] = this.formGroup.value.checkInTime;
+    }
+
+    this.newItemEvent.emit(result);
+  }
   
   onFormChange(value: any) {
     this.setNewCheckinAndCheckout();
@@ -83,7 +93,7 @@ export class RequestBookingComponent implements AfterViewChecked{
         this.choosedService = data[0];
         this.servicePrice = data[0].price;
 
-        this.checkinAndCheckout.priceTotal = data[0].price;
+        // this.roomPriceTotal = data[0].price;
       }
     );
   }
@@ -97,24 +107,23 @@ export class RequestBookingComponent implements AfterViewChecked{
     if (durationTemp > 0) {
       this.checkinAndCheckoutPrice = durationTemp * this.roomRootPrice;
       
-      if (this.priceFormat !== 'hours') {
-        this.checkOutDate = new Date(date.getTime() + durationTemp * 86400000);
+      if (this.priceFormat !== 'hour') {
+        this.toDate = new Date(date.getTime() + durationTemp * 86400000);
       } else {
-        this.checkOutDate = new Date(date.getTime() + 1 * 86400000);
+        this.toDate = new Date(date.getTime() + 1 * 86400000);
       }
     } 
     
-    if (this.isOpenCheckinTime) {
-      this.checkinAndCheckout.checkInTime = this.formGroup.value.checkInTime;
-    } else {
-      delete this.checkinAndCheckout.checkInTime;
-    }
+    // if (this.isOpenCheckinTime) {
+    //   this.formGroup.value.checkInTime = this.formGroup.value.checkInTime;
+    // } else {
+    //   delete this.formGroup.value.checkInTime;
+    // }
 
-    this.checkinAndCheckout['fromDate'] = date;
-    this.checkinAndCheckout['toDate'] = this.checkOutDate;
-    this.checkinAndCheckout['duration'] = durationTemp;
-    this.checkinAndCheckout['priceTotal'] = this.checkinAndCheckoutPrice;
-    this.checkinAndCheckout['priceFormat'] = this.priceFormat;
+    this.fromDate = date;
+    this.toDate = this.toDate;
+    this.duration = durationTemp;
+    this.roomPriceTotal = this.checkinAndCheckoutPrice;
     this.cdr.detectChanges();
   }
   
@@ -122,8 +131,6 @@ export class RequestBookingComponent implements AfterViewChecked{
   chooseRoomServicesHandle(e: number) {
     this.servicePrice = this.roomServices[e].price;
     this.choosedService = this.roomServices[e];
-
-    // this.serviceQuantity = 0;
   }
 
   choosePriceFormatHandle(e: string){
@@ -136,19 +143,18 @@ export class RequestBookingComponent implements AfterViewChecked{
 
   addServiceHandle():void {
     if (this.serviceQuantity !== 0) {
-      let sevItem: any =  this.checkinAndCheckout['services'].find((sv: { name: string; }) => sv.name === this.choosedService.label) 
-      console.log(sevItem);
+      let sevItem: any =  this.services.find((sv: { name: string; }) => sv.name === this.choosedService.label) 
 
       if (sevItem) {
-        this.checkinAndCheckout['services'][sevItem.id - 1] = {
+        this.services[sevItem.id - 1] = {
           id: sevItem.id,
           name: this.choosedService.label,
           quantity: this.serviceQuantity,
           totalPrice: this.serviceQuantity * this.servicePrice,
         }
       } else {
-        this.checkinAndCheckout['services'].push({
-          id: this.checkinAndCheckout['services'].length+1,
+        this.services.push({
+          id: this.services.length + 1,
           name: this.choosedService.label,
           quantity: this.serviceQuantity,
           totalPrice: this.serviceQuantity * this.servicePrice,
@@ -172,19 +178,26 @@ export class RequestBookingComponent implements AfterViewChecked{
 
   }
   deleteServiceHandle(id :number): void{
-    let servicesFeesTemp = [...this.checkinAndCheckout['services']];
-    servicesFeesTemp.splice(id-1, 1);
-    this.checkinAndCheckout['services'] = [...servicesFeesTemp];
+    let servicesFeesTemp = [...this.services];
+
+    servicesFeesTemp.splice(id - 1, 1);
+
+    this.services = [...servicesFeesTemp];
+
     this.toast.showToast(
       TOAST_STATE.success,
       'You have successfully delete service.'
     );
     this.dismissError();
   }
+
   convertPriceFormat(priceFormat: string): number{
     return this.payFormat.findIndex(pr => pr.value === priceFormat)
   }
 
+  calculateSerivePriceTotal(): number {
+    return this.services.reduce((sum: number, currentService: any) => sum + currentService.totalPrice, 0);
+  }
   private dismissError(): void {
     setTimeout(() => {
       this.toast.dismissToast();
