@@ -10,7 +10,7 @@ import { MockData } from './core/models/classes/mock-data';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { SharedModule } from './shared/shared.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { RouterModule } from '@angular/router';
 import { ForbiddenModule } from './forbidden/forbidden.module';
@@ -24,38 +24,36 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ThemeModule } from './Theme/theme.module';
 import { lightTheme } from './Theme/light.theme';
 import { darkTheme } from './Theme/dark.theme';
+import { NgxPayPalModule } from 'ngx-paypal';
 // import { TranslationModule } from './translation/translation.module';
 
-
-export function createTranslateLoader(http: HttpClient){
+export function createTranslateLoader(http: HttpClient) {
   // return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 const MODULES = [
-    CoreModule,
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    SharedModule,
-    HttpClientModule,  
-    RouterModule,
-    HttpClientInMemoryWebApiModule.forRoot(MockData, {delay: 500}),
-    BrowserAnimationsModule,
-    ForbiddenModule,
-    
-    NgxsModule.forRoot([UserState, LangState]),
+  CoreModule,
+  BrowserModule,
+  AppRoutingModule,
+  ReactiveFormsModule,
+  SharedModule,
+  HttpClientModule,
+  RouterModule,
+  HttpClientInMemoryWebApiModule.forRoot(MockData, { delay: 500 }),
+  BrowserAnimationsModule,
+  ForbiddenModule,
 
-    NgxsReduxDevtoolsPluginModule.forRoot(),
-    ThemeModule.forRoot({
-      themes: [lightTheme, darkTheme],
-      active: 'light'
-    })
-]
+  NgxsModule.forRoot([UserState, LangState]),
+
+  NgxsReduxDevtoolsPluginModule.forRoot(),
+  ThemeModule.forRoot({
+    themes: [lightTheme, darkTheme],
+    active: 'light',
+  }),
+
+  NgxPayPalModule,
+];
 @NgModule({
-  declarations: [
-    AppComponent,
-    AuthLayoutComponent,
-    UnAuthLayoutComponent,
-  ],
+  declarations: [AppComponent, AuthLayoutComponent, UnAuthLayoutComponent],
   imports: [
     ...MODULES,
 
@@ -68,12 +66,8 @@ const MODULES = [
     //     deps: [HttpClient]
     //   }
     // }),
-
-    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
-
+export class AppModule {}

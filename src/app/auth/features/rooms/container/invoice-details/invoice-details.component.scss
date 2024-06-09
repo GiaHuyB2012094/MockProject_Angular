@@ -1,178 +1,222 @@
 @import "src/app.constants.scss";
-.container{
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    gap: 20px;
-    width: 800px;
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  width: 800px;
 }
-.invoice-left{
-    grid-column: span 3 / span 3;
-    padding-right: 20px;
-    height: 100%;
-    border-right: 1px solid var(--divider-primary);
+
+.invoice-left {
+  grid-column: span 3 / span 3;
+  padding-right: 20px;
+  height: 100%;
+  border-right: 1px solid var(--divider-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .invoice-left-top {
+    width: 100%;
+    .user-contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .user-box {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .check-in-time {
+      h5 {
+        padding: 6px 0px;
+        color: var(--text-secondary);
+        span {
+          font-size: 16px;
+          color: $info-color;
+        }
+      }
+    }
+    .other-requests {
+      padding: 5px 0px;
+      p {
+        padding: 5px 12px;
+      }
+    }
+  }
+  .invoice-left-bot {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    .invoice-left-top{
-        width: 100%;
-        .user-contact-info{
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .user-box{
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-        .check-in-time{
-            h5{
-                padding: 6px 0px;
-                color: var(--text-secondary);
-                span{
-                    font-size: 16px;
-                    color: $info-color;
-                }
-            }
-        }
-        .other-requests{
-            padding: 5px 0px;
-            p {
-                padding: 5px 12px;
-            }
-        }
-    }
-    .invoice-left-bot{
+    gap: 10px;
+    .hotel-contact-info {
+      background-color: var(--divider-primary);
+      padding: 10px;
+      font-size: 14px;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+      .text-hotel-sub {
+        padding-left: 20px;
+      }
+      .hotel-box {
         display: flex;
-        flex-direction: column;
+        font-size: 13px;
+      }
+    }
+
+    .payment {
+      .payLater,
+      .payPal,
+      .payATM {
+        display: flex;
+        align-items: start;
         gap: 10px;
-        .hotel-contact-info{
-            background-color: var(--divider-primary);
-            padding: 10px;
-            font-size: 14px;
-            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-            .text-hotel-sub{
-                padding-left: 20px;
-            }
-            .hotel-box{
-                display: flex;
-                font-size: 13px;
-    
-            }
-        }
+        background-color: rgb(227, 250, 250);
+        font-size: 14px;
+        padding: 6px 4px;
 
-        .payment{
-            .payLater,
-            .payPal,
-            .payATM{
-                display: flex;
-                align-items: start;
-                gap: 10px;
-                background-color: rgb(227, 250, 250);
-                font-size: 14px;
-                padding: 6px 4px;
-                
-                img {
-                    width: 30px;
-                    height: 30px;
-                }
-                p {
-                    color: var(--text-secondary);
-                    span{
-                        font-weight: bold;
-                    }
-                }
-            }
+        img {
+          width: 30px;
+          height: 30px;
         }
-    }
-   
-}
-.invoice-right{
-    grid-column: span 2 / span 2;
-    .room-card{
-        padding-bottom: 6px;
-        border-bottom: 1px solid var(--divider-primary);
-        img{
-            width: 100%;
-            height: 200px;
-            box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px;
-            border-radius: 16px;    
-            border: 0px;
-        }
-        .room-name-branch{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 4px 0px;
-            .room-branch{
-                color: var(--text-secondary);
-                font-size: 14px;
-            }
-        }
-        .room-price{
-            font-size: 14px;
-        }
-    }
-
-    .price-details{
-        .room-price,
-        .stay-duration,
-        .tax-price,
-        .services-price{
-            font-size: 14px;
-        }
-        .price-toal{
-            padding: 10px 0px;
-            border-top: 1px solid var(--divider-primary);
-            font-size: 17px;
-            color: orangered;
+        p {
+          color: var(--text-secondary);
+          span {
             font-weight: bold;
+          }
         }
-        .services-price{
-            padding: 0;
-            margin: 0;
-            li {
-                display: flex;
-                align-items: center;
-                justify-content: space-between  ;
-                padding: 6px 0px;
-            }
-        }
+      }
     }
+  }
 }
+.invoice-right {
+  grid-column: span 2 / span 2;
+  .room-card {
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--divider-primary);
+    img {
+      width: 100%;
+      height: 200px;
+      box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px;
+      border-radius: 16px;
+      border: 0px;
+    }
+    .room-name-branch {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0px;
+      .room-branch {
+        color: var(--text-secondary);
+        font-size: 14px;
+      }
+    }
+    .room-price {
+      font-size: 14px;
+    }
+  }
 
-.checkin-checkout{
-    padding: 10px 30px;
-    margin-top: 10px;
-    border-radius: 6px;
-    // background-color: var(--divider-primary);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    font-size: 14px;
-    border: 1px solid var(--divider-primary);
-    
-    .date-box{
-        padding: 7px 0px;
+  .price-details {
+    .room-price,
+    .stay-duration,
+    .tax-price,
+    .services-price {
+      font-size: 14px;
+    }
+    .price-toal {
+      padding: 10px 0px;
+      border-top: 1px solid var(--divider-primary);
+      font-size: 17px;
+      color: orangered;
+      font-weight: bold;
+    }
+    .services-price {
+      padding: 0;
+      margin: 0;
+      li {
         display: flex;
-        gap: 10px;
         align-items: center;
+        justify-content: space-between;
+        padding: 6px 0px;
+      }
     }
+  }
 }
 
-  .room-price,
+.checkin-checkout {
+  padding: 10px 30px;
+  margin-top: 10px;
+  border-radius: 6px;
+  // background-color: var(--divider-primary);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  font-size: 14px;
+  border: 1px solid var(--divider-primary);
+
+  .date-box {
+    padding: 7px 0px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+}
+
+.room-price,
 .stay-duration,
 .tax-price,
-.price-toal{
-    display: flex;
-    align-items: center;
-    justify-content: space-between  ;
-    padding: 6px 0px;
+.price-toal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0px;
 }
 
 // .text-sub{
 //     font-size: 14px;
 // }
-.title{
-    color: var(--primary-color);
-    font-size: 17px;
-    font-weight: bold;
+.title {
+  color: var(--primary-color);
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.pay-qr {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .send-content {
+    display: flex;
+    padding: 10px;
+    background-color: var(--sub-overlay-color);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+  }
+
+  .QR {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 80%;
+      height: 250px;
+    }
+  }
+  .upload-image-payment {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .btn-group {
+    display: flex;
+    gap: 30px;
+    .btn {
+      width: 100%;
+    }
+  }
+  .pay-paypal-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+  }
 }

@@ -131,4 +131,74 @@
 
     <primary-button (click)="submitPayHandle()">Book now</primary-button>
   </div>
+
+  <app-modal
+    title="Pay with ATM"
+    [visible]="isOpenShowPayWithATM"
+    (closeEvent)="isOpenShowPayWithATM = !isOpenShowPayWithATM"
+  >
+    <div class="pay-qr">
+      <h5>
+        Please scan the QR code and enter the information below to proceed with
+        the booking payment:
+      </h5>
+
+      <div class="send-content">
+        <p>"{{ userInfoBooking?.username }} booked {{ room.name }}"</p>
+      </div>
+
+      <div class="QR">
+        <img src="/assets/images/credit-card-ATM.jpg" alt="atm-images" />
+      </div>
+
+      <div class="upload-image-payment">
+        <h5>
+          After successfully payment, please take a screenshot of the payment
+          and upload it here:
+        </h5>
+      </div>
+      <primary-button
+        class="btn-confirm"
+        [outline]="true"
+        size="small"
+        (click)="uploadPayImageHandle()"
+      >
+        <i class="btn-icon fa-solid fa-arrow-up-from-bracket"></i>
+        Upload here
+      </primary-button>
+
+      <input
+        type="file"
+        #uploadPayImg
+        [attr.hidden]="true"
+        (change)="uploadImage($event)"
+      />
+      <div class="btn-group">
+        <app-cancel-buttons
+          class="btn"
+          size="small"
+          (click)="isOpenShowPayWithATM = !isOpenShowPayWithATM"
+          >Cancel</app-cancel-buttons
+        >
+        <primary-button class="btn" size="small" (click)="confirmHandle()"
+          >Confirm</primary-button
+        >
+      </div>
+    </div>
+  </app-modal>
+
+  <!-- pay with paypal -->
+  <app-modal
+    title="Pay with Paypal"
+    [visible]="isOpenShowPayWithPayPal"
+    (closeEvent)="isOpenShowPayWithPayPal = !isOpenShowPayWithPayPal"
+  >
+    <div class="pay-paypal-modal">
+      <p>Total amount to pay : {{ priceTotal }}</p>
+      <h5>
+        Please do not refresh the browser while the transaction is processing
+      </h5>
+      <app-paypal-button></app-paypal-button>
+    </div>
+  </app-modal>
 </div>

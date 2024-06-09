@@ -1,13 +1,19 @@
-import { AfterViewChecked, AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { TOAST_STATE } from 'src/app/core/constants/toast.constant';
 import { ToastService } from 'src/app/core/services/toast.service';
 
 @Component({
   selector: 'app-booking-pay',
   templateUrl: './booking-pay.component.html',
-  styleUrls: ['./booking-pay.component.scss']
+  styleUrls: ['./booking-pay.component.scss'],
 })
-export class BookingPayComponent implements OnInit, AfterViewChecked{
+export class BookingPayComponent implements OnInit, AfterViewChecked {
   @Input() roomPriceTotal!: number;
   @Input() room: any;
   @Input() duration!: number;
@@ -24,20 +30,16 @@ export class BookingPayComponent implements OnInit, AfterViewChecked{
   @Input() payment: string | undefined;
 
   serviceTotal = 0;
-  showModal: boolean = false;
+  showModal: boolean = true;
 
-  constructor(
-    private toast: ToastService, 
-  ) {}
+  constructor(private toast: ToastService) {}
 
-  ngOnInit(): void {
-   }
+  ngOnInit(): void {}
   ngAfterViewChecked(): void {
-
-    this.serviceTotal = this.calculateSerivePrice();  
+    this.serviceTotal = this.calculateSerivePrice();
   }
   openModal() {
-    const {email, username, phone, customerUsername} = this.userInfoBooking;
+    const { email, username, phone, customerUsername } = this.userInfoBooking;
 
     if (email === '' || username === '' || phone === '') {
       this.toast.showToast(
@@ -49,13 +51,16 @@ export class BookingPayComponent implements OnInit, AfterViewChecked{
       this.showModal = true;
     }
   }
-  
-closeModal() {
+
+  closeModal() {
     this.showModal = false;
   }
 
   calculateSerivePrice(): number {
-    return this.services.reduce((sum: number, currentService: any) => sum + currentService.totalPrice, 0);
+    return this.services.reduce(
+      (sum: number, currentService: any) => sum + currentService.totalPrice,
+      0
+    );
   }
 
   private dismissError(): void {

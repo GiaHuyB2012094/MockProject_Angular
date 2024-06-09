@@ -2,9 +2,9 @@
 <div class="modal" *ngIf="visible">
   <div class="modal-header">
     <span class="modal-title">{{ title }}</span>
-    <button class="close-btn" (click)="close()">
+    <div class="close-btn" (click)="close()">
       <i class="fa-solid fa-xmark"></i>
-    </button>
+    </div>
   </div>
   <div class="modal-content">
     <ng-content></ng-content>
