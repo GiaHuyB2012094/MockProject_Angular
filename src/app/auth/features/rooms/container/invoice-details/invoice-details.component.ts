@@ -28,7 +28,7 @@ import { style } from '@angular/animations';
   styleUrls: ['./invoice-details.component.scss'],
 })
 export class InvoiceDetailsComponent
-  implements OnInit, AfterViewInit, AfterViewChecked
+  implements OnInit, AfterViewChecked
 {
   @Input() roomPriceTotal!: number;
   @Input() room: any;
@@ -54,6 +54,7 @@ export class InvoiceDetailsComponent
   roomRootPrice!: number;
 
   bookings: any;
+  rooms: any;
 
   isOpenShowPayWithATM = false;
   isOpenShowPayWithPayPal = false;
@@ -66,8 +67,10 @@ export class InvoiceDetailsComponent
     private store: Store,
     private toast: ToastService,
     private bookingService: BookingService,
+    private roomService: RoomsService,
     private http: HttpClient
   ) {}
+  booking !: IBooking;
 
   ngOnInit(): void {
     this.getCurrentUser();
@@ -75,13 +78,40 @@ export class InvoiceDetailsComponent
     this.bookingService
       .getBookings()
       .subscribe((data) => (this.bookings = data));
+
+    this.roomService.getRooms()
+      .subscribe((data:any) => (this.rooms = data));
+    
+    if (this.currentUser.id && this.payment) {
+      this.booking = Object.assign(
+         {},
+         {
+           roomID: this.room.id,
+           userID: this.currentUser.id,
+           fromDate: this.fromDate,
+           toDate: this.toDate,
+           duration: this.duration,
+           priceFormat: this.priceFormat,
+           payment: this.payment,
+           roomPriceTotal: this.roomPriceTotal,
+           tax: this.tax,
+           services: this.services,
+           priceTotal: this.priceTotal,
+           userInfoBooking: this.userInfoBooking,
+         }
+       );
+    }
+
   }
 
-  ngAfterViewInit(): void {}
   ngAfterViewChecked(): void {
     this.roomRootPrice =
       this.room.price[this.convertPriceFormat(this.priceFormat)];
-  }
+    console.log(this.bookings);
+    console.log(this.rooms);
+    console.log(this.uploadResponse?.url);
+
+    }
 
   getCurrentUser() {
     this.user$ = this.store.select(UserState.user);
@@ -95,62 +125,12 @@ export class InvoiceDetailsComponent
   }
 
   submitPayHandle(): void {
-    if (this.currentUser.id && this.payment) {
-      const booking: IBooking = Object.assign(
-        {},
-        {
-          roomID: this.room.id,
-          userID: this.currentUser.id,
-          fromDate: this.fromDate,
-          toDate: this.toDate,
-          duration: this.duration,
-          priceFormat: this.priceFormat,
-          payment: this.payment,
-          roomPriceTotal: this.roomPriceTotal,
-          tax: this.tax,
-          services: this.services,
-          priceTotal: this.priceTotal,
-          userInfoBooking: this.userInfoBooking,
-        }
-      );
-
-      if (this.payment === 'payLater') {
-        this.bookingService.createBooking(booking).subscribe((success) => {
-          if (success) {
-            this.toast.showToast(
-              TOAST_STATE.success,
-              'You have successfully booking!'
-            );
-            this.dismissError();
-          } else {
-            this.toast.showToast(TOAST_STATE.danger, 'You have fail booking!');
-            this.dismissError();
-          }
-        });
-      } else if (this.payment === 'payPal') {
-        this.isOpenShowPayWithPayPal = !this.isOpenShowPayWithPayPal;
-      } else if (this.payment === 'payATM') {
-        this.isOpenShowPayWithATM = !this.isOpenShowPayWithATM;
-
-        if (this.uploadResponse?.url !== undefined) {
-          booking.payATMimage = this.uploadResponse?.url;
-          this.bookingService.createBooking(booking).subscribe((success) => {
-            if (success) {
-              this.toast.showToast(
-                TOAST_STATE.success,
-                'You have successfully booking!'
-              );
-              this.dismissError();
-            } else {
-              this.toast.showToast(
-                TOAST_STATE.danger,
-                'You have fail booking!'
-              );
-              this.dismissError();
-            }
-          });
-        }
-      }
+    if (this.payment === 'payLater') {
+      this.createBooking()
+    } else if (this.payment === 'payPal') {
+      this.isOpenShowPayWithPayPal = !this.isOpenShowPayWithPayPal;
+    } else if (this.payment === 'payATM') {
+      this.isOpenShowPayWithATM = !this.isOpenShowPayWithATM;
     }
   }
 
@@ -159,12 +139,7 @@ export class InvoiceDetailsComponent
     if (fileInput.files && fileInput.files.length > 0) {
       this.selectedFile = fileInput.files[0];
     }
-  };
 
-  uploadPayImageHandle(): void {
-    this.uploadPayImg.nativeElement.click();
-  }
-  confirmHandle(): void {
     if (this.selectedFile) {
       const url = `https://api.cloudinary.com/v1_1/${environment.cloudinaryCloudName}/image/upload`;
       const formData = new FormData();
@@ -180,11 +155,60 @@ export class InvoiceDetailsComponent
           this.uploadResponse = { error: error.message };
         }
       );
+      this.toast.showToast(
+        TOAST_STATE.success,
+        'You uploaded the payment image successfully'
+      );
+      this.dismissError();
+
+    } else {
+      this.toast.showToast(
+        TOAST_STATE.danger,
+        'Please, upload payment image!'
+      );
+      this.dismissError();
     }
+  };
+
+  uploadPayImageHandle(): void {
+    this.uploadPayImg.nativeElement.click();
+  }
+
+  confirmHandle(): void {
+    if (this.uploadResponse.url !== undefined){
+      this.booking.payATMimage = this.uploadResponse.url;
+      this.createBooking();
+      
+      setTimeout(() => {
+        this.isOpenShowPayWithATM = false;
+      }, 1000);
+    }
+
   }
   private dismissError(): void {
     setTimeout(() => {
       this.toast.dismissToast();
     }, 2000);
   }
+
+  createBooking(): void {
+    this.bookingService.createBooking(this.booking)
+    .subscribe((success) => {
+      if (success) {
+        this.toast.showToast(
+          TOAST_STATE.success,
+          'You have successfully booking!'
+        );
+        this.dismissError();
+        
+      } else {
+        this.toast.showToast(
+          TOAST_STATE.danger,
+          'You have fail booking!'
+        );
+        this.dismissError();
+      }
+  });
+  }
 }
+

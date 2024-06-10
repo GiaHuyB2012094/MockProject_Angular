@@ -13,6 +13,6 @@ export interface IRoom {
     imgs: Array<string>;
     nearbyTouristSpot: {name: string, distance: string}[];
     convenient: Array<string>;
-    currentBooking?: Array<string>;
+    currentBooking: Array<any>;
   }
   

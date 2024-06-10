@@ -1,0 +1,49 @@
+.container{
+    background-color: var(--card-color);
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--text-primary);
+    .bookings-title{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .room-name{
+            display: flex;
+            gap: 6px;
+            font-weight: bold;
+            color: var(--primary-color)
+        }
+    }
+    .booking-time{padding-left: 20px;}
+    .booking-body{
+        background-color: var(--divider-primary);
+        padding: 20px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .checkin-checkout{
+            display: flex;
+            align-items: center;    
+            gap: 60px;
+        }
+        .checkin,.checkout,.price{
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            
+        }
+        .price{
+            justify-content: end;
+            text-align: end;
+        }
+    }
+    p{
+        color: var(--text-secondary)
+    }
+ 
+}

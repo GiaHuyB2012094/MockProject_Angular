@@ -1,0 +1,12 @@
+<div class="container">
+  <ng-container *ngIf="!isLoading; else loader">
+    <app-breadcrumb [arrBreadcrumbs]="breadcrumbs"></app-breadcrumb>
+    <div class="bookings-list">
+      <app-bookings-card
+        *ngFor="let booking of bookings"
+        [booking]="booking"
+      ></app-bookings-card>
+    </div>
+  </ng-container>
+  <ng-template #loader> <app-loader></app-loader></ng-template>
+</div>

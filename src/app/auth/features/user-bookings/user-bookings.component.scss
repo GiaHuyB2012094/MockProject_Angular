@@ -1,0 +1,10 @@
+@import "src/app.constants.scss";
+.container{
+    background-color: var(--bg-secondary);
+    min-height: 100vh;
+    padding: 0 80px;
+
+    @media (max-width: 850px){
+        padding: 0px 5%;
+    }
+}

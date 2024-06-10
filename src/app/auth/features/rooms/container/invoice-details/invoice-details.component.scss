@@ -213,10 +213,20 @@
       width: 100%;
     }
   }
-  .pay-paypal-modal {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
+  .btn-disabled{
+    background-color: var(--divider-primary);
+    color: #fff;
+  }
+}
+.pay-paypal-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  p{
+    text-align: center;
+    .paypal-price{
+      font-weight: bold;
+      color: $sub-color; 
+    }
   }
 }

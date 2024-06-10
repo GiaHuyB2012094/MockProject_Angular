@@ -24,9 +24,9 @@ export const headerMenu = [
     link: '/travel-guide',
   },
   {
-    value: 'news',
-    label: 'News',
+    value: 'user-bookings',
+    label: 'Bookings',
     icon: 'fa-regular fa-newspaper',
-    link: '/news',
+    link: '/user-bookings',
   },
 ];

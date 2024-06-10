@@ -30,7 +30,7 @@ export class BookingPayComponent implements OnInit, AfterViewChecked {
   @Input() payment: string | undefined;
 
   serviceTotal = 0;
-  showModal: boolean = true;
+  showModal: boolean = false;
 
   constructor(private toast: ToastService) {}
 

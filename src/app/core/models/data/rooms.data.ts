@@ -79,6 +79,7 @@ export const roomsData = [
       'Parking lot',
       'Non-smoking',
     ],
+    currentBooking: [],
     maxcount: 10,
   },
   {
@@ -162,6 +163,7 @@ export const roomsData = [
       'Parking lot',
       'Non-smoking',
     ],
+    currentBooking: [],
     maxcount: 10,
   },
   {
@@ -245,6 +247,7 @@ export const roomsData = [
       'Parking lot',
       'Non-smoking',
     ],
+    currentBooking: [],
     maxcount: 10,
   },
   {
@@ -327,6 +330,7 @@ export const roomsData = [
       'Parking lot',
       'Non-smoking',
     ],
+    currentBooking: [],
     maxcount: 10,
   },
   {
@@ -410,6 +414,7 @@ export const roomsData = [
       'Parking lot',
       'Non-smoking',
     ],
+    currentBooking: [],
     maxcount: 10,
   },
   {
@@ -493,6 +498,7 @@ export const roomsData = [
       'Parking lot',
       'Non-smoking',
     ],
+    currentBooking: [],
     maxcount: 10,
   },
   {
@@ -576,6 +582,7 @@ export const roomsData = [
       'Parking lot',
       'Non-smoking',
     ],
+    currentBooking: [],
     maxcount: 5,
   },
   {
@@ -657,6 +664,7 @@ export const roomsData = [
       'Parking lot',
       'Non-smoking',
     ],
+    currentBooking: [],
     maxcount: 5,
   },
 ];

@@ -157,15 +157,26 @@
           and upload it here:
         </h5>
       </div>
-      <primary-button
-        class="btn-confirm"
-        [outline]="true"
-        size="small"
-        (click)="uploadPayImageHandle()"
-      >
-        <i class="btn-icon fa-solid fa-arrow-up-from-bracket"></i>
-        Upload here
-      </primary-button>
+      <div class="">
+        <primary-button
+          [outline]="true"
+          size="small"
+          (click)="uploadPayImageHandle()"
+        >
+          <i class="btn-icon fa-solid fa-arrow-up-from-bracket"></i>
+          Upload here
+        </primary-button>
+
+        <!-- <primary-button
+          *ngIf="uploadResponse?.url !== undefined"
+          class="btn-disabled"
+          size="small"
+          (click)="uploadPayImageHandle()"
+        >
+          <i class="btn-icon fa-solid fa-arrow-up-from-bracket"></i>
+          Upload agai here
+        </primary-button> -->
+      </div>
 
       <input
         type="file"
@@ -194,11 +205,16 @@
     (closeEvent)="isOpenShowPayWithPayPal = !isOpenShowPayWithPayPal"
   >
     <div class="pay-paypal-modal">
-      <p>Total amount to pay : {{ priceTotal }}</p>
+      <p>
+        Total amount to pay :
+        <span class="paypal-price">{{ priceTotal | currencyVND }}</span>
+      </p>
       <h5>
         Please do not refresh the browser while the transaction is processing
       </h5>
-      <app-paypal-button></app-paypal-button>
+      <app-paypal-button
+        [showPaypalButtons]="isOpenShowPayWithPayPal"
+      ></app-paypal-button>
     </div>
   </app-modal>
 </div>

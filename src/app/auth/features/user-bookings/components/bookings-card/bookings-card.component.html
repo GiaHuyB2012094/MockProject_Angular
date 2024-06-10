@@ -1,0 +1,32 @@
+<ng-container *ngIf="!isLoading; else loader">
+  <div class="container">
+    <div class="bookings-title">
+      <div class="room-name">
+        <i class="fa-solid fa-hotel"></i>
+        <h4>{{ room.name }}</h4>
+      </div>
+      <p>See detail</p>
+    </div>
+    <p class="booking-time">Booking at 09/06/2024</p>
+
+    <div class="booking-body">
+      <div class="checkin-checkout">
+        <div class="checkin">
+          <p>From Date</p>
+          <h4>{{ booking.fromDate | date : "dd/MM/yyyy" }}</h4>
+        </div>
+        <div class="next-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        <div class="checkout">
+          <p>To Date</p>
+          <h4>{{ booking.toDate | date : "dd/MM/yyyy" }}</h4>
+        </div>
+      </div>
+
+      <div class="price">
+        <p>{{ booking.duration }} {{ booking.priceFormat }}</p>
+        <h4>{{ booking.roomPriceTotal | currencyVND }}</h4>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loader> <app-loader></app-loader></ng-template>
