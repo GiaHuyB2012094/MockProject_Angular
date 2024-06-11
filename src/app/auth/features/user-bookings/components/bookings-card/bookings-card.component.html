@@ -5,7 +5,7 @@
         <i class="fa-solid fa-hotel"></i>
         <h4>{{ room.name }}</h4>
       </div>
-      <p>See detail</p>
+      <!-- <p>See detail</p> -->
     </div>
     <p class="booking-time">Booking at 09/06/2024</p>
 
@@ -19,6 +19,13 @@
         <div class="checkout">
           <p>To Date</p>
           <h4>{{ booking.toDate | date : "dd/MM/yyyy" }}</h4>
+        </div>
+        <div class="next-arrow">
+          <i class="fa-solid fa-arrows-left-right"></i>
+        </div>
+        <div class="checkout">
+          <p>Payment</p>
+          <h4>Pay for the booking with {{ booking.payment }}</h4>
         </div>
       </div>
 

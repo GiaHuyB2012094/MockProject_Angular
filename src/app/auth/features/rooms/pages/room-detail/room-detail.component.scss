@@ -6,7 +6,7 @@
     grid-template-columns: repeat(4,1fr);
     column-gap: 10px;
     row-gap: 1em;
-
+    padding-bottom: 30px;
     .box{
         background-color: var(--box-color);
         border-radius: 5px;
@@ -54,6 +54,11 @@
     }
     .box8{
        height: 510px; 
+
+    }
+    .box9{
+       grid-column: span 4 / span 4;
+
     }
 
 

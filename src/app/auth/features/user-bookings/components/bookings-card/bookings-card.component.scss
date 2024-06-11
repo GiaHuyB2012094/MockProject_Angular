@@ -1,3 +1,4 @@
+@import "src/app.constants.scss";
 .container{
     background-color: var(--card-color);
     padding: 30px 20px;
@@ -29,7 +30,7 @@
         .checkin-checkout{
             display: flex;
             align-items: center;    
-            gap: 60px;
+            gap: 80px;
         }
         .checkin,.checkout,.price{
             display: flex;
@@ -40,6 +41,7 @@
         .price{
             justify-content: end;
             text-align: end;
+            color: $sub-color;
         }
     }
     p{

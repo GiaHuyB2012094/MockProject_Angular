@@ -1,0 +1,36 @@
+<div class="container">
+  <h3>Other reviews from travelers about The One Premium Hotel</h3>
+  <h5>Overall Ratings & Reviews</h5>
+
+  <div class="overall-rating"></div>
+
+  <div class="writing-comment">
+    <h4>Leave your comment</h4>
+
+    <form [formGroup]="formGroup" (ngSubmit)="commentHandle()">
+      <app-text-input-group
+        id="comment"
+        [control]="formGroup.controls.comment"
+        class="comment-input"
+        (keydown.enter)="commentHandle()"
+        label="Enter your comment."
+        placeholder="Enter your comment."
+      ></app-text-input-group>
+      <primary-button
+        class="send-comment-btn"
+        (click)="commentHandle()"
+        size="small"
+        [outline]="true"
+      >
+        Send
+        <i class="btn-icon fa-solid fa-paper-plane"></i>
+      </primary-button>
+    </form>
+  </div>
+  <div class="show-comments">
+    <app-comment
+      *ngFor="let comment of comments"
+      [comment]="comment"
+    ></app-comment>
+  </div>
+</div>

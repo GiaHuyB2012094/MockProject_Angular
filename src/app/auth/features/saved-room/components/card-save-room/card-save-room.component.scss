@@ -1,0 +1,61 @@
+@import "src/app.constants.scss";
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  background: var(--card-primary);
+  color: var(--text-primary);
+  overflow: hidden;
+  &:hover {
+    background: var(--sub-overlay-color);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    transition: 0.3s ease;
+  }
+    .top{
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+
+        .top-left{
+            .hotel-info{
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                .hotel-img{
+                    height: 112px;
+                    width: 100px;
+                    img {
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        object-position: 50% 50%;
+                        transition: 2s ease;
+                        border-radius: 6px;
+                        &:hover {
+                          transform: scale(1.1);
+                        }
+                      }
+                }
+                .hotel-info-content{
+                    h4{
+                        color: var(--primary-color);
+                    }
+                }
+            }
+        }
+        .top-right{}
+    }
+    .bottom{
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-top: 1px solid var(--divider-primary);
+        h4{
+            color: $sub-color;
+        }
+    }
+}

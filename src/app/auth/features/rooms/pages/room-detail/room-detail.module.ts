@@ -9,6 +9,7 @@ import { GeneralInfoRoomDetailModule } from '../../container/general-info-room-d
 import { AddressRoomDetailModule } from '../../container/address-room-detail/address-room-detail.module';
 import { ConvientRoomDetailModule } from '../../container/convient-room-detail/convient-room-detail.module';
 import { FamousLandmarksRoomDetailModule } from '../../container/famous-landmarks-room-detail/famous-landmarks-room-detail.module';
+import { CommentReviewRoomModule } from '../../container/comment-review-room/comment-review-room.module';
 
 const MODULES = [
   ShowImagesRoomModule,
@@ -16,6 +17,7 @@ const MODULES = [
   AddressRoomDetailModule,
   ConvientRoomDetailModule,
   FamousLandmarksRoomDetailModule,
+  CommentReviewRoomModule
 ]
 
 @NgModule({

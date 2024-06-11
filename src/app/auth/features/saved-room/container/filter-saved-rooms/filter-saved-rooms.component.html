@@ -1,0 +1,17 @@
+<div class="container">
+  <h3 class="title">Saved places</h3>
+  <app-text-input-group
+    id="search"
+    [iconRight]="true"
+    [control]="formGroup.controls.search"
+    (keydown.enter)="searchHandle()"
+    label="Enter a city or destination."
+    placeholder="Enter a city or destination."
+  >
+    <i
+      #iconRef
+      class="icon-search icon fa-solid fa-magnifying-glass"
+      (click)="searchHandle()"
+    ></i>
+  </app-text-input-group>
+</div>

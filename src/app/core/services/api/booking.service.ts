@@ -24,7 +24,7 @@ export class BookingService {
   getBookingOfUser = (id: number): Observable<any> => {
     return this.http.get<any>(this.baseUrl).pipe(
       map((bookings) => {
-        const booking = bookings.find((b: IBooking) => b.userID === id);
+        const booking = bookings.filter((b: IBooking) => b.userID === id);
         return booking;
       })
     );

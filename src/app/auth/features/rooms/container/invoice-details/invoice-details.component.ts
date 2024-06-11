@@ -1,13 +1,11 @@
 import {
   AfterViewChecked,
-  AfterViewInit,
   Component,
   ElementRef,
   Input,
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { payFormat } from 'src/app/core/constants/titles/room-type.constant';
@@ -20,7 +18,6 @@ import { ToastService } from 'src/app/core/services/toast.service';
 import { UserState } from 'src/app/core/store/states/user.state';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-invoice-details',
@@ -82,6 +79,17 @@ export class InvoiceDetailsComponent
     this.roomService.getRooms()
       .subscribe((data:any) => (this.rooms = data));
     
+    
+
+  }
+
+  ngAfterViewChecked(): void {
+    this.roomRootPrice =
+      this.room.price[this.convertPriceFormat(this.priceFormat)];
+    console.log(this.bookings);
+    console.log(this.rooms);
+    console.log(this.uploadResponse?.url);
+
     if (this.currentUser.id && this.payment) {
       this.booking = Object.assign(
          {},
@@ -101,16 +109,6 @@ export class InvoiceDetailsComponent
          }
        );
     }
-
-  }
-
-  ngAfterViewChecked(): void {
-    this.roomRootPrice =
-      this.room.price[this.convertPriceFormat(this.priceFormat)];
-    console.log(this.bookings);
-    console.log(this.rooms);
-    console.log(this.uploadResponse?.url);
-
     }
 
   getCurrentUser() {
@@ -176,7 +174,7 @@ export class InvoiceDetailsComponent
 
   confirmHandle(): void {
     if (this.uploadResponse.url !== undefined){
-      this.booking.payATMimage = this.uploadResponse.url;
+      this.booking.payATMimage = this.uploadResponse?.url;
       this.createBooking();
       
       setTimeout(() => {
@@ -193,6 +191,7 @@ export class InvoiceDetailsComponent
 
   createBooking(): void {
     this.bookingService.createBooking(this.booking)
+
     .subscribe((success) => {
       if (success) {
         this.toast.showToast(

@@ -12,8 +12,13 @@
       <p>
         {{ name }}
       </p>
-      <div class="card-save">
-        <i class="fa-regular fa-heart"></i>
+      <div class="card-save" (click)="handleSaveHeart()">
+        <div class="" *ngIf="!isActiveHeart">
+          <i class="fa-regular fa-heart"></i>
+        </div>
+        <div class="" *ngIf="isActiveHeart">
+          <i style="color: red" class="fa-solid fa-heart"></i>
+        </div>
       </div>
     </div>
 

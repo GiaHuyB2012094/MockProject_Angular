@@ -51,17 +51,16 @@ export class BookingComponent implements OnInit, OnDestroy, AfterViewChecked {
       this.roomID = Number(params.get('id'));
       this.getRoomData();
     });
+
     this.getCurrentUser();
 
     this.setInitialBookingValue();
-
-    
-  
   }
   
   ngAfterViewChecked(): void {
     this.setUpdateBookingValue();
   }
+  
   setInitialBookingValue(): void{
     this.tax = 70000;
     this.fromDate = new Date();

@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IRoom } from 'src/app/core/models/interfaces/IRoom.interface';
-import { convertCurrencyVND } from 'src/app/shared/utils/currency';
 
 @Component({
   selector: 'app-room-card',

@@ -18,10 +18,10 @@ export const headerMenu = [
     link: '/promotions',
   },
   {
-    value: 'travel-guide',
-    label: 'Travel Guide',
+    value: 'saved-rooms',
+    label: 'Saved Rooms',
     icon: 'fa-solid fa-map-location-dot',
-    link: '/travel-guide',
+    link: '/saved-rooms',
   },
   {
     value: 'user-bookings',

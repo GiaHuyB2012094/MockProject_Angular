@@ -1,0 +1,29 @@
+<ng-container *ngIf="!isLoading; else loader">
+  <div class="container">
+    <div class="user-name">
+      <div class="user-avatar">
+        <img [src]="user.avatar" alt="user-avatar" />
+      </div>
+      <p>{{ comment.username }}</p>
+    </div>
+    <div class="comment-body">
+      <div class="point-evaluation">
+        <p>
+          <span
+            ><img src="/assets/icons/bride.svg" alt="logo-evaluation" />
+            6.3
+          </span>
+          / 10
+        </p>
+      </div>
+      <div class="comment-content">
+        {{ comment.body }}
+      </div>
+      <div class="like-comment">
+        <i class="fa-regular fa-thumbs-up"></i>
+        <h5>This review has 5 likes</h5>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loader> <app-loader></app-loader></ng-template>

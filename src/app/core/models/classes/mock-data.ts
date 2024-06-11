@@ -8,6 +8,10 @@ import { conveniencesData } from '../data/conveniences.data';
 import { IServices } from '../interfaces/IServices.interface';
 import { servicesData } from '../data/services.data';
 import { bookingsData } from '../data/booking.data';
+import { saveRoomData } from '../data/save-room.data';
+import { ISaveRoom } from '../interfaces/ISaveRoom.interface';
+import { IComment } from '../interfaces/IComment.interface';
+import { commentsData } from '../data/comments.data';
 
 export class MockData implements InMemoryDbService {
   createDb(
@@ -18,6 +22,8 @@ export class MockData implements InMemoryDbService {
     const conveniences: string[] = conveniencesData;
     const services: IServices[] = servicesData;
     const bookings: any[] = bookingsData;
-    return { users, rooms, conveniences, services, bookings};
+    const saves: ISaveRoom[] = saveRoomData;
+    const comments: IComment[] = commentsData;
+    return { users, rooms, conveniences, services, bookings, saves, comments};
   }
 }
