@@ -1,0 +1,134 @@
+<div class="writing-comment">
+  <h4 class="title">Please provide your rating and comments</h4>
+
+  <div class="rate-satisfaction">
+    <h5>Rate your satisfaction</h5>
+    <div class="rate-satisfaction-body">
+      <form
+        class="satisfaction-level"
+        [formGroup]="formGroupStatisfaction"
+        (ngSubmit)="commentHandle()"
+      >
+        <div class="satisfaction-item">
+          <input
+            id="excellent"
+            type="radio"
+            name="satisfactionLevel"
+            formControlName="satisfactionLevel"
+            value="excellent"
+            [checked]="true"
+          />
+          <label for="excellent" class="satisfaction-label">Excellent</label>
+        </div>
+        <div class="satisfaction-item">
+          <input
+            id="veryGood"
+            type="radio"
+            name="satisfactionLevel"
+            formControlName="satisfactionLevel"
+            value="veryGood"
+          />
+          <label for="veryGood" class="satisfaction-label">VeryGood</label>
+        </div>
+        <div class="satisfaction-item">
+          <input
+            id="satisfaction"
+            type="radio"
+            name="satisfactionLevel"
+            formControlName="satisfactionLevel"
+            value="satisfaction"
+          />
+          <label for="satisfaction" class="satisfaction-label"
+            >Satisfaction</label
+          >
+        </div>
+        <div class="satisfaction-item">
+          <input
+            id="average"
+            type="radio"
+            name="satisfactionLevel"
+            formControlName="satisfactionLevel"
+            value="average"
+          />
+          <label for="average" class="satisfaction-label">Average</label>
+        </div>
+        <div class="satisfaction-item">
+          <input
+            id="poor"
+            type="radio"
+            name="satisfactionLevel"
+            formControlName="satisfactionLevel"
+            value="poor"
+          />
+          <label for="poor" class="satisfaction-label">Poor</label>
+        </div>
+      </form>
+
+      <div class="services-mark">
+        <div class="serivces-item">
+          <p>Cleanliness</p>
+          <app-star-rating
+            [rating]="cleanlinessStarRating"
+            (newEventItem)="changeCleanlinessHandle($event)"
+          ></app-star-rating>
+        </div>
+        <div class="serivces-item">
+          <p>Comfort</p>
+
+          <app-star-rating
+            [rating]="comfortStarRating"
+            (newEventItem)="changeComfortHandle($event)"
+          ></app-star-rating>
+        </div>
+        <div class="serivces-item">
+          <p>Food</p>
+
+          <app-star-rating
+            [rating]="foodStarRating"
+            (newEventItem)="changeFoodHandle($event)"
+          ></app-star-rating>
+        </div>
+        <div class="serivces-item">
+          <p>Location</p>
+
+          <app-star-rating
+            [rating]="locationStarRating"
+            (newEventItem)="changeLocationHandle($event)"
+          ></app-star-rating>
+        </div>
+        <div class="serivces-item">
+          <p>Serivce</p>
+
+          <app-star-rating
+            [rating]="serviceStarRating"
+            (newEventItem)="changeSerivceHandle($event)"
+          ></app-star-rating>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form
+    class="comment-form"
+    [formGroup]="formGroup"
+    (ngSubmit)="commentHandle()"
+  >
+    <app-text-input-group
+      id="comment"
+      [control]="formGroup.controls.comment"
+      class="comment-input"
+      (keydown.enter)="commentHandle()"
+      label="Enter your comment."
+      placeholder="Enter your comment."
+    ></app-text-input-group>
+    <primary-button
+      class="send-comment-btn"
+      (click)="commentHandle()"
+      size="small"
+      [outline]="true"
+    >
+      Send
+      <i class="btn-icon fa-solid fa-paper-plane"></i>
+    </primary-button>
+  </form>
+</div>

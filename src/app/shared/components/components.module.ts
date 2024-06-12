@@ -14,6 +14,7 @@ import { CancelButtonsModule } from './buttons/cancel-buttons/cancel-buttons.mod
 import { SwitchThemeModeModule } from './buttons/switch-dark-light-mode/switch-theme-mode/switch-theme-mode.module';
 import { ModalModule } from './modal/modal.module';
 import { PaypalButtonModule } from './buttons/paypal-button/paypal-button.module';
+import { ProgressBarModule } from './progress-bar/progress-bar.module';
 
 const SHARED_MODULES: Array<Type<any>> = [
   TextInputGroupModule,
@@ -28,6 +29,7 @@ const SHARED_MODULES: Array<Type<any>> = [
   SwitchThemeModeModule,
   PaypalButtonModule,
   ModalModule,
+  ProgressBarModule,
 ];
 const MODULES: Array<Type<any>> = [CommonModule, FormsModule, RouterModule];
 

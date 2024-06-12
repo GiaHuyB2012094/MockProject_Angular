@@ -78,14 +78,11 @@ export class InvoiceDetailsComponent
 
     this.roomService.getRooms()
       .subscribe((data:any) => (this.rooms = data));
-    
-    
-
   }
 
   ngAfterViewChecked(): void {
     this.roomRootPrice =
-      this.room.price[this.convertPriceFormat(this.priceFormat)];
+    this.room.price[this.convertPriceFormat(this.priceFormat)];
     console.log(this.bookings);
     console.log(this.rooms);
     console.log(this.uploadResponse?.url);

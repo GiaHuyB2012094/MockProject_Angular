@@ -11,7 +11,7 @@
         <p>
           <span
             ><img src="/assets/icons/bride.svg" alt="logo-evaluation" />
-            6.3
+            {{ comment.avarageScore }}
           </span>
           / 10
         </p>
@@ -23,6 +23,9 @@
         <i class="fa-regular fa-thumbs-up"></i>
         <h5>This review has 5 likes</h5>
       </div>
+    </div>
+    <div class="creatAtComment">
+      <p>{{ comment.createdAt | date : "dd/MM/yyyy" }}</p>
     </div>
   </div>
 </ng-container>

@@ -17,6 +17,7 @@ export class RoomDetailComponent implements OnInit{
   breadcrumbs: IBreadcrumb[] = [
     {label: 'rooms', link: '/rooms'},
   ];
+  
   roomID!: number;
   activeRoute : ActivatedRoute = inject(ActivatedRoute)
 

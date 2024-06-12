@@ -6,5 +6,11 @@ export  interface IComment {
 
     username: string;
     parentID: number | null;
+    
+    avarageScore?: number;
+
+    rateSatisfaction?: string; 
+    rateSerivces?: Array<number>; 
+
     createdAt: string;
   } 

@@ -2,31 +2,95 @@
   <h3>Other reviews from travelers about The One Premium Hotel</h3>
   <h5>Overall Ratings & Reviews</h5>
 
-  <div class="overall-rating"></div>
+  <div class="overall-rating">
+    <div class="avarage-point">
+      <div class="edge-of-cycle">
+        <div class="avarage-point-cycle">
+          <h1>7.8</h1>
+        </div>
+      </div>
+      <h3>Convenient</h3>
+    </div>
 
-  <div class="writing-comment">
-    <h4>Leave your comment</h4>
+    <ul class="satisfaction-points">
+      <li class="satisfaction-item">
+        <p>Excellent</p>
+        <app-progress-bar
+          class="progress"
+          [percent]="excellentPercent"
+        ></app-progress-bar>
+        <p>14</p>
+      </li>
+      <li class="satisfaction-item">
+        <p>VeryGood</p>
+        <app-progress-bar
+          class="progress"
+          [percent]="excellentPercent"
+        ></app-progress-bar>
 
-    <form [formGroup]="formGroup" (ngSubmit)="commentHandle()">
-      <app-text-input-group
-        id="comment"
-        [control]="formGroup.controls.comment"
-        class="comment-input"
-        (keydown.enter)="commentHandle()"
-        label="Enter your comment."
-        placeholder="Enter your comment."
-      ></app-text-input-group>
-      <primary-button
-        class="send-comment-btn"
-        (click)="commentHandle()"
-        size="small"
-        [outline]="true"
-      >
-        Send
-        <i class="btn-icon fa-solid fa-paper-plane"></i>
-      </primary-button>
-    </form>
+        <p>14</p>
+      </li>
+      <li class="satisfaction-item">
+        <p>Satisfaction</p>
+        <app-progress-bar
+          class="progress"
+          [percent]="excellentPercent"
+        ></app-progress-bar>
+
+        <p>14</p>
+      </li>
+      <li class="satisfaction-item">
+        <p>Average</p>
+        <app-progress-bar
+          class="progress"
+          [percent]="excellentPercent"
+        ></app-progress-bar>
+        <p>14</p>
+      </li>
+      <li class="satisfaction-item">
+        <p>Poor</p>
+        <app-progress-bar
+          class="progress"
+          [percent]="excellentPercent"
+        ></app-progress-bar>
+        <p>14</p>
+      </li>
+    </ul>
+
+    <div class="services-mark">
+      <div class="serivces-item">
+        <p>Cleanliness</p>
+        <app-star-rating></app-star-rating>
+      </div>
+      <div class="serivces-item">
+        <p>Comfort</p>
+
+        <app-star-rating></app-star-rating>
+      </div>
+      <div class="serivces-item">
+        <p>Food</p>
+
+        <app-star-rating></app-star-rating>
+      </div>
+      <div class="serivces-item">
+        <p>Location</p>
+
+        <app-star-rating></app-star-rating>
+      </div>
+      <div class="serivces-item">
+        <p>Serivce</p>
+
+        <app-star-rating></app-star-rating>
+      </div>
+    </div>
   </div>
+
+  <app-writing-comment-evaluation
+    [roomID]="roomID"
+    (newItemEvent)="setCommentAfterCreate($event)"
+    class="writing-comment"
+  ></app-writing-comment-evaluation>
+
   <div class="show-comments">
     <app-comment
       *ngFor="let comment of comments"

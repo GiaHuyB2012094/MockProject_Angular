@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { CommentsService } from 'src/app/core/services/api/comments.service';
 import { IComment } from 'src/app/core/models/interfaces/IComment.interface';
 @Component({
@@ -10,11 +9,9 @@ import { IComment } from 'src/app/core/models/interfaces/IComment.interface';
 export class CommentReviewRoomComponent implements OnInit{
   @Input() roomID!: number;
   comments!: IComment[];
+  excellentPercent = 80;
+
   constructor(private commentService: CommentsService){}
-  
-  formGroup = new FormGroup({
-    comment: new FormControl(''),
-  })
 
   ngOnInit(): void {
     this.commentService.getCommentsByRoomID(this.roomID)
@@ -23,5 +20,8 @@ export class CommentReviewRoomComponent implements OnInit{
 
   commentHandle(): void{
 
+  }
+  setCommentAfterCreate(e:any): void{
+    this.comments.push(e[e.length-1]);
   }
 }

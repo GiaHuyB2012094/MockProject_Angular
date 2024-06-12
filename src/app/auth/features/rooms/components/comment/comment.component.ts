@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, Input, OnInit } from '@angular/core';
 import { IComment } from 'src/app/core/models/interfaces/IComment.interface';
 import { UserService } from 'src/app/core/services/api/user.service';
 
@@ -7,16 +7,19 @@ import { UserService } from 'src/app/core/services/api/user.service';
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.scss']
 })
-export class CommentComponent implements OnInit{
+export class CommentComponent implements OnInit, AfterViewChecked{
   @Input() comment!:IComment;
   isLoading = true;
-  constructor(private userService: UserService){}
   user: any;
+
+  constructor(private userService: UserService){}
 
   ngOnInit(): void {
     this.getUserByID();
   }
-
+  ngAfterViewChecked(): void {
+    console.log(this.comment);
+  }
   getUserByID(): void{
     this.userService.getUserById(this.comment.userID)
       .subscribe(data => {
@@ -24,4 +27,6 @@ export class CommentComponent implements OnInit{
         this.isLoading = false;
       });
   }
+
+  
 }

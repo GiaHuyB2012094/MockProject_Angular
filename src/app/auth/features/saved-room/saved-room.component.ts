@@ -56,7 +56,6 @@ export class SavedRoomComponent implements OnInit{
         .subscribe({
           next: (data) => {
               this.rooms = data.filter((r: { id: number; }) => this.savedRoomIDList.includes(r.id))
-              console.log(this.rooms)
               // this.saveRoomRecored = data?.find((save: { roomID: number; }) => save.roomID === this.id);
               // this.isActiveHeart = !!this.saveRoomRecored;
           },

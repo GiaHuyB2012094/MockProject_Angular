@@ -1,30 +1,91 @@
+@import "src/app.constants.scss";
 .container{
     display: flex;
     flex-direction: column;
     gap: 20px;
     .overall-rating{
-
-    }
-    .writing-comment{
+        padding: 0 60px;
         display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        
-        form{
+        align-items: center;
+        justify-content: space-between;
+        .avarage-point{
             display: flex;
-            gap: 15px;
-            align-items: end;
-            padding-left: 20px;
-            .comment-input{
-                width: 70%;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            .edge-of-cycle{
+                width: 130px;
+                height: 130px;
+                background-color: $info-color;
+                border-radius: 100%;
+                z-index: 8;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .avarage-point-cycle{
+                    width: 115px;
+                    height: 115px;
+                    background-color: #fff;
+                    border-radius: 100%;
+                    z-index: 9;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    h1{
+                        width: 104px;
+                        color: #fff;
+                        border-radius: 100%;
+                        line-height: 104px;
+                        font-size: 48px;
+                        text-align: center;
+                        background-color: var(--primary-color);
+                        z-index: 10;
+                    }   
+                    }
             }
-            .send-comment-btn{
-                margin: 5px 0;
+            h3{
+                color: $info-color;
+            }
+       
+        }
+       
+        .satisfaction-points{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .satisfaction-item{
+                display: flex;
+                column-gap: 20px;
+                justify-content: space-between;
+                p{width: 100px}
+                .progress{
+                    width:  300px;
+                }
+            }
+        }
+        .services-mark{
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+
+            .serivces-item{
+                display: flex;
+                gap: 20px;
+                align-items: center;  
+                justify-content: space-between;
             }
         }
     }
+    .writing-comment{
+        padding: 0 60px;
+        
+    }
     .show-comments{
-        padding: 0 20px;
+        padding: 0 60px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 }
