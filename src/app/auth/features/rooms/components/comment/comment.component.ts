@@ -11,14 +11,14 @@ export class CommentComponent implements OnInit, AfterViewChecked{
   @Input() comment!:IComment;
   isLoading = true;
   user: any;
-
+  avarageScore:any;
   constructor(private userService: UserService){}
 
   ngOnInit(): void {
     this.getUserByID();
+    this.avarageScore = this.comment.avarageScore?.toFixed(1) ;
   }
   ngAfterViewChecked(): void {
-    console.log(this.comment);
   }
   getUserByID(): void{
     this.userService.getUserById(this.comment.userID)

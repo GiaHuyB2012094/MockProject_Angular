@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { TOAST_STATE } from 'src/app/core/constants/toast.constant';
+import { IComment } from 'src/app/core/models/interfaces/IComment.interface';
 import { IUser } from 'src/app/core/models/interfaces/IUser.interface';
 import { CommentsService } from 'src/app/core/services/api/comments.service';
 import { ToastService } from 'src/app/core/services/toast.service';
@@ -25,6 +26,11 @@ export class WritingCommentEvaluationComponent implements OnInit, AfterViewCheck
 
   user$!: Observable<IUser>;
   currentUser!: IUser;
+
+  commentByUser: any;
+  openWritingCommentAvaluation = true;
+  showYourComponent = false;
+
   constructor(
     private toast: ToastService,
     private store: Store,
@@ -41,17 +47,27 @@ export class WritingCommentEvaluationComponent implements OnInit, AfterViewCheck
 
   ngOnInit(): void {
     this.getCurrentUser();
+    this.getCommentsByRoomIDAndUserID();
   }
 
   ngAfterViewChecked(): void {
-
+    console.log(this.commentByUser)
+    if (this.commentByUser !== undefined) 
+      this.openWritingCommentAvaluation = false; 
   }
 
-  getCurrentUser() {
+  getCurrentUser = async() => {
     this.user$ = this.store.select(UserState.user);
-    this.user$.subscribe((user) => {
+    await this.user$.subscribe((user) => {
       this.currentUser = user;
     });
+  }
+
+  getCommentsByRoomIDAndUserID() {
+    console.log(this.roomID)
+
+    this.commentSerivce.getCommentsByRoomIDAndUserID(this.currentUser.id || 0, this.roomID)
+    .subscribe(data => this.commentByUser = data)
   }
   resetHanle():void {
     this.cleanlinessStarRating = 0;

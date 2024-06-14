@@ -59,7 +59,10 @@
                 display: flex;
                 column-gap: 20px;
                 justify-content: space-between;
-                p{width: 100px}
+                p{
+                    width: 100px;
+                    text-transform: capitalize;
+                }
                 .progress{
                     width:  300px;
                 }

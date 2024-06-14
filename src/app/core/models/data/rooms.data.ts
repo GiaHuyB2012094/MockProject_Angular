@@ -81,6 +81,51 @@ export const roomsData = [
     ],
     currentBooking: [],
     maxcount: 10,
+    ratingScore: 10,
+    satisfactionScore: [
+      {
+        name: 'excellent',
+        score: 10,
+      },
+      {
+        name: 'veryGood',
+        score: 10,
+      },
+      {
+        name: 'satisfaction',
+        score: 10,
+      },
+      {
+        name: 'average',
+        score: 10,
+      },
+      {
+        name: 'poor',
+        score: 10,
+      },
+    ],
+    servicesScore: [
+      {
+        name: 'Cleanliness',
+        score: 5,
+      },
+      {
+        name: 'Comfort',
+        score: 5,
+      },
+      {
+        name: 'Food',
+        score: 5,
+      },
+      {
+        name: 'Location',
+        score: 5,
+      },
+      {
+        name: 'Serivce',
+        score: 5,
+      },
+    ],
   },
   {
     id: 2,
@@ -164,6 +209,51 @@ export const roomsData = [
       'Non-smoking',
     ],
     currentBooking: [],
+    ratingScore: 10,
+    satisfactionScore: [
+      {
+        name: 'excellent',
+        score: 10,
+      },
+      {
+        name: 'veryGood',
+        score: 10,
+      },
+      {
+        name: 'satisfaction',
+        score: 10,
+      },
+      {
+        name: 'average',
+        score: 10,
+      },
+      {
+        name: 'poor',
+        score: 10,
+      },
+    ],
+    servicesScore: [
+      {
+        name: 'Cleanliness',
+        score: 5,
+      },
+      {
+        name: 'Comfort',
+        score: 5,
+      },
+      {
+        name: 'Food',
+        score: 5,
+      },
+      {
+        name: 'Location',
+        score: 5,
+      },
+      {
+        name: 'Serivce',
+        score: 5,
+      },
+    ],
     maxcount: 10,
   },
   {
@@ -248,6 +338,51 @@ export const roomsData = [
       'Non-smoking',
     ],
     currentBooking: [],
+    ratingScore: 10,
+    satisfactionScore: [
+      {
+        name: 'excellent',
+        score: 10,
+      },
+      {
+        name: 'veryGood',
+        score: 10,
+      },
+      {
+        name: 'satisfaction',
+        score: 10,
+      },
+      {
+        name: 'average',
+        score: 10,
+      },
+      {
+        name: 'poor',
+        score: 10,
+      },
+    ],
+    servicesScore: [
+      {
+        name: 'Cleanliness',
+        score: 5,
+      },
+      {
+        name: 'Comfort',
+        score: 5,
+      },
+      {
+        name: 'Food',
+        score: 5,
+      },
+      {
+        name: 'Location',
+        score: 5,
+      },
+      {
+        name: 'Serivce',
+        score: 5,
+      },
+    ],
     maxcount: 10,
   },
   {
@@ -331,6 +466,51 @@ export const roomsData = [
       'Non-smoking',
     ],
     currentBooking: [],
+    ratingScore: 10,
+    satisfactionScore: [
+      {
+        name: 'excellent',
+        score: 10,
+      },
+      {
+        name: 'veryGood',
+        score: 10,
+      },
+      {
+        name: 'satisfaction',
+        score: 10,
+      },
+      {
+        name: 'average',
+        score: 10,
+      },
+      {
+        name: 'poor',
+        score: 10,
+      },
+    ],
+    servicesScore: [
+      {
+        name: 'Cleanliness',
+        score: 5,
+      },
+      {
+        name: 'Comfort',
+        score: 5,
+      },
+      {
+        name: 'Food',
+        score: 5,
+      },
+      {
+        name: 'Location',
+        score: 5,
+      },
+      {
+        name: 'Serivce',
+        score: 5,
+      },
+    ],
     maxcount: 10,
   },
   {
@@ -415,6 +595,51 @@ export const roomsData = [
       'Non-smoking',
     ],
     currentBooking: [],
+    ratingScore: 10,
+    satisfactionScore: [
+      {
+        name: 'excellent',
+        score: 10,
+      },
+      {
+        name: 'veryGood',
+        score: 10,
+      },
+      {
+        name: 'satisfaction',
+        score: 10,
+      },
+      {
+        name: 'average',
+        score: 10,
+      },
+      {
+        name: 'poor',
+        score: 10,
+      },
+    ],
+    servicesScore: [
+      {
+        name: 'Cleanliness',
+        score: 5,
+      },
+      {
+        name: 'Comfort',
+        score: 5,
+      },
+      {
+        name: 'Food',
+        score: 5,
+      },
+      {
+        name: 'Location',
+        score: 5,
+      },
+      {
+        name: 'Serivce',
+        score: 5,
+      },
+    ],
     maxcount: 10,
   },
   {
@@ -499,6 +724,51 @@ export const roomsData = [
       'Non-smoking',
     ],
     currentBooking: [],
+    ratingScore: 10,
+    satisfactionScore: [
+      {
+        name: 'excellent',
+        score: 10,
+      },
+      {
+        name: 'veryGood',
+        score: 10,
+      },
+      {
+        name: 'satisfaction',
+        score: 10,
+      },
+      {
+        name: 'average',
+        score: 10,
+      },
+      {
+        name: 'poor',
+        score: 10,
+      },
+    ],
+    servicesScore: [
+      {
+        name: 'Cleanliness',
+        score: 5,
+      },
+      {
+        name: 'Comfort',
+        score: 5,
+      },
+      {
+        name: 'Food',
+        score: 5,
+      },
+      {
+        name: 'Location',
+        score: 5,
+      },
+      {
+        name: 'Serivce',
+        score: 5,
+      },
+    ],
     maxcount: 10,
   },
   {
@@ -583,6 +853,51 @@ export const roomsData = [
       'Non-smoking',
     ],
     currentBooking: [],
+    ratingScore: 10,
+    satisfactionScore: [
+      {
+        name: 'excellent',
+        score: 10,
+      },
+      {
+        name: 'veryGood',
+        score: 10,
+      },
+      {
+        name: 'satisfaction',
+        score: 10,
+      },
+      {
+        name: 'average',
+        score: 10,
+      },
+      {
+        name: 'poor',
+        score: 10,
+      },
+    ],
+    servicesScore: [
+      {
+        name: 'Cleanliness',
+        score: 5,
+      },
+      {
+        name: 'Comfort',
+        score: 5,
+      },
+      {
+        name: 'Food',
+        score: 5,
+      },
+      {
+        name: 'Location',
+        score: 5,
+      },
+      {
+        name: 'Serivce',
+        score: 5,
+      },
+    ],
     maxcount: 5,
   },
   {
@@ -665,6 +980,51 @@ export const roomsData = [
       'Non-smoking',
     ],
     currentBooking: [],
+    ratingScore: 10,
+    satisfactionScore: [
+      {
+        name: 'excellent',
+        score: 10,
+      },
+      {
+        name: 'veryGood',
+        score: 10,
+      },
+      {
+        name: 'satisfaction',
+        score: 10,
+      },
+      {
+        name: 'average',
+        score: 10,
+      },
+      {
+        name: 'poor',
+        score: 10,
+      },
+    ],
+    servicesScore: [
+      {
+        name: 'Cleanliness',
+        score: 5,
+      },
+      {
+        name: 'Comfort',
+        score: 5,
+      },
+      {
+        name: 'Food',
+        score: 5,
+      },
+      {
+        name: 'Location',
+        score: 5,
+      },
+      {
+        name: 'Serivce',
+        score: 5,
+      },
+    ],
     maxcount: 5,
   },
 ];

@@ -7,20 +7,22 @@ import { IComment } from 'src/app/core/models/interfaces/IComment.interface';
   styleUrls: ['./comment-review-room.component.scss']
 })
 export class CommentReviewRoomComponent implements OnInit{
-  @Input() roomID!: number;
+  @Input() room: any;
   comments!: IComment[];
-  excellentPercent = 80;
+  excellentPercentTotal!: number;
 
   constructor(private commentService: CommentsService){}
 
   ngOnInit(): void {
-    this.commentService.getCommentsByRoomID(this.roomID)
-      .subscribe(data=> this.comments = data);
+    this.commentService.getCommentsByRoomID(this.room.id)
+      .subscribe(data=> {this.comments = data; });
+    this.excellentPercentTotal = this.room.satisfactionScore.reduce((sum: any, currI: { score: any; }) => sum + currI.score,0)
   }
 
   commentHandle(): void{
 
   }
+
   setCommentAfterCreate(e:any): void{
     this.comments.push(e[e.length-1]);
   }

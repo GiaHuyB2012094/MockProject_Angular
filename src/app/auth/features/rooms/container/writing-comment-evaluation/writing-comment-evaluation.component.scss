@@ -1,3 +1,11 @@
+.writing-comment, .show-your-comment{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 20px; 
+    border-radius: 6px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
 .writing-comment{
     display: flex;
     flex-direction: column;
@@ -62,5 +70,13 @@
         .send-comment-btn{
             margin: 5px 0;
         }
+    }
+}
+
+.show-your-comment{
+    .title-your-comment{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
 }

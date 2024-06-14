@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, switchMap } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, switchMap, tap } from 'rxjs';
 import { IRoom } from '../../models/interfaces/IRoom.interface';
 
 @Injectable({
@@ -8,26 +8,35 @@ import { IRoom } from '../../models/interfaces/IRoom.interface';
 })
 export class RoomsService {
   private baseUrl = '/api/rooms/'
-  RoomByID!:IRoom;
+  rooms: any;
+  room: any;
 
   constructor(private http: HttpClient) { }
+  
+  private roomsSubject = new BehaviorSubject<IRoom[]>([]);
+  private roomSubject = new BehaviorSubject<any>({});
+  rooms$ = this.roomsSubject.asObservable();
+  room$ = this.roomSubject.asObservable();
 
   getRooms = (): Observable<any> => {
-    return this.http.get<IRoom>(this.baseUrl);
+    return this.http.get<IRoom[]>(this.baseUrl).pipe(
+      tap(data => this.roomsSubject.next(data))
+    );
   }
 
   getRoomById = (id: number): Observable<any> => {
-    return this.http.get<IRoom>(`${this.baseUrl}${id}`)
+    return this.http.get<IRoom>(`${this.baseUrl}${id}`).pipe(
+      tap(data => this.roomSubject.next(data))
+    );
   }
 
-  // updateRoomById =(id: number, roomData: any): Observable<any> => {
-  //   console.log(roomData);
-  //   return this.http.put(`${this.baseUrl}/${id}`, roomData);
-  // }
   editRoom(room: any): Observable<any> {
-    return this.http.put(`${this.baseUrl}${room.id}`, room);
+    return this.http.put(`${this.baseUrl}${room.id}`, room).pipe(
+      tap(() => {
+        this.getRooms().subscribe()
+        this.getRoomById(room.id).subscribe()
+      })
+    );
   }
-  // addroomBookingById = (id: number, currentBookingData: any): Observable<any> => {
-  //   return this.http.put<IRoom>(`${this.baseUrl}/${id}`, {currentBookingData});
-  // }
+ 
 } 

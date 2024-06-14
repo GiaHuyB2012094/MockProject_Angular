@@ -10,7 +10,7 @@ import { RoomsService } from 'src/app/core/services/api/rooms.service';
   templateUrl: './room-detail.component.html',
   styleUrls: ['./room-detail.component.scss']
 })
-export class RoomDetailComponent implements OnInit{
+export class RoomDetailComponent implements OnInit, AfterViewChecked{
   room:any;
   isLoading = true;
   roomImgs: string[] = [];
@@ -23,16 +23,24 @@ export class RoomDetailComponent implements OnInit{
 
   constructor(
     private roomsService : RoomsService,
+    private drc : ChangeDetectorRef,
   ){
   }
 
   ngOnInit(): void {
+    this.roomsService.room$.subscribe(data => this.room = data)
+
     this.activeRoute.paramMap.subscribe(params => {
       this.roomID = Number(params.get('id'));
       this.getRoomData();
      })
+    
   }
 
+  ngAfterViewChecked(): void {
+    this.drc.detectChanges();
+  }
+  
   getRoomData(): void{
     this.roomsService.getRoomById(this.roomID)
      .subscribe({
@@ -47,5 +55,7 @@ export class RoomDetailComponent implements OnInit{
       error: err => console.log(err)
      })
   }
+
+ 
 
 }

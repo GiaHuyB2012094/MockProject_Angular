@@ -1,4 +1,7 @@
-<div class="writing-comment">
+<div
+  class="writing-comment"
+  *ngIf="openWritingCommentAvaluation; else showInformWasCommented"
+>
   <h4 class="title">Please provide your rating and comments</h4>
 
   <div class="rate-satisfaction">
@@ -132,3 +135,22 @@
     </primary-button>
   </form>
 </div>
+<ng-template #showInformWasCommented>
+  <div class="show-your-comment">
+    <div class="title-your-comment">
+      <div>
+        <h4 class="title">You was commented for this room</h4>
+        <h5>Let's check out the review comments!</h5>
+      </div>
+      <primary-button
+        [outline]="true"
+        size="small"
+        (click)="showYourComponent = !showYourComponent"
+        >View Your Comment</primary-button
+      >
+    </div>
+    <div *ngIf="showYourComponent" class="">
+      <app-comment [comment]="commentByUser"></app-comment>
+    </div>
+  </div>
+</ng-template>
