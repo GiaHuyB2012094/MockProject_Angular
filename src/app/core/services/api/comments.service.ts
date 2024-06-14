@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, combineLatest, concatMap, map, switchMap, tap } from 'rxjs';
+import { BehaviorSubject, Observable, combineLatest, concatMap, map, switchMap, tap } from 'rxjs';
 import { IComment } from '../../models/interfaces/IComment.interface';
 import { IRoom } from '../../models/interfaces/IRoom.interface';
 import { RoomsService } from './rooms.service';
@@ -10,6 +10,11 @@ import { RoomsService } from './rooms.service';
 })
 export class CommentsService {
   baseUrl = '/api/comments'
+
+  private commentsSubject = new BehaviorSubject<IComment[]>([]);
+  private commentSubject = new BehaviorSubject<any>({});
+  comments$ = this.commentsSubject.asObservable();
+  comment$ = this.commentSubject.asObservable();
 
   constructor(
     private http: HttpClient,
@@ -63,13 +68,16 @@ export class CommentsService {
   }
 
   getComments(): Observable<IComment[]>{
-    return this.http.get<IComment[]>(this.baseUrl);
+    return this.http.get<IComment[]>(this.baseUrl).pipe(
+      tap(data => this.commentsSubject.next(data))
+    );
   }
 
   getCommentsByRoomID(roomID: number): Observable<IComment[]>{
     return this.http.get<IComment[]>(this.baseUrl)
             .pipe(
-              map((comments) => comments.filter(c => c.roomID === roomID))
+              map((comments) => comments.filter(c => c.roomID === roomID && c.parentID === null)),
+              tap(data => this.commentSubject.next(data))
             );
   }
 
@@ -77,9 +85,18 @@ export class CommentsService {
     return this.http.get<IComment[]>(this.baseUrl)
             .pipe(
               map((comments) => {
-                return comments.find(c => c.roomID === roomID && c.userID === userID);
-              })
+                return comments.filter(c => c.roomID === roomID && c.userID === userID && c.parentID !== null);
+              }),
+              tap(data => this.commentsSubject.next(data))
             );
+  }
+
+  replyComment(commentData: any): Observable<IComment>{
+    return this.http.post<IComment>(`${this.baseUrl}/reply-comment/${commentData.parentID}`,commentData).pipe(
+      tap(() => {
+        this.getCommentsByRoomIDAndUserID(commentData.userID,commentData.roomID).subscribe()
+      })
+    );
   }
 
   calculateTheAvarageScore(comment: IComment): number{

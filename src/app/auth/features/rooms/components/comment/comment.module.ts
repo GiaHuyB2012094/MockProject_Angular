@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CommentComponent } from './comment.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -10,7 +11,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommentComponent
   ],
   imports: [
-    CommonModule, SharedModule
+    CommonModule, SharedModule, ReactiveFormsModule
   ],
   exports: [
     CommentComponent

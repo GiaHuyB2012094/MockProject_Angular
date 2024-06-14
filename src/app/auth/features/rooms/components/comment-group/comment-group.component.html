@@ -1,0 +1,9 @@
+<div class="container">
+  <app-comment [comment]="comment"></app-comment>
+  <!-- child comment -->
+  <div class="child-comments">
+    <div class="child-comment" *ngFor="let childComment of childComments">
+      <app-comment [comment]="childComment"></app-comment>
+    </div>
+  </div>
+</div>

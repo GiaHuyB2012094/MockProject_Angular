@@ -39,9 +39,7 @@
   ></app-writing-comment-evaluation>
 
   <div class="show-comments">
-    <app-comment
-      *ngFor="let comment of comments"
-      [comment]="comment"
-    ></app-comment>
+    <app-comment-group *ngFor="let comment of comments" [comment]="comment">
+    </app-comment-group>
   </div>
 </div>

@@ -1,31 +1,58 @@
 <ng-container *ngIf="!isLoading; else loader">
   <div class="container">
-    <div class="user-name">
-      <div class="user-avatar">
-        <img [src]="user.avatar" alt="user-avatar" />
+    <!-- main comment -->
+    <div class="comment-card">
+      <div class="user-name">
+        <div class="user-avatar">
+          <img [src]="userComment.avatar" alt="user-avatar" />
+        </div>
+        <p>{{ comment.username }}</p>
       </div>
-      <p>{{ comment.username }}</p>
+      <div class="comment-body">
+        <div class="point-evaluation">
+          <p>
+            <span
+              ><img src="/assets/icons/bride.svg" alt="logo-evaluation" />
+              {{ avarageScore }}
+            </span>
+            / 10
+          </p>
+        </div>
+        <div class="comment-content">
+          {{ comment.body }}
+        </div>
+        <div *ngIf="canEditComment" class="comment-actions">
+          <h5 (click)="canReply = !canReply">Reply</h5>
+          <h5>Edit</h5>
+          <h5>Delete</h5>
+        </div>
+      </div>
+      <div class="creatAtComment">
+        <p>{{ comment.createdAt | date : "dd/MM/yyyy" }}</p>
+      </div>
     </div>
-    <div class="comment-body">
-      <div class="point-evaluation">
-        <p>
-          <span
-            ><img src="/assets/icons/bride.svg" alt="logo-evaluation" />
-            {{ avarageScore }}
-          </span>
-          / 10
-        </p>
-      </div>
-      <div class="comment-content">
-        {{ comment.body }}
-      </div>
-      <div class="like-comment">
-        <i class="fa-regular fa-thumbs-up"></i>
-        <h5>This review has 5 likes</h5>
-      </div>
-    </div>
-    <div class="creatAtComment">
-      <p>{{ comment.createdAt | date : "dd/MM/yyyy" }}</p>
+
+    <!-- reply comment -->
+    <div class="reply-comment" *ngIf="canReply">
+      <form [formGroup]="formGroup" (ngSubmit)="replyCommnetHandle()">
+        <app-text-input-group
+          id="comment"
+          [control]="formGroup.controls.newComment"
+          class="comment-input"
+          (keydown.enter)="replyCommnetHandle()"
+          placeholder="Enter your comment."
+        ></app-text-input-group>
+
+        <primary-button
+          class="reply-comment-btn"
+          (click)="replyCommnetHandle()"
+          size="small"
+          [outline]="true"
+        >
+          Reply
+          <i class="btn-icon fa-solid fa-paper-plane"></i>
+        </primary-button>
+      </form>
     </div>
   </div>
 </ng-container>

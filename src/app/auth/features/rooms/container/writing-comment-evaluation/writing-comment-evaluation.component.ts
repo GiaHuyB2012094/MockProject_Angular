@@ -51,7 +51,6 @@ export class WritingCommentEvaluationComponent implements OnInit, AfterViewCheck
   }
 
   ngAfterViewChecked(): void {
-    console.log(this.commentByUser)
     if (this.commentByUser !== undefined) 
       this.openWritingCommentAvaluation = false; 
   }
@@ -64,7 +63,6 @@ export class WritingCommentEvaluationComponent implements OnInit, AfterViewCheck
   }
 
   getCommentsByRoomIDAndUserID() {
-    console.log(this.roomID)
 
     this.commentSerivce.getCommentsByRoomIDAndUserID(this.currentUser.id || 0, this.roomID)
     .subscribe(data => this.commentByUser = data)
