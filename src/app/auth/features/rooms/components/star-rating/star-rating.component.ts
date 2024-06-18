@@ -11,7 +11,6 @@ export class StarRatingComponent implements OnInit {
 
   @Output() newEventItem = new EventEmitter();
   ngOnInit(): void {
-    console.log(this.rating);
   }
   // get stars() {
   //   return Array(Math.floor(this.rating)).fill(0);

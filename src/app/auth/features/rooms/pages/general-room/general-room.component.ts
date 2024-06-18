@@ -67,7 +67,8 @@ export class GeneralRoomComponent implements OnInit, AfterViewChecked {
         (this.checkRoomsBranch(r.branch) && 
           this.checkRoomType(r.roomType) &&
           this.checkConveniences(r.convenient) &&
-          this.checkRoomPrice(r.price)
+          this.checkRoomPrice(r.price) &&
+          this.checkDateCheckinCheckout(r.currentBooking)
         ))
      
       if (roomFilteredItem !== undefined || null) {
@@ -75,6 +76,36 @@ export class GeneralRoomComponent implements OnInit, AfterViewChecked {
       }
     } else this.roomFiltered = [...this.rooms];
     this.cdr.detectChanges();
+  }
+
+  checkDateCheckinCheckout(currentBooking: any): boolean{
+    let availability  = false;
+
+    if (currentBooking.length > 0) {
+      const fromDateTemp = new Date(this.filterOptions.checkInDate);
+      const toDateTemp = new Date(this.filterOptions.checkOutDate);
+
+      currentBooking.forEach((booking: { fromDate: string | number | Date; toDate: string | number | Date; }) => {
+        const fromDateBookingTemp = new Date(booking.fromDate);
+        const toDateBookingTemp = new Date(booking.toDate);
+
+        if (!((fromDateTemp > fromDateBookingTemp) && (fromDateTemp < toDateBookingTemp))
+            && !((toDateTemp > fromDateBookingTemp) && (toDateTemp < toDateBookingTemp)))
+             {
+            
+              if ((fromDateTemp.getDate() !== fromDateBookingTemp.getDate()) 
+                && (fromDateTemp.getDate() !== toDateBookingTemp.getDate()) 
+                && (toDateTemp.getDate() !== fromDateBookingTemp.getDate())
+                && (toDateTemp.getDate() !== toDateBookingTemp.getDate()))
+                {availability = true}
+             }
+      });
+    } else {
+      availability = true;
+    }
+    console.log(availability)
+
+    return availability;
   }
 
   checkRoomsBranch(b: number): boolean{

@@ -1,0 +1,25 @@
+<ng-container *ngIf="!isLoading; else loader">
+  <div class="container">
+    <div class="title-icon">
+      <img src="/assets/icons/quotations.png" alt="quotations-icon" />
+    </div>
+    <div class="evaluation-content">
+      <p>{{ evaluation.body }}</p>
+    </div>
+
+    <div class="evaluation-stars">
+      <app-star-rating
+        [readonly]="true"
+        [rating]="evaluation.rateSerivces[0]"
+      ></app-star-rating>
+    </div>
+
+    <div class="user-info">
+      <img [src]="user.avatar" alt="user-avatar" />
+      <div class="user-name-address">
+        <p>{{ evaluation.username }}</p>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loader> <app-loader></app-loader></ng-template>

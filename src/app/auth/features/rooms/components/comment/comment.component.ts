@@ -73,10 +73,11 @@ export class CommentComponent implements OnInit, AfterViewChecked{
         roomID: this.comment.roomID,
         username:this.comment.username,
         body: this.formGroup.value.newComment,
-        parentID : this.comment.userID,
+        parentID : this.comment.id,
         
         createdAt: now,
     }
+    console.log(commentData)
     this.commentService.replyComment(commentData).subscribe({
       next: ()=>{console.log('reply successfully')},
       error: (err) => {console.log(err);}

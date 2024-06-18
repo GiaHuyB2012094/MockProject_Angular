@@ -14,6 +14,9 @@ export class CommentReviewRoomComponent implements OnInit{
   constructor(private commentService: CommentsService){}
 
   ngOnInit(): void {
+    
+
+    // 
     this.commentService.getCommentsByRoomID(this.room.id)
       .subscribe(data=> {this.comments = data; });
     this.excellentPercentTotal = this.room.satisfactionScore.reduce((sum: any, currI: { score: any; }) => sum + currI.score,0)

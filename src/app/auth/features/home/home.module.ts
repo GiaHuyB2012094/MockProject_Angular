@@ -6,8 +6,9 @@ import { HomeComponent } from './home.component';
 import { SearchHomeModule } from './container/search-home/search-home.module';
 import { MainFeatureSummaryModule } from './container/main-feature-summary/main-feature-summary.module';
 import { RoomsCardListModule } from '../rooms/components/rooms-card-list/rooms-card-list.module';
+import { CustomerEvaluationsModule } from './container/customer-evaluations/customer-evaluations.module';
 
-const MODULES = [SearchHomeModule, RoomsCardListModule, MainFeatureSummaryModule]
+const MODULES = [SearchHomeModule, RoomsCardListModule, MainFeatureSummaryModule, CustomerEvaluationsModule]
 
 @NgModule({
   declarations: [HomeComponent],

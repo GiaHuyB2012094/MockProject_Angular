@@ -79,7 +79,14 @@ export const roomsData = [
       'Parking lot',
       'Non-smoking',
     ],
-    currentBooking: [],
+    currentBooking: [
+      {
+        userID: 1,
+        fromDate: "2024-06-20T00:00:00.000Z",
+        toDate: "2024-06-21T00:00:00.000Z",
+        roomId: 1,
+      }
+    ],
     maxcount: 10,
     ratingScore: 10,
     satisfactionScore: [

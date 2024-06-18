@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { StarRatingModule } from '../../components/star-rating/star-rating.module';
 import { CommentModule } from '../../components/comment/comment.module';
+import { CommentGroupModule } from '../../components/comment-group/comment-group.module';
 
 
 
@@ -13,7 +14,7 @@ import { CommentModule } from '../../components/comment/comment.module';
     WritingCommentEvaluationComponent
   ],
   imports: [
-    CommonModule, ReactiveFormsModule, SharedModule, StarRatingModule, CommentModule
+    CommonModule, ReactiveFormsModule, SharedModule, StarRatingModule, CommentModule, CommentGroupModule
   ],
   exports: [
     WritingCommentEvaluationComponent

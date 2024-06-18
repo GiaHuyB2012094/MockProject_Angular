@@ -11,10 +11,13 @@ import { RoomsService } from './rooms.service';
 export class CommentsService {
   baseUrl = '/api/comments'
 
-  private commentsSubject = new BehaviorSubject<IComment[]>([]);
-  private commentSubject = new BehaviorSubject<any>({});
+
+  private commentsSubject = new BehaviorSubject<any[]>([]);
   comments$ = this.commentsSubject.asObservable();
+
+  private commentSubject = new BehaviorSubject<any>({});
   comment$ = this.commentSubject.asObservable();
+
 
   constructor(
     private http: HttpClient,
@@ -67,6 +70,12 @@ export class CommentsService {
             );
   }
 
+  getCommentsRandom(): Observable<IComment[]>{
+    return this.http.get<IComment[]>(this.baseUrl).pipe(
+      map(comments => comments.sort((a, b) => 0.5 - Math. random()))
+    )
+  }
+
   getComments(): Observable<IComment[]>{
     return this.http.get<IComment[]>(this.baseUrl).pipe(
       tap(data => this.commentsSubject.next(data))
@@ -77,27 +86,39 @@ export class CommentsService {
     return this.http.get<IComment[]>(this.baseUrl)
             .pipe(
               map((comments) => comments.filter(c => c.roomID === roomID && c.parentID === null)),
-              tap(data => this.commentSubject.next(data))
+              tap(data => this.commentsSubject.next(data))
             );
   }
 
   getCommentsByRoomIDAndUserID(userID: number, roomID: number) {
     return this.http.get<IComment[]>(this.baseUrl)
-            .pipe(
-              map((comments) => {
-                return comments.filter(c => c.roomID === roomID && c.userID === userID && c.parentID !== null);
-              }),
-              tap(data => this.commentsSubject.next(data))
-            );
+      .pipe(
+        map((comments) => comments.filter(c => c.roomID === roomID && c.userID === userID)),
+        tap(data => {
+          return this.commentsSubject.next(data)
+        })
+      );
   }
 
-  replyComment(commentData: any): Observable<IComment>{
-    return this.http.post<IComment>(`${this.baseUrl}/reply-comment/${commentData.parentID}`,commentData).pipe(
-      tap(() => {
-        this.getCommentsByRoomIDAndUserID(commentData.userID,commentData.roomID).subscribe()
-      })
-    );
+  getCommentsReply (parentID: number, roomID: number) {
+    return this.http.get<IComment[]>(this.baseUrl)
+      .pipe(
+        map((comments) => comments.filter(c => c.roomID === roomID && c.parentID === parentID )),
+        
+      )}
+
+  replyComment(commentData: any): Observable<IComment[]>{
+    return this.http.post<IComment[]>(this.baseUrl,commentData);
   }
+
+  // editComment(commentData: any): Observable<any> {
+  //   return this.http.put(`${this.baseUrl}${commentData.id}`, commentData);
+  // }
+
+  // deleteComment(id: number): Observable<any> {
+  //   return this.http.delete(`${this.baseUrl}${id}`);
+  // }
+
 
   calculateTheAvarageScore(comment: IComment): number{
     const rateSatisfactionScore = ["poor","avarge","satisfaction","veryGood","excellent"];

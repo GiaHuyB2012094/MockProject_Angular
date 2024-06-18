@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
@@ -14,7 +14,7 @@ import { UserState } from 'src/app/core/store/states/user.state';
   templateUrl: './writing-comment-evaluation.component.html',
   styleUrls: ['./writing-comment-evaluation.component.scss']
 })
-export class WritingCommentEvaluationComponent implements OnInit, AfterViewChecked{
+export class WritingCommentEvaluationComponent implements OnInit, AfterViewChecked, AfterViewInit{
   @Input() roomID!: number;
   @Output() newItemEvent = new EventEmitter<any>();
 
@@ -29,12 +29,12 @@ export class WritingCommentEvaluationComponent implements OnInit, AfterViewCheck
 
   commentByUser: any;
   openWritingCommentAvaluation = true;
-  showYourComponent = false;
+  showYourComment = false;
 
   constructor(
     private toast: ToastService,
     private store: Store,
-    private commentSerivce: CommentsService,
+    private commentService: CommentsService,
   ) {}
 
   formGroup = new FormGroup({
@@ -47,26 +47,36 @@ export class WritingCommentEvaluationComponent implements OnInit, AfterViewCheck
 
   ngOnInit(): void {
     this.getCurrentUser();
+
     this.getCommentsByRoomIDAndUserID();
   }
 
   ngAfterViewChecked(): void {
-    if (this.commentByUser !== undefined) 
-      this.openWritingCommentAvaluation = false; 
+    if (this.commentByUser.length > 0) {
+      this.openWritingCommentAvaluation = false;
+    } return;
   }
-
+  ngAfterViewInit(): void {
+    if (this.commentByUser.length > 0) 
+      this.openWritingCommentAvaluation = false;
+  }
   getCurrentUser = async() => {
     this.user$ = this.store.select(UserState.user);
+
     await this.user$.subscribe((user) => {
       this.currentUser = user;
     });
   }
 
-  getCommentsByRoomIDAndUserID() {
-
-    this.commentSerivce.getCommentsByRoomIDAndUserID(this.currentUser.id || 0, this.roomID)
-    .subscribe(data => this.commentByUser = data)
+  getCommentsByRoomIDAndUserID = async() => {
+    await this.commentService.comments$.subscribe(data => {
+      this.commentByUser = data;
+    });
+    
+    await this.commentService.getCommentsByRoomIDAndUserID(this.currentUser.id || 0, this.roomID).subscribe();
+    
   }
+
   resetHanle():void {
     this.cleanlinessStarRating = 0;
     this.comfortStarRating = 0;
@@ -75,6 +85,10 @@ export class WritingCommentEvaluationComponent implements OnInit, AfterViewCheck
     this.serviceStarRating = 0;
     this.formGroup.get('comment')?.patchValue('');
     this.formGroupStatisfaction.get('satisfactionLevel')?.patchValue('excellent');
+  }
+  
+  showYourCommentHandle(): void{
+    this.showYourComment = true;
   }
   commentHandle(): void{
     const now = new Date()
@@ -115,7 +129,7 @@ export class WritingCommentEvaluationComponent implements OnInit, AfterViewCheck
     }
 
     if (checkCommentContent) {
-      this.commentSerivce.createComment(commentData, this.roomID)
+      this.commentService.createComment(commentData, this.roomID)
         .subscribe({
           next: (data) => {
               this.newItemEvent.emit(data);

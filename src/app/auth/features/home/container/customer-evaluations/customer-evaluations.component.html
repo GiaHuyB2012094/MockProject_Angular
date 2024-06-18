@@ -1,0 +1,11 @@
+<ng-container *ngIf="!isLoading; else loader">
+  <div class="container">
+    <div class="customer-evaluations">
+      <app-evaluations-card
+        *ngFor="let e of evaluations.slice(0, 3)"
+        [evaluation]="e"
+      ></app-evaluations-card>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loader> <app-loader></app-loader></ng-template>

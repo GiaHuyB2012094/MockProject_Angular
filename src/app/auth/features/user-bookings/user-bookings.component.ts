@@ -4,6 +4,7 @@ import { Observable, concatMap, switchMap } from 'rxjs';
 import { IBreadcrumb } from 'src/app/core/models/interfaces/IBreadcrumb.interface';
 import { IUser } from 'src/app/core/models/interfaces/IUser.interface';
 import { BookingService } from 'src/app/core/services/api/booking.service';
+import { RoomsService } from 'src/app/core/services/api/rooms.service';
 import { UserState } from 'src/app/core/store/states/user.state';
 
 @Component({
@@ -22,8 +23,8 @@ export class UserBookingsComponent implements OnInit{
 
   constructor(private bookingService: BookingService,
     private store: Store,
-
-  ) {}
+    private roomService: RoomsService,
+  ) {}    
   
   ngOnInit(): void {
     this.user$ = this.store.select(UserState.user);
@@ -43,6 +44,8 @@ export class UserBookingsComponent implements OnInit{
       },
       error: (err: any) => console.error('Error:', err)
     },);
+
+    this.roomService.getRooms().subscribe(data => console.log(data));
   }
 
 

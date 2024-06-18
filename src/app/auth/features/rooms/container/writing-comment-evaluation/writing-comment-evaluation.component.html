@@ -135,6 +135,7 @@
     </primary-button>
   </form>
 </div>
+
 <ng-template #showInformWasCommented>
   <div class="show-your-comment">
     <div class="title-your-comment">
@@ -145,12 +146,18 @@
       <primary-button
         [outline]="true"
         size="small"
-        (click)="showYourComponent = !showYourComponent"
+        (click)="showYourCommentHandle()"
         >View Your Comment</primary-button
       >
     </div>
-    <div *ngIf="showYourComponent" class="">
-      <app-comment [comment]="commentByUser"></app-comment>
+
+    <div *ngIf="showYourComment" class="">
+      <!-- <app-comment-group
+        *ngFor="let comment of commentByUser"
+        [comment]="comment"
+      >
+      </app-comment-group> -->
+      <app-comment [comment]="commentByUser[0]"></app-comment>
     </div>
   </div>
 </ng-template>
