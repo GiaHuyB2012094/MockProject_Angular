@@ -15,6 +15,8 @@ import { SwitchThemeModeModule } from './buttons/switch-dark-light-mode/switch-t
 import { ModalModule } from './modal/modal.module';
 import { PaypalButtonModule } from './buttons/paypal-button/paypal-button.module';
 import { ProgressBarModule } from './progress-bar/progress-bar.module';
+import { TabModule } from './tabs/tab/tab.module';
+import { TabsModule } from './tabs/tabs.module';
 
 const SHARED_MODULES: Array<Type<any>> = [
   TextInputGroupModule,
@@ -30,6 +32,8 @@ const SHARED_MODULES: Array<Type<any>> = [
   PaypalButtonModule,
   ModalModule,
   ProgressBarModule,
+  TabModule,
+  TabsModule,
 ];
 const MODULES: Array<Type<any>> = [CommonModule, FormsModule, RouterModule];
 

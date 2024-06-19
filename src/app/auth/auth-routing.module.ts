@@ -23,6 +23,10 @@ const routes: Routes = [
         path: 'saved-rooms',
         loadChildren: () => import('./features/saved-room/saved-room.module').then(m => m.SavedRoomModule),
       },
+      {
+        path: 'tour',
+        loadChildren: () => import('./features/tour/tour.module').then(m => m.TourModule),
+      },
     ],
   }
 ];

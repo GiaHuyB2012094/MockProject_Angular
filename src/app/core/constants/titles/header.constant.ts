@@ -12,10 +12,10 @@ export const headerMenu = [
     link: '/room/general-rooms',
   },
   {
-    value: 'promotions',
-    label: 'Promotions',
+    value: 'tour',
+    label: 'Tour',
     icon: 'fa-solid fa-tags',
-    link: '/promotions',
+    link: '/tour',
   },
   {
     value: 'saved-rooms',

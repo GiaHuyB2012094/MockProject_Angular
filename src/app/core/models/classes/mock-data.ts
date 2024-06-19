@@ -12,6 +12,8 @@ import { saveRoomData } from '../data/save-room.data';
 import { ISaveRoom } from '../interfaces/ISaveRoom.interface';
 import { IComment } from '../interfaces/IComment.interface';
 import { commentsData } from '../data/comments.data';
+import { ITour } from '../interfaces/ITour';
+import { toursData } from '../data/tour.data';
 
 export class MockData implements InMemoryDbService {
   createDb(
@@ -24,6 +26,7 @@ export class MockData implements InMemoryDbService {
     const bookings: any[] = bookingsData;
     const saves: ISaveRoom[] = saveRoomData;
     const comments: IComment[] = commentsData;
-    return { users, rooms, conveniences, services, bookings, saves, comments};
+    const tours: ITour[] = toursData;
+    return { users, rooms, conveniences, services, bookings, saves, comments, tours};
   }
 }

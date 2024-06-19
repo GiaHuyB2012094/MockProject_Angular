@@ -1,0 +1,7 @@
+<div class="container">
+  <app-tabs>
+    <app-tab [tabTitle]="tab.label" *ngFor="let tab of tabs">
+      <app-tour-card-list [branch]="tab.value"></app-tour-card-list>
+    </app-tab>
+  </app-tabs>
+</div>

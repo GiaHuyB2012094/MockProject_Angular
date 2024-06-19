@@ -23,6 +23,7 @@
         class="menu-item"
         *ngFor="let item of headerMenu"
         [routerLink]="item.link"
+        [routerLinkActive]="'active'"
       >
         <i [class]="item.icon"></i>
         {{ item.label }}

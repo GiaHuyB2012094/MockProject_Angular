@@ -1,0 +1,58 @@
+<ng-container *ngIf="!isLoading; else loader">
+  <app-breadcrumb [arrBreadcrumbs]="breadcrumbs"></app-breadcrumb>
+  <div class="container">
+    <div class="tour-detail-header">
+      <div class="tour-detail-img-main">
+        <img [src]="tourDetail.places[0].imgs[0]" alt="tour-img" />
+      </div>
+      <div class="tour-detail-title">
+        <div class="tour-detail-title-top">
+          <h3 class="tour-detail-name">{{ tourDetail.name }}</h3>
+          <div class="tour-detail-price">
+            <div class="price-item">
+              <h5>{{ tourDetail.adult.name }} :</h5>
+              <h5>{{ tourDetail.adult.price | currencyVND }}</h5>
+            </div>
+            <div class="price-item">
+              <h5>{{ tourDetail.children.name }} :</h5>
+              <h5>{{ tourDetail.children.price | currencyVND }}</h5>
+            </div>
+          </div>
+        </div>
+        <span *avatar="Gia; huy"></span>
+        <div class="tour-detail-title-bottom">
+          <div class="destinations">
+            <h4>Destinations</h4>
+            <ul>
+              <li *ngFor="let d of tourDetail.places">
+                {{ d.name }}
+              </li>
+            </ul>
+          </div>
+          <primary-button class="tour-booking-btn">
+            Tour Booking
+          </primary-button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tour-detail-body">
+      <div class="tour-detail-content">
+        <h3>Details of the tour program:</h3>
+        <h5>Departure time: {{ tourDetail.departureTime }}</h5>
+
+        <div *ngFor="let d of tourDetail.places">
+          <h5>{{ d.name }}</h5>
+          <img
+            *ngFor="let i of d.imgs"
+            [src]="i"
+            alt="bg"
+            class="tour-detail-place-imgs"
+          />
+        </div>
+      </div>
+      <div class="tour-detail-list"></div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loader> <app-loader></app-loader></ng-template>

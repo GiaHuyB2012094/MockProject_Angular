@@ -1,0 +1,79 @@
+@import "src/app.constants.scss";
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .tour-detail-header{
+        max-height: 400px;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 20px;
+
+        .tour-detail-img-main{
+            grid-column: span 2 / span 2;
+            img{
+                    width: 100%;
+                    height: 400px;
+                    object-fit: cover;
+                }
+            }
+        .tour-detail-title{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;            
+            .tour-detail-title-top{
+                .tour-detail-name{
+                    color: var(--primary-color)
+                }
+                grid-column: span 1 / span 1;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                .tour-detail-price{
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    gap: 10px;
+                    .price-item{
+                        display: flex;
+                        gap: 10px;
+                    } 
+                }
+            }
+            .tour-detail-title-bottom{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                .destinations{
+                    h4{
+                        color: white;
+                        padding: 6px 16px;
+                        background-color: var(--primary-color);
+                    }
+                    ul{
+                        padding: 12px 20px;
+                        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+                    }
+                }
+            }
+            
+            
+        }
+        
+    }
+    .tour-detail-body{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        h3{
+            color: var(--primary-color);
+        }
+        .tour-detail-content{
+            grid-column: span 3 / span 3;
+            
+        }
+        .tour-detail-list{
+            grid-column: span 1 / span 1;
+
+        }
+    }
+}

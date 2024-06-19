@@ -1,0 +1,74 @@
+@import "src/app.constants.scss";
+.container{
+    display: flex;
+    // justify-content: space-between;
+    gap: 10px;
+    border-right: 8px solid var(--primary-color);
+    height: 120px;
+    width: 1000px;
+    // padding: 10px 16px;
+    border-radius: 6px;
+    color: var(--text-primary);
+    background-color: var(--card-color);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    cursor: pointer;
+    &:hover{
+        
+    }
+    .card-img{
+        
+        img{
+            height: 100%;
+            height: 120px;
+            object-fit: contain;
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+        }
+    }
+    .card-body{
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+
+        .card-title{
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            h4{
+                color: var(--primary-color);
+            }
+            .card-branch{
+                color: var(--text-secondary)
+            }
+            .card-description{
+                font-size: 14px;
+                padding-left: 4px;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+            }
+            .card-departure-time{
+                font-weight: bold;
+                color: $info-color;
+            }
+        }
+        .card-price{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+            .price-item{
+                display: flex;
+                gap: 10px;
+                justify-content: space-between;
+                p{
+                    color: $sub-color
+                    
+                }
+            }
+        }
+    }
+}

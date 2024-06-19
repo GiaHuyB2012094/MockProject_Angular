@@ -49,9 +49,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    gap: 16px;
     .menu-item {
-      padding: 0 20px;
+      padding: 4px 0px;
+      margin: 0 10px;
       height: $header-height;
       line-height: $header-height;
       text-decoration: none;
@@ -60,8 +61,16 @@
       column-gap: 6px;
       color: var(--text-primary);
       cursor: pointer;
+      transition: all;
+
       &:hover {
         color: var(--text-hover);
+        border-bottom: 4px solid var(--primary-color);
+      }
+
+      &.active {
+        color: var(--text-hover);
+        border-bottom: 4px solid var(--primary-color);
       }
     }
 

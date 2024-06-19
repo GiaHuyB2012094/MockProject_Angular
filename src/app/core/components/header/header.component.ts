@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/api/user.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { headerMenu } from '../../constants/titles/header.constant';
 import { languages } from '../../constants/titles/languagesTranlate';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -18,7 +18,7 @@ export interface Language {
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewChecked {
   isMenuOpen: boolean = false;
   isLoggedIn: boolean = false;
   headerMenu = headerMenu;
@@ -27,6 +27,8 @@ export class HeaderComponent implements OnInit {
 
   isOpenLanguageOption = false;
   currentUser: any;
+
+  currentPath: any;
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -40,12 +42,21 @@ export class HeaderComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private toast: ToastService,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private activatedRoute: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
     this.getCurrentUser();
     this.isLoggedIn = this.userService.isLoggedIn();
+
+
+  }
+
+  ngAfterViewChecked(): void {
+    // this.activatedRoute.url.subscribe(segments => {
+    //   const path = segments.map
+    // })  
   }
 
   getCurrentUser() {

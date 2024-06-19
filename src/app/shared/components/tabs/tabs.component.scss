@@ -1,0 +1,21 @@
+.nav-tabs{
+    display: flex;
+    gap: 20px;
+    color: var(--text-primary);
+
+    li{
+        padding: 10px;
+        text-align: right;
+        cursor: pointer;
+        color: var(--text-primary);
+
+        &:hover{
+            color: var(--text-hover);
+            border-bottom: 4px solid var(--primary-color);
+        }
+        &.active {
+            color: var(--text-hover);
+            border-bottom: 4px solid var(--primary-color);
+          }
+    }
+}
