@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject, switchMap, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, map, switchMap, tap } from 'rxjs';
 import { IRoom } from '../../models/interfaces/IRoom.interface';
 
 @Injectable({
@@ -27,6 +27,12 @@ export class RoomsService {
   getRoomById = (id: number): Observable<any> => {
     return this.http.get<IRoom>(`${this.baseUrl}${id}`).pipe(
       tap(data => this.roomSubject.next(data))
+    );
+  }
+
+  getRoomByBranch = (branch: number): Observable<any> => {
+    return this.http.get<IRoom[]>(this.baseUrl).pipe(
+      map((rooms) => rooms.filter(roomItem => roomItem.branch === branch))
     );
   }
 

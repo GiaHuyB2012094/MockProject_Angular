@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="card-img">
+    <img [src]="card.places[0].imgs[0]" alt="card-img" />
+  </div>
+  <div class="card-body">
+    <div class="card-title">
+      <h4 [routerLink]="['/tour', 'tour-detail', card.id]">{{ card.name }}</h4>
+      <p class="card-branch">Branch {{ card.branch }}</p>
+      <p class="card-description">{{ card.desc }}</p>
+      <h5>
+        Departure Time
+        <span class="card-departure-time">{{ card.departureTime }}</span>
+      </h5>
+    </div>
+    <div class="card-price">
+      <div class="price-item">
+        <h5>{{ card.adult.name }} :</h5>
+        <h5>{{ card.adult.price | currencyVND }}</h5>
+      </div>
+      <div class="price-item">
+        <h5>{{ card.children.name }} :</h5>
+        <h5>{{ card.children.price | currencyVND }}</h5>
+      </div>
+    </div>
+    <div class="card-action" (click)="deleteHandle()">
+      <i class="fa-solid fa-delete-left"></i>
+    </div>
+  </div>
+</div>

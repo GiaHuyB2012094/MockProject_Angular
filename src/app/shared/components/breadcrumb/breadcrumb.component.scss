@@ -10,9 +10,10 @@
         display: flex;
         align-items: center;
         gap: 8px;
-
+        &.active{
+            color: var(--primary-color);
+        }
         cursor: pointer;
-
         .breadcrumb{
             display: flex;
             align-items: center;
@@ -20,7 +21,6 @@
             p{
                 font-size: $text-size;
                 text-transform: capitalize;
-                
             }
             .breadcrumb-icon {
                 width: 16px;

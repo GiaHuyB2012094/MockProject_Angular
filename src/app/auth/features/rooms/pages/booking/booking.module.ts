@@ -10,13 +10,17 @@ import { RequestBookingModule } from '../../container/request-booking/request-bo
 import { CancellationReschedulingPolicyModule } from '../../container/cancellation-rescheduling-policy/cancellation-rescheduling-policy.module';
 import { BookingPayModule } from '../../container/booking-pay/booking-pay.module';
 import { PaymentOptionsModule } from '../../container/payment-options/payment-options.module';
+import { TourCardListModule } from '../../../tour/components/tour-card-list/tour-card-list.module';
+import { TourBookingCardModule } from '../../container/tour-booking-card/tour-booking-card.module';
 const MODULES = [
   FormUserInfoBookingModule,
   RoomDetailInfoBookingModule,
   RequestBookingModule,
   CancellationReschedulingPolicyModule,
   BookingPayModule,
+  TourCardListModule,
   PaymentOptionsModule,
+  TourBookingCardModule
 ];
 @NgModule({
   declarations: [BookingComponent],

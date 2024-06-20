@@ -128,9 +128,9 @@
           border-radius: 50%;
           transition: linear 0.25s;
 
-          img {
-            height: 25px;
-            width: 25px;
+          .avatar-img {
+            height: 30px;
+            width: 30px;
             border-radius: 50%;
           }
           &:hover {

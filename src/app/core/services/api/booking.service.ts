@@ -47,7 +47,7 @@ export class BookingService {
       .subscribe({
           next: () => console.log('Add current booking to room successfull'),
           error: (err) => console.log('Cannot add current booking to room ',err),
-        })
+    })
 
     return this.http.post<any>(this.baseUrl, data);
   };

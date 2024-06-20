@@ -1,0 +1,21 @@
+@import "src/app.constants.scss";
+.container{
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    width: 600px;
+    padding: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border: 1px solid var(--divider-primary);
+    cursor: pointer;
+    .card-header{
+        display: flex;
+        gap: 14px;
+        img{
+            width: 100px;
+        }
+    }
+    .card-footer{
+        color: $sub-color;
+    }
+}

@@ -18,4 +18,6 @@ export class BreadcrumbComponent implements OnInit{
       {label: 'home', link: '/home', icon: 'fa-solid fa-house'},
     )
   }
+
+
 }

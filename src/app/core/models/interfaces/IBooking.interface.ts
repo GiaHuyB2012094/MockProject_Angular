@@ -21,6 +21,7 @@ export interface IBooking {
 
 
     status?: string,
+    tours?: Array<any>,
     // ATM
     payATMimage?: string,
     // Pay Later

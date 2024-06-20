@@ -8,6 +8,10 @@
       <div class="tour-detail-title">
         <div class="tour-detail-title-top">
           <h3 class="tour-detail-name">{{ tourDetail.name }}</h3>
+          <p class="tour-detail-note">
+            *Note: that this tour belongs to Branch {{ tourDetail.branch }} of
+            the hotel.
+          </p>
           <div class="tour-detail-price">
             <div class="price-item">
               <h5>{{ tourDetail.adult.name }} :</h5>
@@ -18,18 +22,21 @@
               <h5>{{ tourDetail.children.price | currencyVND }}</h5>
             </div>
           </div>
+          <p>{{ tourDetail.desc }}</p>
         </div>
-        <span *avatar="Gia; huy"></span>
         <div class="tour-detail-title-bottom">
           <div class="destinations">
             <h4>Destinations</h4>
             <ul>
-              <li *ngFor="let d of tourDetail.places">
-                {{ d.name }}
+              <li *ngFor="let d of tourDetail.places; index as ii">
+                {{ ii + 1 }}. {{ d.name }}
               </li>
             </ul>
           </div>
-          <primary-button class="tour-booking-btn">
+          <primary-button
+            class="tour-booking-btn"
+            (click)="addTourBookingHandle(tourDetail)"
+          >
             Tour Booking
           </primary-button>
         </div>
@@ -41,8 +48,9 @@
         <h3>Details of the tour program:</h3>
         <h5>Departure time: {{ tourDetail.departureTime }}</h5>
 
-        <div *ngFor="let d of tourDetail.places">
-          <h5>{{ d.name }}</h5>
+        <div class="tour-detail-card" *ngFor="let d of tourDetail.places">
+          <h4>{{ d.name }}</h4>
+          <p>{{ d.desc }}</p>
           <img
             *ngFor="let i of d.imgs"
             [src]="i"
@@ -51,8 +59,42 @@
           />
         </div>
       </div>
-      <div class="tour-detail-list"></div>
+      <div class="tour-detail-list">
+        <h4>Other Tours</h4>
+        <div
+          class="tour-item-card"
+          *ngFor="let t of toursList"
+          [routerLink]="['/tour', 'tour-detail', t.id]"
+        >
+          <img [src]="t.places[0].imgs[0]" alt="tour-img" />
+          <div class="tour-item-body">
+            <h5>{{ t.name }}</h5>
+            <div class="tour-detail-price">
+              <div class="price-item">
+                <h5>{{ tourDetail.adult.name }} :</h5>
+                <h5>{{ tourDetail.adult.price | currencyVND }}</h5>
+              </div>
+              <div class="price-item">
+                <h5>{{ tourDetail.children.name }} :</h5>
+                <h5>{{ tourDetail.children.price | currencyVND }}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <app-modal
+    title="Hotels"
+    [visible]="isOpenModalSuggestHotels"
+    (closeEvent)="isOpenModalSuggestHotels = !isOpenModalSuggestHotels"
+  >
+    <div class="rooms-suggest-list">
+      <app-hotel-suggest-card
+        [room]="room"
+        *ngFor="let room of roomsListByBranch"
+      ></app-hotel-suggest-card>
+    </div>
+  </app-modal>
 </ng-container>
 <ng-template #loader> <app-loader></app-loader></ng-template>

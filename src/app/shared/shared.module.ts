@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { CurrencyVNDPipe } from "./pipes/currency-vnd.pipe";
 import { TranslateModule } from "@ngx-translate/core";
+import { AvatarDirective } from './directives/avatar.directive';
 
 const SHARED_MODULES = [
     SharedComponentsModule,
@@ -13,9 +14,10 @@ const SHARED_MODULES = [
 
 @NgModule({
     imports: [...SHARED_MODULES, TranslateModule],
-    exports: [...SHARED_MODULES, CurrencyVNDPipe, TranslateModule],
+    exports: [...SHARED_MODULES, CurrencyVNDPipe, TranslateModule,AvatarDirective],
     declarations: [
-      CurrencyVNDPipe
+      CurrencyVNDPipe,
+      AvatarDirective
     ],
   })
 export class SharedModule {}

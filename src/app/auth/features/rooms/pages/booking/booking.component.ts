@@ -3,8 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { IBreadcrumb } from 'src/app/core/models/interfaces/IBreadcrumb.interface';
+import { ITour } from 'src/app/core/models/interfaces/ITour';
 import { IUser } from 'src/app/core/models/interfaces/IUser.interface';
 import { RoomsService } from 'src/app/core/services/api/rooms.service';
+import { TourService } from 'src/app/core/services/api/tour.service';
 import { UserService } from 'src/app/core/services/api/user.service';
 import { UserState } from 'src/app/core/store/states/user.state';
 
@@ -36,12 +38,15 @@ export class BookingComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   userInfoBooking: any;
   payment = 'payATM'
+
+  toursBookingList: ITour[] = [];
   constructor(
     private roomsService: RoomsService,
     private activeRoute: ActivatedRoute,
     private store: Store,
     private userService: UserService,
     private cdr: ChangeDetectorRef,
+    private tourSerivce: TourService,
   ) {
   }
 
@@ -55,10 +60,13 @@ export class BookingComponent implements OnInit, OnDestroy, AfterViewChecked {
     this.getCurrentUser();
 
     this.setInitialBookingValue();
+
   }
   
   ngAfterViewChecked(): void {
     this.setUpdateBookingValue();
+    this.getToursBookingList();
+
   }
   
   setInitialBookingValue(): void{
@@ -95,6 +103,9 @@ export class BookingComponent implements OnInit, OnDestroy, AfterViewChecked {
     // this.cdr.reattach();
   }
 
+  getToursBookingList(): void {
+    this.toursBookingList = this.tourSerivce.toursBooking;
+  }
   getRoomData(): void {
     this.roomsService.getRoomById(this.roomID).subscribe({
       next: (data) => {

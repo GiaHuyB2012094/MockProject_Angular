@@ -8,6 +8,7 @@
     </p>
   </div>
   <div class="booking-main">
+    <!-- left -->
     <div class="booking-left-box">
       <div class="box box-intro">
         <div class="box-top-intro">
@@ -64,11 +65,21 @@
         (newItemEvent)="setCheckinAndCheckoutHandle($event)"
         class="box box-requirement"
       ></app-request-booking>
+
       <app-payment-options
         class="box box-payment-options"
         [fromDate]="fromDate"
         (newItemEvent)="setPayment($event)"
       ></app-payment-options>
+
+      <div *ngIf="toursBookingList.length > 0" class="box tours-booking-list">
+        <h5>Tours Booking:</h5>
+        <app-tour-booking-card
+          *ngFor="let tourCard of toursBookingList"
+          [card]="tourCard"
+        ></app-tour-booking-card>
+      </div>
+
       <app-booking-pay
         class="box box-payment"
         [room]="room"
@@ -86,7 +97,7 @@
         [payment]="payment"
       ></app-booking-pay>
     </div>
-
+    <!-- right -->
     <div class="booking-right-box">
       <app-room-detail-info-booking
         class="box-room-detail-info-booking"

@@ -100,7 +100,17 @@
       <div class="menu-user">
         <div class="user-name">
           <div class="user-avatar">
-            <img [src]="currentUser.avatar" alt="user-avatar" />
+            <div
+              *ngIf="!currentUser.avatar"
+              [appAvatar]="currentUser.username"
+              class="avatar-img"
+            ></div>
+            <img
+              *ngIf="currentUser.avatar"
+              [src]="currentUser.avatar"
+              alt="user-avatar"
+              class="avatar-img"
+            />
           </div>
           <p>{{ currentUser.username }}</p>
           <div class="nav-item-caret">

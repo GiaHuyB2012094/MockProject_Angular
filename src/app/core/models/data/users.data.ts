@@ -3,8 +3,7 @@ export const userData = [
     id: 1,
     username: 'gia huy',
     email: 'huyb2012094@student.ctu.edu.vn',
-    avatar:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5dgckCEFdaR4QrzY1cdQTF_VzmwmPkSV2UA&s',
+    // avatar:'',
     password: '123456',
   },
   {

@@ -1,0 +1,12 @@
+<div class="container" [routerLink]="['/room', 'room-detail', room.id]">
+  <div class="card-header">
+    <img [src]="room.imgs[0]" alt="card-image" />
+    <div class="card-body">
+      <h4>{{ room.name }}</h4>
+      <p>Branch {{ room.branch }}</p>
+    </div>
+  </div>
+  <div class="card-footer">
+    <h5>{{ room.price[0] | currencyVND }}</h5>
+  </div>
+</div>

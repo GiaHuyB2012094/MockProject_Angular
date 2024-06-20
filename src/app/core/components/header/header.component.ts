@@ -59,6 +59,8 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
     // })  
   }
 
+ 
+
   getCurrentUser() {
     this.currentUser = this.userService.getCurrentUser();
   }

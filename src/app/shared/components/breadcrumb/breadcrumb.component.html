@@ -3,6 +3,7 @@
     class="breadcrumb-item"
     *ngFor="let breadcrumb of arrBreadcrumbs; index as ii"
     [routerLink]="breadcrumb.link"
+    [class.active]="ii === arrBreadcrumbs.length - 1"
   >
     <div class="breadcrumb">
       <i

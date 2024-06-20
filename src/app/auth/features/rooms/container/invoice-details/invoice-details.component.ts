@@ -83,9 +83,6 @@ export class InvoiceDetailsComponent
   ngAfterViewChecked(): void {
     this.roomRootPrice =
     this.room.price[this.convertPriceFormat(this.priceFormat)];
-    console.log(this.bookings);
-    console.log(this.rooms);
-    console.log(this.uploadResponse?.url);
 
     if (this.currentUser.id && this.payment) {
       this.booking = Object.assign(
