@@ -1,0 +1,26 @@
+<div class="container">
+  <h4>Please enter the number of participants</h4>
+  <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
+    <app-text-input-group
+      type="number"
+      [required]="true"
+      [control]="formGroup.controls.adult"
+      label="Adult"
+      id="adult"
+      [min]="0"
+    >
+    </app-text-input-group>
+    <app-text-input-group
+      type="number"
+      [required]="true"
+      [control]="formGroup.controls.children"
+      label="Children"
+      id="children"
+      [min]="0"
+    >
+    </app-text-input-group>
+  </form>
+  <primary-button class="btn" size="small" (click)="submitForm()"
+    >Tour Booking</primary-button
+  >
+</div>

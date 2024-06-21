@@ -1,0 +1,10 @@
+@import "src/app.constants.scss";
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h4{
+        color: $info-color;
+    }
+}
