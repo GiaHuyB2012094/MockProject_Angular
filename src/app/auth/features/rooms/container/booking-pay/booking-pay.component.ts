@@ -6,6 +6,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { TOAST_STATE } from 'src/app/core/constants/toast.constant';
+import { TourService } from 'src/app/core/services/api/tour.service';
 import { ToastService } from 'src/app/core/services/toast.service';
 
 @Component({
@@ -27,14 +28,21 @@ export class BookingPayComponent implements OnInit, AfterViewChecked {
   @Input() toDate!: Date;
   @Input() timeDate!: Date;
   @Input() userInfoBooking: any;
+  @Input() toursBookingList: any;
   @Input() payment: string | undefined;
 
   serviceTotal = 0;
   showModal: boolean = false;
+  toursPriceTotal = 0;
 
-  constructor(private toast: ToastService) {}
+  constructor(
+    private toast: ToastService,
+    private tourService: TourService,
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.toursPriceTotal= this.tourService.calculateTourTotal(this.toursBookingList)
+  }
   ngAfterViewChecked(): void {
     this.serviceTotal = this.calculateSerivePrice();
   }

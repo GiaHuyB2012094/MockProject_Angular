@@ -6,7 +6,6 @@
     <div class="card-title">
       <h4 [routerLink]="['/tour', 'tour-detail', card.id]">{{ card.name }}</h4>
       <p class="card-branch">Branch {{ card.branch }}</p>
-      <p class="card-description">{{ card.desc }}</p>
       <h5>
         Departure Time
         <span class="card-departure-time">{{ card.departureTime }}</span>
@@ -20,6 +19,20 @@
       <div class="price-item">
         <h5>{{ card.children.name }} :</h5>
         <h5>{{ card.children.price | currencyVND }}</h5>
+      </div>
+    </div>
+    <div class="card-price">
+      <div *ngIf="card.booking.adult !== 0" class="price-item">
+        <h5>X</h5>
+        <h5>{{ card.booking.adult }}</h5>
+        <h5>=</h5>
+        <h5>{{ card.booking.adult * card.adult.price | currencyVND }}</h5>
+      </div>
+      <div *ngIf="card.booking.children !== 0" class="price-item">
+        <h5>X</h5>
+        <h5>{{ card.booking.children }}</h5>
+        <h5>=</h5>
+        <h5>{{ card.booking.children * card.children.price | currencyVND }}</h5>
       </div>
     </div>
     <div class="card-action" (click)="deleteHandle()">

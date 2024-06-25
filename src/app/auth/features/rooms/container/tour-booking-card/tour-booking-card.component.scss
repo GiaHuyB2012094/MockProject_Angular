@@ -37,15 +37,7 @@
             .card-branch{
                 color: var(--text-secondary)
             }
-            .card-description{
-                font-size: 14px;
-                padding-left: 4px;
-                width: 300px;
-                overflow: hidden;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 2;
-            }
+     
             .card-departure-time{
                 font-weight: bold;
                 color: $info-color;

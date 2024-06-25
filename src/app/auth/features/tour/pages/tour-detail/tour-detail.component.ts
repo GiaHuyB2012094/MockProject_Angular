@@ -18,6 +18,7 @@ export class TourDetailComponent implements OnInit, OnDestroy, AfterViewChecked{
   isLoading = true;
   toursList: any;
   isOpenModalSuggestHotels = false;
+  isOpenModalTourBooking = false;
   roomsListByBranch: IRoom[] = [];
 
   breadcrumbs: IBreadcrumb[] = [
@@ -77,7 +78,16 @@ export class TourDetailComponent implements OnInit, OnDestroy, AfterViewChecked{
         data => this.roomsListByBranch = data
       )
   }
-
+  tourBookingHanlde(e:any){
+    const booking = {
+      adult: e.adult,
+      children: e.children,
+      total: this.tourService.calculateTourBooking(e,this.tourDetail)
+    }
+    this.tourDetail.booking = booking;
+    this.addTourBookingHandle(this.tourDetail)
+    this.isOpenModalTourBooking = false;
+  }
   addTourBookingHandle(tour: ITour): void{
     if(this.tourService.addToursBooking(tour)) {
       this.toast.showToast(

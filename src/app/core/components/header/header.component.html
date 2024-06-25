@@ -99,19 +99,7 @@
       <!-- user info -->
       <div class="menu-user">
         <div class="user-name">
-          <div class="user-avatar">
-            <div
-              *ngIf="!currentUser.avatar"
-              [appAvatar]="currentUser.username"
-              class="avatar-img"
-            ></div>
-            <img
-              *ngIf="currentUser.avatar"
-              [src]="currentUser.avatar"
-              alt="user-avatar"
-              class="avatar-img"
-            />
-          </div>
+          <app-avatar></app-avatar>
           <p>{{ currentUser.username }}</p>
           <div class="nav-item-caret">
             <i class="fa-solid fa-caret-down"></i>

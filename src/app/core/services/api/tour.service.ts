@@ -36,4 +36,12 @@ export class TourService {
     console.log(this.toursBooking);
     return true;
   }
+
+  calculateTourBooking = (tourBooking: any, tour: ITour): number => {
+    return tourBooking.adult*tour.adult.price + tourBooking.children*tour.children.price;
+  }
+
+  calculateTourTotal = (tours: ITour[]): number =>{
+    return tours.reduce((sum: number, tour: any) => (sum + tour.booking.total),0);
+  }
 }

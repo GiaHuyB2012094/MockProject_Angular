@@ -28,12 +28,19 @@
       </div>
       <p class="price">{{ serviceTotal | currencyVND }}</p>
     </div>
+    <div *ngIf="toursBookingList.length > 0" class="services-price">
+      <div class="services-title">
+        <p class="title">Tours Price</p>
+      </div>
+      <p class="price">{{ toursPriceTotal | currencyVND }}</p>
+    </div>
     <div class="taxes-fees-price">
       <div class="taxes-fees-title">
         <p class="title">Taxes and Fees</p>
       </div>
       <p class="price">{{ tax | currencyVND }}</p>
     </div>
+
     <div class="price-total">
       <h3>Total Price</h3>
       <p class="price">{{ priceTotal | currencyVND }}</p>
@@ -44,6 +51,7 @@
     </div>
 
     <primary-button (click)="openModal()">By continuing to pay</primary-button>
+
     <app-modal
       title="Booking Details"
       [visible]="showModal"
@@ -64,6 +72,7 @@
         [userInfoBooking]="userInfoBooking"
         [otherReqs]="otherReqs"
         [payment]="payment"
+        [toursPriceTotal]="toursPriceTotal"
       >
       </app-invoice-details>
     </app-modal>

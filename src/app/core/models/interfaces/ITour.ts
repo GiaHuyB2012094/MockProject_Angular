@@ -7,4 +7,10 @@ export interface ITour {
     desc: string,
     places: {name: string, imgs: Array<string>, desc: string}[],
     departureTime: string,
+
+    booking?: {
+        adult: number,
+        children: number,
+        total: number
+    }
 }

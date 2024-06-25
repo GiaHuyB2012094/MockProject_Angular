@@ -91,10 +91,7 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
   }
 
   changeThemeModeHandle(e: boolean) {
-    console.log(e);
-    console.log(this.themeService.getActiveTheme());
     const active = this.themeService.getActiveTheme();
-    console.log(active.name);
     if (e === true) {
       this.themeService.setTheme('dark');
     } else if (e === false) {

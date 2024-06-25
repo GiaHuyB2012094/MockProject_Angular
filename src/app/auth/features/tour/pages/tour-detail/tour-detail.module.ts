@@ -5,6 +5,7 @@ import { TourDetailRoutingModule } from './tour-detail-routing.module';
 import { TourDetailComponent } from './tour-detail.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HotelSuggestCardModule } from '../../components/hotel-suggest-card/hotel-suggest-card.module';
+import { FormTourBookingModule } from '../../container/form-tour-booking/form-tour-booking.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HotelSuggestCardModule } from '../../components/hotel-suggest-card/hote
     CommonModule,
     TourDetailRoutingModule,
     SharedModule,
-    HotelSuggestCardModule
+    HotelSuggestCardModule, 
+    FormTourBookingModule
   ]
 })
 export class TourDetailModule { }

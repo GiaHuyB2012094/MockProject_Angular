@@ -1,0 +1,18 @@
+@import "src/app.constants.scss";
+.user-avatar {
+    line-height: 0;
+    display: inline-block;
+    border: 2px solid $overlay-primary-color;
+    border-radius: 50%;
+    transition: linear 0.25s;
+
+    .avatar-img {
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+    }
+    &:hover {
+      transition: ease-out 0.2s;
+      border: 2px solid var(--primary-color);
+    }
+  }

@@ -35,7 +35,7 @@
           </div>
           <primary-button
             class="tour-booking-btn"
-            (click)="addTourBookingHandle(tourDetail)"
+            (click)="isOpenModalTourBooking = !isOpenModalTourBooking"
           >
             Tour Booking
           </primary-button>
@@ -95,6 +95,15 @@
         *ngFor="let room of roomsListByBranch"
       ></app-hotel-suggest-card>
     </div>
+  </app-modal>
+  <app-modal
+    title="Tour Booking"
+    [visible]="isOpenModalTourBooking"
+    (closeEvent)="isOpenModalTourBooking = !isOpenModalTourBooking"
+  >
+    <app-form-tour-booking
+      (newItemEvent)="tourBookingHanlde($event)"
+    ></app-form-tour-booking>
   </app-modal>
 </ng-container>
 <ng-template #loader> <app-loader></app-loader></ng-template>

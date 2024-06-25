@@ -1,0 +1,16 @@
+<!-- <ng-container *ngIf="!isLoading; else loader"> -->
+<div class="user-avatar">
+  <div
+    *ngIf="!currentUser.avatar"
+    [appAvatar]="currentUser.username"
+    class="avatar-img"
+  ></div>
+  <img
+    *ngIf="currentUser.avatar"
+    [src]="currentUser.avatar"
+    alt="user-avatar"
+    class="avatar-img"
+  />
+</div>
+<!-- </ng-container>
+<ng-template #loader> <app-loader></app-loader></ng-template> -->

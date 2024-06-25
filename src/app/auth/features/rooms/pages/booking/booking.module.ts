@@ -12,6 +12,7 @@ import { BookingPayModule } from '../../container/booking-pay/booking-pay.module
 import { PaymentOptionsModule } from '../../container/payment-options/payment-options.module';
 import { TourCardListModule } from '../../../tour/components/tour-card-list/tour-card-list.module';
 import { TourBookingCardModule } from '../../container/tour-booking-card/tour-booking-card.module';
+import { CoreModule } from 'src/app/core/core.module';
 const MODULES = [
   FormUserInfoBookingModule,
   RoomDetailInfoBookingModule,
@@ -20,7 +21,8 @@ const MODULES = [
   BookingPayModule,
   TourCardListModule,
   PaymentOptionsModule,
-  TourBookingCardModule
+  TourBookingCardModule,
+  CoreModule
 ];
 @NgModule({
   declarations: [BookingComponent],

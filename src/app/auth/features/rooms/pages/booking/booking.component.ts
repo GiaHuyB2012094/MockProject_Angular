@@ -38,7 +38,7 @@ export class BookingComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   userInfoBooking: any;
   payment = 'payATM'
-
+  toursPriceTotal = 0;
   toursBookingList: ITour[] = [];
   constructor(
     private roomsService: RoomsService,
@@ -46,7 +46,7 @@ export class BookingComponent implements OnInit, OnDestroy, AfterViewChecked {
     private store: Store,
     private userService: UserService,
     private cdr: ChangeDetectorRef,
-    private tourSerivce: TourService,
+    private tourService: TourService,
   ) {
   }
 
@@ -66,6 +66,7 @@ export class BookingComponent implements OnInit, OnDestroy, AfterViewChecked {
   ngAfterViewChecked(): void {
     this.setUpdateBookingValue();
     this.getToursBookingList();
+    this.toursPriceTotal = this.tourService.calculateTourTotal(this.toursBookingList)
 
   }
   
@@ -78,11 +79,12 @@ export class BookingComponent implements OnInit, OnDestroy, AfterViewChecked {
     this.roomPriceTotal = this.room?.price[0] || 0;
     this.priceFormat= 'hour';
     this.services = [];
-
-    this.priceTotal = this.tax + this.roomPrice;
+    
+    this.priceTotal = this.tax + this.roomPrice ;
   }
 
   setUpdateBookingValue(): void{
+
     this.fromDate = this.fromDate;
     this.toDate = this.toDate;
     this.duration = this.duration;
@@ -91,7 +93,7 @@ export class BookingComponent implements OnInit, OnDestroy, AfterViewChecked {
     this.services = this.services;
     this.roomPrice = this.roomPrice;
 
-    this.priceTotal = this.priceTotal;
+    this.priceTotal = this.priceTotal + this.toursPriceTotal;
     this.timeDate = this.timeDate;
 
     this.userInfoBooking = this.userInfoBooking;
@@ -103,8 +105,8 @@ export class BookingComponent implements OnInit, OnDestroy, AfterViewChecked {
     // this.cdr.reattach();
   }
 
-  getToursBookingList(): void {
-    this.toursBookingList = this.tourSerivce.toursBooking;
+  getToursBookingList () {
+    this.toursBookingList =  this.tourService.toursBooking;
   }
   getRoomData(): void {
     this.roomsService.getRoomById(this.roomID).subscribe({

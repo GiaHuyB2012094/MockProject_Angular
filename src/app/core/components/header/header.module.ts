@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { SwitchThemeModeModule } from 'src/app/shared/components/buttons/switch-dark-light-mode/switch-theme-mode/switch-theme-mode.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-
+import { AvatarModule } from '../avatar/avatar.module';
 
 
 @NgModule({
@@ -11,7 +11,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     SwitchThemeModeModule,
-    SharedModule
+    SharedModule,
+    AvatarModule
   ],
   exports: [HeaderComponent]
 })
