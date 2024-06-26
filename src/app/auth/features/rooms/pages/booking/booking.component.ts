@@ -2,6 +2,7 @@ import { AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetecto
 import { ActivatedRoute } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
+import { ConfirmDeactivateGuard } from 'src/app/core/guards/confirm-leave.guard';
 import { IBreadcrumb } from 'src/app/core/models/interfaces/IBreadcrumb.interface';
 import { ITour } from 'src/app/core/models/interfaces/ITour';
 import { IUser } from 'src/app/core/models/interfaces/IUser.interface';
@@ -47,7 +48,13 @@ export class BookingComponent implements OnInit, OnDestroy, AfterViewChecked {
     private userService: UserService,
     private cdr: ChangeDetectorRef,
     private tourService: TourService,
+
+    private confirmDeactivateGuard: ConfirmDeactivateGuard,
   ) {
+    confirmDeactivateGuard.getConfirmationSubject().subscribe((confirmed) => {
+      this.confirmationNeeded = false; // Hide dialog
+      // Handle confirmation result if needed
+    });
   }
 
   ngOnInit(): void {
@@ -150,5 +157,11 @@ export class BookingComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
   setPayment(e: string): void{
     this.payment = e;
+  }
+  // 
+  confirmationNeeded: boolean = false;
+
+  onConfirmation(confirmed: boolean) {
+    this.confirmDeactivateGuard.getConfirmationSubject().next(confirmed);
   }
 }

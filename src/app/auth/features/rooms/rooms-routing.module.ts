@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RoomsComponent } from './rooms.component';
+import { ConfirmDeactivateGuard } from 'src/app/core/guards/confirm-leave.guard';
 
 const routes: Routes = [
   {

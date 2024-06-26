@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfirmDeactivateGuard } from 'src/app/core/guards/confirm-leave.guard';
 
 @Component({
   selector: 'app-rooms',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./rooms.component.scss']
 })
 export class RoomsComponent {
-
+ 
 }

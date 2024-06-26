@@ -29,19 +29,17 @@ export class BookingPayComponent implements OnInit, AfterViewChecked {
   @Input() timeDate!: Date;
   @Input() userInfoBooking: any;
   @Input() toursBookingList: any;
+  @Input() toursPriceTotal: any;
   @Input() payment: string | undefined;
 
   serviceTotal = 0;
   showModal: boolean = false;
-  toursPriceTotal = 0;
 
   constructor(
     private toast: ToastService,
-    private tourService: TourService,
   ) {}
 
   ngOnInit(): void {
-    this.toursPriceTotal= this.tourService.calculateTourTotal(this.toursBookingList)
   }
   ngAfterViewChecked(): void {
     this.serviceTotal = this.calculateSerivePrice();

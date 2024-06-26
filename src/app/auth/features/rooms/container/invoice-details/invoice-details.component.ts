@@ -42,6 +42,7 @@ export class InvoiceDetailsComponent
   @Input() timeDate!: Date;
   @Input() userInfoBooking: any;
   @Input() toursPriceTotal: any;
+  @Input() toursBookingList: any;
   @Input() payment: string | undefined;
 
   @ViewChild('uploadPayImg') uploadPayImg!: ElementRef;

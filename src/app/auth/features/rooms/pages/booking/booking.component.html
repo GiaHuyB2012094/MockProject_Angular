@@ -97,6 +97,7 @@
         [otherReqs]="otherReqs"
         [payment]="payment"
         [toursBookingList]="toursBookingList"
+        [toursPriceTotal]="toursPriceTotal"
       ></app-booking-pay>
     </div>
     <!-- right -->
@@ -122,3 +123,7 @@
   </div>
 </ng-container>
 <ng-template #loader> <app-loader></app-loader></ng-template>
+<app-confirm-leave
+  *ngIf="confirmationNeeded"
+  (confirmed)="onConfirmation($event)"
+></app-confirm-leave>

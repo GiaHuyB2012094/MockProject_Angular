@@ -17,6 +17,7 @@ import { PaypalButtonModule } from './buttons/paypal-button/paypal-button.module
 import { ProgressBarModule } from './progress-bar/progress-bar.module';
 import { TabModule } from './tabs/tab/tab.module';
 import { TabsModule } from './tabs/tabs.module';
+import { ConfirmLeaveModule } from './confirm-leave/confirm-leave.module';
 
 const SHARED_MODULES: Array<Type<any>> = [
   TextInputGroupModule,
@@ -34,12 +35,14 @@ const SHARED_MODULES: Array<Type<any>> = [
   ProgressBarModule,
   TabModule,
   TabsModule,
+  ConfirmLeaveModule
 ];
 const MODULES: Array<Type<any>> = [CommonModule, FormsModule, RouterModule];
 
 @NgModule({
   imports: [MODULES],
-  declarations: [],
+  declarations: [
+  ],
   exports: [...SHARED_MODULES],
 })
 export class SharedComponentsModule {}
