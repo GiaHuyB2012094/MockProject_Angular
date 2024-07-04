@@ -1,6 +1,10 @@
 <ng-container *ngIf="!isLoading; else loader">
   <div class="container">
-    <app-tour-card *ngFor="let card of tourData" [card]="card"></app-tour-card>
+    <app-tour-card
+      class="card"
+      *ngFor="let card of tourData"
+      [card]="card"
+    ></app-tour-card>
   </div>
 </ng-container>
 <ng-template #loader> <app-loader></app-loader></ng-template>

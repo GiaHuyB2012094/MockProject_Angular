@@ -7,10 +7,11 @@
       can cancel the request afterward.
     </p>
   </div>
+
   <div class="request-options">
     <div class="services-options">
       <h4>Services of:</h4>
-      <div class="horizontal-box">
+      <div class="services-box">
         <app-select-dropdown
           *ngIf="roomServices.length > 0"
           class="select-dropdown-services"
@@ -18,26 +19,29 @@
           (newItemEvent)="chooseRoomServicesHandle($event)"
         ></app-select-dropdown>
 
-        <i class="fa-solid fa-right-long"></i>
-
-        <input
-          type="number"
-          placeholder="Enter quantity"
-          [attr.min]="1"
-          [(ngModel)]="serviceQuantity"
-        />
-
-        <i class="fa-solid fa-right-long"></i>
-
-        <input
-          type="number"
-          class="service-quantity"
-          disabled
-          [value]="servicePrice"
-        />
-        <button class="btn-add-service" (click)="addServiceHandle()">
-          <i class="fa-solid fa-plus"></i>
-        </button>
+        <div class="choose-service-box">
+          <div class="arrow-icon">
+            <i class="fa-solid fa-right-long"></i>
+          </div>
+          <input
+            type="number"
+            placeholder="Enter quantity"
+            [attr.min]="1"
+            [(ngModel)]="serviceQuantity"
+          />
+          <div class="arrow-icon">
+            <i class="fa-solid fa-right-long"></i>
+          </div>
+          <input
+            type="number"
+            class="service-quantity"
+            disabled
+            [value]="servicePrice"
+          />
+          <button class="btn-add-service" (click)="addServiceHandle()">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
       </div>
 
       <div class="room-services-table">
@@ -108,7 +112,9 @@
           </div>
         </div>
 
-        <i class="fa-solid fa-right-long"></i>
+        <div class="arrow-icon">
+          <i class="fa-solid fa-right-long"></i>
+        </div>
 
         <div class="date-horizontal-box">
           <div class="room-checkin-and-checkout">

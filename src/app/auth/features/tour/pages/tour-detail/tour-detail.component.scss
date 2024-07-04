@@ -141,9 +141,41 @@
             }
         }
     }
+    @media (max-width: 1000px) {
+        .tour-detail-header{
+            .tour-detail-img-main{
+                grid-column: span 3 / span 3;
+                height: 300px;
+            }
+            .tour-detail-title{
+                grid-column: span 3 / span 3;
+
+            }
+        
+        }
+        .tour-detail-body{
+            .tour-detail-content, .tour-detail-list{
+                grid-column: span 3 / span 3;
+            }
+            .tour-detail-content{
+                .tour-detail-card{
+                    .tour-item-content-desc{
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
 }
+
 .rooms-suggest-list{
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+@media (max-width: 1000px) {
+    .rooms-suggest-list{
+        width: 340px !important;
+    }
 }

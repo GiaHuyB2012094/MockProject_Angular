@@ -14,12 +14,20 @@
           h4{
             padding: 6px 0px;
           }
-          
+          .services-box{
+            display: flex;
+            gap: 10px;
             .select-dropdown-services{
-              width: 170px;
+              width: 20%;
             }
-            
-       
+            .choose-service-box{
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              width: 80%;
+            }
+
+          }
           .btn-add-service{
             padding: 10px;
             width: 70px;
@@ -27,14 +35,12 @@
             border: none;
             font-weight: bold;
             font-size: 13px;
-            
             background-color: var(--overlay-color);
             cursor: pointer;
             &:hover{
               background-color: var(--sub-overlay-color);
             }
           }
-
           .room-services-table{
             padding: 10px 30px;
             table {
@@ -42,14 +48,12 @@
               border-collapse: collapse;
               border: none;
               box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-              
             }
             th, td {
                 // border: 1px solid var(--text-secondary);
             }
             th, td {
                 padding: 10px;
-                text-align: left;
             }
             th {
                 background-color: var(--sub-overlay-color);
@@ -61,74 +65,122 @@
               margin-left: 8px;
             }
           }
-
         }
-      }
-      .checkin-checkout{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-
-        .checkin-option{
+        .checkin-checkout{
           display: flex;
-          justify-content: space-between;
-          align-items: center;
-          .date-horizontal-box{
-            padding: 10px 20px;
+          flex-direction: column;
+          gap: 10px;
+  
+          .checkin-option{
             display: flex;
-            gap: 10px;
-            align-items: center;
             justify-content: space-between;
-            background-color:  var(--overlay-color);
-            border-radius: 6px;
-            padding-bottom: 25px;
-            .room-checkin-and-checkout {
-              padding: 1rem 3rem 0 3rem;
+            align-items: center;
+            gap: 5px;
+            .date-horizontal-box{
+              padding: 10px 20px;
               display: flex;
+              gap: 10px;
+              align-items: center;
               justify-content: space-between;
-              gap: 6px;
-        
-              .checkin,
-              .checkout {
-                border-radius: 12px;
-                border: 4px solid var(--bg-secondary);
-                padding: 12px 20px;
-                p {
-                  color: var(--text-primary);
-                  padding: 4px 0px;
+              background-color:  var(--overlay-color);
+              border-radius: 6px;
+              padding-bottom: 25px;
+              .room-checkin-and-checkout {
+                padding: 1rem 3rem 0 3rem;
+                display: flex;
+                justify-content: space-between;
+                gap: 6px;
+          
+                .checkin,
+                .checkout {
+                  border-radius: 12px;
+                  border: 4px solid var(--bg-secondary);
+                  padding: 12px 20px;
+                  p {
+                    color: var(--text-primary);
+                    padding: 4px 0px;
+                  }
+                }
+                .relation-checkin-and-checkout {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-direction: column;
+                  width: 70px;
                 }
               }
-              .relation-checkin-and-checkout {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                width: 70px;
+            }
+            .time-price-total{
+              background-color: $sub-color;
+              font-weight: bold;
+              text-align: center;
+              color: #fff;
+              padding: 10px 0px;
+              border-radius: 6px;
+            }
+            .box-show-date-time{
+              display: flex;
+              align-items: center;
+              column-gap: 10px;
+            }
+          }
+        }
+        .other-requests{
+          padding: 10px;
+          textarea{
+            margin-left: 10px;
+            margin-top: 5px;
+            width: 100%;
+            height: 120px;
+          }
+        }
+        @media (max-width: 500px) {
+          .services-box{
+            flex-direction: column;
+            width: 100%;
+
+            .select-dropdown-services{
+              width: 100% !important;
+            }
+            .choose-service-box{
+              width: 100% !important;
+              .arrow-icon {
+                display: none;
               }
             }
           }
-          .time-price-total{
-            background-color: $sub-color;
-            font-weight: bold;
-            text-align: center;
-            color: #fff;
-            padding: 10px 0px;
-            border-radius: 6px;
+
+          .room-services-table{
+            padding: 10px 0px !important;
+            th {
+              font-size: 14px;
+
+            }
+            tbody{
+              font-size: 14px;
+            }
           }
-          .box-show-date-time{
-            display: flex;
-            align-items: center;
-            column-gap: 10px;
-          }
+
+          
         }
-      }
-      .other-requests{
-        padding: 10px;
-        textarea{
-          margin-left: 10px;
-          margin-top: 5px;
-          width: 100%;
-          height: 120px;
+        @media (max-width: 650px) {
+          .checkin-checkout{
+            .checkin-option{
+              flex-direction: column;
+              .arrow-icon{
+                display: none;
+              }
+              .date-horizontal-box{
+                font-size:  14px;
+                width: 100%;
+                justify-content: center;
+                padding: 10px 0px;
+                .room-checkin-and-checkout {
+                  padding: 0;
+                }
+              }
+            }
+          }
         }
       }
 }

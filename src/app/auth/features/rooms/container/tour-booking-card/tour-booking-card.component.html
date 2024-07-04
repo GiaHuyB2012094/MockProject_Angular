@@ -11,6 +11,7 @@
         <span class="card-departure-time">{{ card.departureTime }}</span>
       </h5>
     </div>
+
     <div class="card-price">
       <div class="price-item">
         <h5>{{ card.adult.name }} :</h5>
@@ -21,7 +22,8 @@
         <h5>{{ card.children.price | currencyVND }}</h5>
       </div>
     </div>
-    <div class="card-price">
+
+    <div class="card-price card-price-none">
       <div *ngIf="card.booking.adult !== 0" class="price-item">
         <h5>X</h5>
         <h5>{{ card.booking.adult }}</h5>
@@ -35,6 +37,7 @@
         <h5>{{ card.booking.children * card.children.price | currencyVND }}</h5>
       </div>
     </div>
+
     <div class="card-action" (click)="deleteHandle()">
       <i class="fa-solid fa-delete-left"></i>
     </div>

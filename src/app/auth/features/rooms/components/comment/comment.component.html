@@ -2,59 +2,65 @@
   <div class="container">
     <!-- main comment -->
     <div class="comment-card">
-      <div class="user-name">
-        <div class="user-avatar">
-          <img [src]="userComment.avatar" alt="user-avatar" />
+      <div class="comment-main">
+        <div class="user-name">
+          <app-avatar></app-avatar>
+          <p>{{ comment.username }}</p>
         </div>
-        <p>{{ comment.username }}</p>
-      </div>
-      <div class="comment-body">
-        <div class="point-evaluation">
-          <p *ngIf="avarageScore">
-            <span
-              ><img src="/assets/icons/bride.svg" alt="logo-evaluation" />
-              {{ avarageScore }}
-            </span>
-            / 10
-          </p>
-        </div>
-        <div class="comment-content">
-          {{ comment.body }}
-        </div>
-        <div *ngIf="canEditComment" class="comment-actions">
-          <h5 *ngIf="comment.parentID === null" (click)="canReply = !canReply">
-            Reply
-          </h5>
-          <!-- <h5>Edit</h5> -->
-          <!-- <h5>Delete</h5> -->
-        </div>
-      </div>
-      <div class="creatAtComment">
-        <p>{{ comment.createdAt | date : "dd/MM/yyyy" }}</p>
-      </div>
-    </div>
 
-    <!-- reply comment -->
-    <div class="reply-comment" *ngIf="canReply">
-      <form [formGroup]="formGroup" (ngSubmit)="replyCommnetHandle()">
-        <app-text-input-group
-          id="comment"
-          [control]="formGroup.controls.newComment"
-          class="comment-input"
-          (keydown.enter)="replyCommnetHandle()"
-          placeholder="Enter your comment."
-        ></app-text-input-group>
+        <div class="comment-body">
+          <div class="comment-body-main">
+            <div class="point-evaluation">
+              <p *ngIf="avarageScore">
+                <span
+                  ><img src="/assets/icons/bride.svg" alt="logo-evaluation" />
+                  {{ avarageScore }}
+                </span>
+                / 10
+              </p>
+            </div>
+            <div class="comment-content">
+              {{ comment.body }}
+            </div>
+            <div *ngIf="canEditComment" class="comment-actions">
+              <h5
+                *ngIf="comment.parentID === null"
+                (click)="canReply = !canReply"
+              >
+                Reply
+              </h5>
+              <!-- <h5>Edit</h5> -->
+              <!-- <h5>Delete</h5> -->
+            </div>
+          </div>
 
-        <primary-button
-          class="reply-comment-btn"
-          (click)="replyCommnetHandle()"
-          size="small"
-          [outline]="true"
-        >
-          Reply
-          <i class="btn-icon fa-solid fa-paper-plane"></i>
-        </primary-button>
-      </form>
+          <!-- reply comment -->
+          <div class="reply-comment" *ngIf="canReply">
+            <form [formGroup]="formGroup" (ngSubmit)="replyCommnetHandle()">
+              <app-text-input-group
+                id="comment"
+                [control]="formGroup.controls.newComment"
+                class="comment-input"
+                (keydown.enter)="replyCommnetHandle()"
+                placeholder="Enter your comment."
+              ></app-text-input-group>
+
+              <primary-button
+                class="reply-comment-btn"
+                (click)="replyCommnetHandle()"
+                size="small"
+                [outline]="true"
+              >
+                <span>Reply</span>
+                <i class="btn-icon fa-solid fa-paper-plane"></i>
+              </primary-button>
+            </form>
+          </div>
+        </div>
+        <div class="creatAtComment">
+          <p>{{ comment.createdAt | date : "dd/MM/yyyy" }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </ng-container>

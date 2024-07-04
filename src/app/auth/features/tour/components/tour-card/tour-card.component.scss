@@ -67,4 +67,29 @@
             }
         }
     }
+    @media (max-width: 1000px) {
+        height: 100%;
+        .card-img{
+            img{
+                height: 100%;
+
+
+        }}
+        .card-body{
+            flex-direction: column;   
+            .card-title{
+                .card-description{
+                    display: none;
+                }
+            }
+            .card-price{
+                justify-content: start;
+                align-items: start;
+                gap: 0px;
+                .price-item{
+                
+                }
+            }
+        }
+    }
 }

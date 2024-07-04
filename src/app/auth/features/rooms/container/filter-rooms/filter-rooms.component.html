@@ -4,6 +4,7 @@
     [iconRight]="true"
     [control]="formGroup.controls.search"
     (keydown.enter)="searchHandle()"
+    (click)="searchHandle()"
   >
     <i
       #iconRef
@@ -73,6 +74,7 @@
         <p class="title">Prices:</p>
         <p class="value-price">{{ valuePrice | currencyVND }}</p>
       </div>
+
       <div class="range-price">
         <div class="value-range">
           <p>{{ minPrice | currencyVND }}</p>

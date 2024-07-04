@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    
     .title-icon{
         position: relative;
         height: 40px;
@@ -19,6 +20,13 @@
             top: -100%;
             left: -6%;
         }
+    }
+
+    .evaluation-content{
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
     }
 
     .user-info{

@@ -1,9 +1,17 @@
 @import "src/app.constants.scss";
+
 .container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   width: 800px;
+  
+  @media (max-width: 900px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;  
+  }
 }
 
 .invoice-left {
@@ -14,6 +22,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   .invoice-left-top {
     width: 100%;
     .user-contact-info {
@@ -168,9 +177,6 @@
   padding: 6px 0px;
 }
 
-// .text-sub{
-//     font-size: 14px;
-// }
 .title {
   color: var(--primary-color);
   font-size: 17px;

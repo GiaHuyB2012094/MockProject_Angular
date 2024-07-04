@@ -1,6 +1,5 @@
 @import "src/app.constants.scss";
 .container{
-   
     min-width: 160px;
     gap: 10px;
     display: flex;
@@ -8,116 +7,167 @@
     padding: 14px 24px;
 
     .comment-card{
-        display: grid;
-        grid-template-columns: repeat(5,1fr);
-        min-width: 160px;
-        gap: 30px;
-        p{
-            font-size: 15px;
-        }
-        .user-name {
-            grid-column: span 1/ span 1;
-            align-items: center;
-            display: flex;
-            column-gap: 10px;
-    
-            .user-avatar {
-                line-height: 0;
-                display: inline-block;
-                border: 2px solid $overlay-primary-color;
-                border-radius: 50%;
-                transition: linear 0.25s;
-    
-                img {
-                    height: 50px;
-                    width: 50px;
-                    border-radius: 50%;
-                }
-                &:hover {
-                    transition: ease-out 0.2s;
-                    border: 2px solid var(--primary-color);
-                }
-            }
-            p {
-                text-transform: capitalize;
-                font-weight: bold;
-                font-size: 15px;
-                @media (max-width: 880px) {
-                    display: none;
-                }
-            }
-        }
-        .comment-body{
-            grid-column: span 3/ span 3;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            .point-evaluation{
-                background-color: rgba(236, 248, 255, 1.00);
-                padding: 4px 12px;
-                border-radius: 9999px;
-                width: max-content;
-                p{
-                    display: flex;
-                    gap: 4px;
-                    width: max-content;
-                    align-items: center;
-                    span{
-                        color:rgba(1, 148, 243, 1.00); 
-                        display: flex;
-                        gap: 4px;
-                        align-items: center;
-                        width: max-content;
-                        
-                    }
-                }
-            }
-            .comment-content{
-                overflow: hidden;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 3;
-            }   
-            .comment-actions{
-                display: flex;
-                gap: 10px;
-                cursor: pointer;
-                h5{
-                    background-color: var(--divider-primary);
-                    padding: 4px 10px;
-                    border-radius: 4px;
-                    &:hover{
-                        color:rgba(1, 148, 243, 1.00); 
-                    }
-                }
-            }
-        }
-        .creatAtComment{
-            grid-column: span 1/ span 1;
-            display: flex;
-            justify-content: flex-end;
+        .comment-main{
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            min-width: 160px;
+            gap: 30px;
+            position: relative;
             p{
-                font-weight: bold;
-                color: var(--text-secondary);
+                font-size: 15px;
             }
+           
+    
+            .user-name {
+                grid-column: span 1/ span 1;
+                align-items: center;
+                display: flex;
+                column-gap: 10px;
+        
+                .user-avatar {
+                    line-height: 0;
+                    display: inline-block;
+                    border: 2px solid $overlay-primary-color;
+                    border-radius: 50%;
+                    transition: linear 0.25s;
+        
+                    img {
+                        height: 50px;
+                        width: 50px;
+                        border-radius: 50%;
+                    }
+                    &:hover {
+                        transition: ease-out 0.2s;
+                        border: 2px solid var(--primary-color);
+                    }
+                }
+                p {
+                    text-transform: capitalize;
+                    font-weight: bold;
+                    font-size: 15px;
+                    width: max-content;
+                    @media (max-width: 880px) {
+                        font-size: 13px;
+    
+                        display: none;
+                    }
+                }
+            }
+            .comment-body{
+                grid-column: span 4/ span 4;
+                .comment-body-main{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    .point-evaluation{
+                        background-color: rgba(236, 248, 255, 1.00);
+                        padding: 4px 12px;
+                        border-radius: 9999px;
+                        width: max-content;
+                        p{
+                            display: flex;
+                            gap: 4px;
+                            width: max-content;
+                            align-items: center;
+                            span{
+                                color:rgba(1, 148, 243, 1.00); 
+                                display: flex;
+                                gap: 4px;
+                                align-items: center;
+                                width: max-content;
+                                
+                            }
+                        }
+                    }
+                    .comment-content{
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 3;
+                    }   
+                    .comment-actions{
+                        display: flex;
+                        gap: 10px;
+                        cursor: pointer;
+                        h5{
+                            background-color: var(--divider-primary);
+                            padding: 4px 10px;
+                            border-radius: 4px;
+                            &:hover{
+                                color:rgba(1, 148, 243, 1.00); 
+                            }
+                        }
+                    }
+                }
+                // reply comment
+                .reply-comment{
+                    form{
+                        display: flex;
+                        gap: 15px;
+                        align-items: center;
+                        .comment-input{
+                            width: 98%;
+                        }
+                        .send-comment-btn{
+                            margin: 5px 0;
+                        }
+                        @media (max-width: 1200px) {
+                            gap: 10px;
+                            .send-comment-btn{
+                                margin: 3px 0;
+                            }
+                            .reply-comment-btn{
+                                // width: 50px;
+                                padding: 2px 8px !important; 
+                                span{
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                
+                }
+               
+            }
+            .creatAtComment{
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: flex;
+                justify-content: flex-end;
+                p{
+                    font-weight: bold;
+                    color: var(--text-secondary);
+                }
+            }
+            @media (max-width: 880px) {
+                grid-template-columns: repeat(8,1fr);
+                gap: 10px;
+    
+                .user-name {
+                    grid-column: span 1/ span 1;
+    
+                }
+                .comment-body{
+                    grid-column: span 7/ span 7;
+                    .comment-content{
+                        font-size: 14px;
+                    }
+                }
+                .creatAtComment{
+                    p{
+                        font-size: 13px;
+                    }
+                }
+            }
+
         }
+        
+        
     }
     
-    // reply comment
-    .reply-comment{
-        form{
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            padding-left: 215px;
-            .comment-input{
-                width: 83%;
-            }
-            .send-comment-btn{
-                margin: 5px 0;
-            }
-        }
+    @media (max-width: 880px) {
+        padding: 14px 18px 14px 24px;
     }
-
     // component child card
 }

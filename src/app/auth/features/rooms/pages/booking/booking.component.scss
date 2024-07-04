@@ -7,6 +7,7 @@
     color: var(--text-disabled);
   }
 }
+
 .booking-main {
   display: grid;
   margin: 20px 0px;
@@ -26,10 +27,17 @@
     display: flex;
     flex-direction: column;
     row-gap: 20px;
-    // position: sticky;
-    // top: 200px;
   }
-
+  @media (max-width: 1000px) {
+    display: flex;
+    flex-direction: column-reverse;
+    .booking-left-box{
+      .box-intro{
+        display: none;
+      }
+    }
+  }
+  
   
 }
 .box {

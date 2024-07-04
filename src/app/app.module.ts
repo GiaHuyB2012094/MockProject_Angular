@@ -55,17 +55,8 @@ const MODULES = [
 @NgModule({
   declarations: [AppComponent, AuthLayoutComponent, UnAuthLayoutComponent],
   imports: [
-    ...MODULES,
+    ...MODULES
 
-    // TranslateModule.forRoot({
-    //   defaultLanguage: 'en',
-    //   useDefaultLang: true,
-    //   loader: {
-    //     provide: TranslateLoader,
-    //     useFactory: (createTranslateLoader),
-    //     deps: [HttpClient]
-    //   }
-    // }),
   ],
   providers: [],
   bootstrap: [AppComponent],

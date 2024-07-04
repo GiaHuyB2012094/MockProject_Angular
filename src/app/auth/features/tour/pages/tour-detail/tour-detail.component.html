@@ -50,7 +50,7 @@
 
         <div class="tour-detail-card" *ngFor="let d of tourDetail.places">
           <h4>{{ d.name }}</h4>
-          <p>{{ d.desc }}</p>
+          <p class="tour-item-content-desc">{{ d.desc }}</p>
           <img
             *ngFor="let i of d.imgs"
             [src]="i"
@@ -97,11 +97,13 @@
     </div>
   </app-modal>
   <app-modal
+    class="tour-booking-modal"
     title="Tour Booking"
     [visible]="isOpenModalTourBooking"
     (closeEvent)="isOpenModalTourBooking = !isOpenModalTourBooking"
   >
     <app-form-tour-booking
+      class="form-tour-booking"
       (newItemEvent)="tourBookingHanlde($event)"
     ></app-form-tour-booking>
   </app-modal>
