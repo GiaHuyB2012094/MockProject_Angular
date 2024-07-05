@@ -94,6 +94,10 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        border-bottom: 1px solid var(--divider-primary);
+        .title{
+            font-size: 14px;
+        }
     }
     @media (max-width: 1200px) {
         h5{

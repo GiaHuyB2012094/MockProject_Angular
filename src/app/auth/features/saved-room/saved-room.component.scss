@@ -6,6 +6,7 @@
 
     @media (max-width: 850px){
         padding: 0px 5%;
+
     }
 
    .content{
@@ -31,6 +32,11 @@
             p{
                 color: var(--text-secondary);
                 font-size: 14px;
+            }
+        }
+        @media (max-width: 850px){
+            .box-1, .box-2{
+                grid-column: span 3 / span 3;
             }
         }
    }

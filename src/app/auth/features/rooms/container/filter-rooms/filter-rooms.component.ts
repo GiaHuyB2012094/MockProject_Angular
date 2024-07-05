@@ -101,6 +101,7 @@ export class FilterRoomsComponent implements OnInit , AfterViewChecked {
 
     this.newItemEvent.emit(this.filterOptions)
     this.router.navigate(['room','general-rooms'])
+    this.isOpenShowFilterOptions = false; 
 
   }
 
@@ -162,10 +163,10 @@ export class FilterRoomsComponent implements OnInit , AfterViewChecked {
 
   searchHandle(): void{
     let searchKey: any = this.formGroup.value.search;
-    console.log(searchKey.trim().length !== 0)
     if (searchKey.trim().length !== 0 || searchKey.trim() !== '') {
       this.router.navigate(['room','general-rooms'], {queryParams: {search: searchKey}})
     } else this.router.navigate(['room','general-rooms']);
+    this.isOpenShowFilterOptions = false; 
   }
 
   openShowFilterOptionsHandle(): void{

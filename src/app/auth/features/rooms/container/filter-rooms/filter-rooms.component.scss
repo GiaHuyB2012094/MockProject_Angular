@@ -6,13 +6,11 @@
     color: var(--text-primary);
     .menu-filter-options{
         display: none;
-        
         justify-content: space-between;
         margin: 4px 0px;
         background-color: var(--bg-primary);
         border: 1px solid var(--divider-primary);
-        padding: 8px 20px;
-
+        padding: 8px 18px;
         border-radius: 4px;
         cursor: pointer;
         font-size: 18px;
@@ -95,7 +93,7 @@
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
             margin-top: -4px;
-            padding: 6px 12px;
+            padding: 6px 10px;
             transition: all .5s ease;
             opacity: 0;
             visibility: hidden;

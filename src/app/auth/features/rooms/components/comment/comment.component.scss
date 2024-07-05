@@ -20,10 +20,11 @@
     
             .user-name {
                 grid-column: span 1/ span 1;
-                align-items: center;
+                // align-items: center;
                 display: flex;
+                padding-top: 26px;
                 column-gap: 10px;
-        
+                justify-content: start;    
                 .user-avatar {
                     line-height: 0;
                     display: inline-block;
@@ -65,6 +66,7 @@
                         border-radius: 9999px;
                         width: max-content;
                         p{
+                            font-size: 14px;
                             display: flex;
                             gap: 4px;
                             width: max-content;
@@ -113,6 +115,9 @@
                         }
                         @media (max-width: 1200px) {
                             gap: 10px;
+                            .comment-input{
+                                width: 80%;
+                            }  
                             .send-comment-btn{
                                 margin: 3px 0;
                             }
@@ -168,6 +173,7 @@
     
     @media (max-width: 880px) {
         padding: 14px 18px 14px 24px;
+        
     }
     // component child card
 }

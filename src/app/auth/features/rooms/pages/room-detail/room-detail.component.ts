@@ -15,7 +15,7 @@ export class RoomDetailComponent implements OnInit, AfterViewChecked{
   isLoading = true;
   roomImgs: string[] = [];
   breadcrumbs: IBreadcrumb[] = [
-    {label: 'rooms', link: '/rooms'},
+    {label: 'rooms', link: '/room/general-rooms'},
   ];
   
   roomID!: number;

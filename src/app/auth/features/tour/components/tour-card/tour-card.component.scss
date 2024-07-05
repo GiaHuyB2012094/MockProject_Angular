@@ -72,8 +72,6 @@
         .card-img{
             img{
                 height: 100%;
-
-
         }}
         .card-body{
             flex-direction: column;   
@@ -91,5 +89,11 @@
                 }
             }
         }
+    }
+    @media (max-width: 600px) {
+        .card-img{
+            img{
+                width: 100px;
+        }}
     }
 }

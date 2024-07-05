@@ -6,9 +6,12 @@
         justify-content: space-evenly;
         gap: 15px;
 
-        @media (max-width: 900px) {
-            flex-direction: column;
-          }
     }
-    
+    @media (max-width: 900px) {
+    padding: 0px;
+
+    .customer-evaluations{
+        flex-direction: column;
+      }
+    }
 }

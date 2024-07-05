@@ -24,6 +24,7 @@
         *ngFor="let item of headerMenu"
         [routerLink]="item.link"
         [routerLinkActive]="'active'"
+        (click)="toggleMenu()"
       >
         <i [class]="item.icon"></i>
         {{ item.label }}
@@ -59,7 +60,6 @@
           <span class="lang-text">{{ lang.label }}</span>
         </div>
       </div>
-      <!-- change language -->
     </li>
 
     <li *ngIf="isLoggedIn" class="user-info">
@@ -125,4 +125,9 @@
       >
     </li>
   </ul>
+  <div
+    [class.is-open]="isMenuOpen"
+    class="overlay-modal"
+    (click)="toggleMenu()"
+  ></div>
 </nav>
